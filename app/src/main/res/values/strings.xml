@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">CarDiag Pro</string>
+
+    <!-- Connection Screen -->
+    <string name="connection_title">Connect to Adapter</string>
+    <string name="scan_bluetooth">Scan Bluetooth</string>
+    <string name="scan_usb">Scan USB</string>
+    <string name="connect">Connect</string>
+    <string name="disconnect">Disconnect</string>
+    <string name="connecting">Connecting…</string>
+    <string name="connected">Connected</string>
+    <string name="disconnected">Disconnected</string>
+
+    <!-- Diagnostics Screen -->
+    <string name="diagnostics_title">Diagnostics</string>
+    <string name="read_codes">Read Codes</string>
+    <string name="clear_codes">Clear Codes</string>
+    <string name="reading_codes">Reading codes…</string>
+    <string name="no_codes_found">No trouble codes found</string>
+
+    <!-- ECU Systems -->
+    <string name="system_engine">Engine</string>
+    <string name="system_transmission">Transmission</string>
+    <string name="system_abs">ABS</string>
+    <string name="system_srs">SRS/Airbag</string>
+
+    <!-- Errors -->
+    <string name="error_connection_failed">Connection failed</string>
+    <string name="error_no_adapter">No adapter found</string>
+    <string name="error_permission_denied">Permission denied</string>
+    <string name="error_timeout">Connection timeout</string>
+    <string name="error_unknown">Unknown error occurred</string>
+
+    <!-- Permissions -->
+    <string name="permission_bluetooth_rationale">Bluetooth permission is required to connect to OBD2 adapters</string>
+    <string name="permission_location_rationale">Location permission is required for Bluetooth scanning on Android 6–11</string>
+    <string name="permission_usb_rationale">USB permission is required to connect to USB adapters</string>
+
+    <!-- Common -->
+    <string name="ok">OK</string>
+    <string name="cancel">Cancel</string>
+    <string name="retry">Retry</string>
+    <string name="settings">Settings</string>
+</resources>

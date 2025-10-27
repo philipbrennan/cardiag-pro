@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- USB device filter for FT232-based OBD2 adapters -->
+    <!-- FTDI FT232 USB-Serial -->
+    <usb-device
+        vendor-id="1027"
+        product-id="24577" />
+</resources>
