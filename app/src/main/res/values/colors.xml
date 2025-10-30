@@ -60,4 +60,8 @@
     <color name="system_transmission">#9C27B0</color>
     <color name="system_abs">#FF9800</color>
     <color name="system_srs">#F44336</color>
+
+    <!-- Launcher Icon -->
+    <color name="ic_launcher_background">#006C4C</color>
+    <color name="primary">#6CDBAC</color>
 </resources>
