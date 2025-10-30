@@ -1,0 +1,228 @@
+package com.cardiag.pro.data.repository
+
+import com.cardiag.pro.data.connection.ELM327Protocol
+import com.cardiag.pro.data.local.dao.DiagnosticSessionDao
+import com.cardiag.pro.data.local.dao.DtcDao
+import com.cardiag.pro.data.local.entity.DiagnosticSessionEntity
+import com.cardiag.pro.data.local.entity.DtcEntity
+import com.cardiag.pro.data.model.DiagnosticTroubleCode
+import com.cardiag.pro.data.model.ECUSystem
+import com.cardiag.pro.data.model.Manufacturer
+import com.cardiag.pro.data.model.Result
+import com.cardiag.pro.data.model.Severity
+import kotlinx.coroutines.flow.Flow
+import org.json.JSONArray
+import timber.log.Timber
+import javax.inject.Inject
+import javax.inject.Singleton
+
+/**
+ * Repository for DTC operations.
+ */
+@Singleton
+class DtcRepository @Inject constructor(
+    private val elm327Protocol: ELM327Protocol,
+    private val dtcDao: DtcDao,
+    private val sessionDao: DiagnosticSessionDao
+) {
+
+    /**
+     * Read DTCs from a specific ECU system.
+     * Mode 03 - Request emission-related DTCs
+     */
+    suspend fun readDtcCodes(system: ECUSystem = ECUSystem.ENGINE): Result<List<DiagnosticTroubleCode>> {
+        try {
+            Timber.d("Reading DTCs from ${system.displayName}")
+
+            // Send DTC request: Mode 03 for engine codes
+            val response = elm327Protocol.sendCommand("03")
+
+            if (response == null) {
+                return Result.Error(Exception("Failed to read DTCs from vehicle"))
+            }
+
+            // Parse DTCs from response
+            val codes = parseDtcCodes(response, system)
+
+            if (codes.isEmpty()) {
+                Timber.i("No DTCs found")
+                return Result.Success(emptyList())
+            }
+
+            // Enrich codes with descriptions from database
+            val enrichedCodes = enrichCodesWithDescriptions(codes)
+
+            Timber.i("Read ${enrichedCodes.size} DTCs from ${system.displayName}")
+            return Result.Success(enrichedCodes)
+
+        } catch (e: Exception) {
+            Timber.e(e, "Failed to read DTCs")
+            return Result.Error(e)
+        }
+    }
+
+    /**
+     * Clear DTCs from vehicle.
+     * Mode 04 - Clear DTCs and reset MIL
+     */
+    suspend fun clearDtcCodes(): Result<Unit> {
+        try {
+            Timber.d("Clearing DTCs")
+
+            val response = elm327Protocol.sendCommand("04")
+
+            if (response == null) {
+                return Result.Error(Exception("Failed to clear DTCs"))
+            }
+
+            Timber.i("DTCs cleared successfully")
+            return Result.Success(Unit)
+
+        } catch (e: Exception) {
+            Timber.e(e, "Failed to clear DTCs")
+            return Result.Error(e)
+        }
+    }
+
+    /**
+     * Save diagnostic session to database.
+     */
+    suspend fun saveDiagnosticSession(
+        vin: String?,
+        manufacturer: Manufacturer?,
+        codes: List<DiagnosticTroubleCode>,
+        notes: String? = null
+    ): Result<Long> {
+        try {
+            val codesJson = JSONArray(codes.map { it.code }).toString()
+
+            val session = DiagnosticSessionEntity(
+                timestamp = System.currentTimeMillis(),
+                vin = vin,
+                manufacturer = manufacturer?.name,
+                codes = codesJson,
+                notes = notes
+            )
+
+            val id = sessionDao.insertSession(session)
+            Timber.i("Saved diagnostic session: $id")
+
+            return Result.Success(id)
+
+        } catch (e: Exception) {
+            Timber.e(e, "Failed to save diagnostic session")
+            return Result.Error(e)
+        }
+    }
+
+    /**
+     * Get all diagnostic sessions.
+     */
+    fun getAllSessions(): Flow<List<DiagnosticSessionEntity>> {
+        return sessionDao.getAllSessions()
+    }
+
+    /**
+     * Get DTC by code from database.
+     */
+    suspend fun getDtcByCode(code: String): DiagnosticTroubleCode? {
+        val entity = dtcDao.getDtcByCode(code) ?: return null
+
+        return DiagnosticTroubleCode(
+            code = entity.code,
+            description = entity.description,
+            system = ECUSystem.valueOf(entity.system),
+            severity = Severity.valueOf(entity.severity),
+            manufacturer = entity.manufacturer?.let { Manufacturer.fromString(it) }
+        )
+    }
+
+    /**
+     * Parse DTC codes from OBD2 response.
+     * Response format: 43 02 XX XX YY YY ...
+     * Where 43 = Mode 03 response, 02 = number of codes, XX XX YY YY = DTC bytes
+     */
+    private fun parseDtcCodes(response: String, system: ECUSystem): List<DiagnosticTroubleCode> {
+        val codes = mutableListOf<DiagnosticTroubleCode>()
+
+        try {
+            // Remove spaces and split into bytes
+            val bytes = response.replace(" ", "")
+                .chunked(2)
+                .mapNotNull { it.toIntOrNull(16) }
+
+            if (bytes.size < 2) return emptyList()
+
+            // Skip mode byte (43) and get count
+            var i = 1
+            if (bytes[0] == 0x43) {
+                i = 2 // Skip mode and count bytes
+            }
+
+            // Parse DTC pairs
+            while (i < bytes.size - 1) {
+                val byte1 = bytes[i]
+                val byte2 = bytes[i + 1]
+
+                val code = decodeDtcBytes(byte1, byte2)
+                if (code != null && code != "P0000") { // Ignore null codes
+                    codes.add(
+                        DiagnosticTroubleCode(
+                            code = code,
+                            description = "Unknown - check database",
+                            system = system,
+                            severity = Severity.fromCode(code)
+                        )
+                    )
+                }
+
+                i += 2
+            }
+
+        } catch (e: Exception) {
+            Timber.e(e, "Failed to parse DTC codes")
+        }
+
+        return codes
+    }
+
+    /**
+     * Decode DTC from two bytes.
+     * First byte: high nibble = type (P/C/B/U), low nibble = first digit
+     * Second byte: two digits
+     */
+    private fun decodeDtcBytes(byte1: Int, byte2: Int): String? {
+        // First two bits determine the type
+        val type = when ((byte1 and 0xC0) shr 6) {
+            0 -> 'P' // Powertrain
+            1 -> 'C' // Chassis
+            2 -> 'B' // Body
+            3 -> 'U' // Network
+            else -> return null
+        }
+
+        // Remaining bits form the code number
+        val digit1 = (byte1 and 0x30) shr 4
+        val digit2 = byte1 and 0x0F
+        val digit3 = (byte2 and 0xF0) shr 4
+        val digit4 = byte2 and 0x0F
+
+        return "$type$digit1$digit2$digit3$digit4"
+    }
+
+    /**
+     * Enrich DTC codes with descriptions from database.
+     */
+    private suspend fun enrichCodesWithDescriptions(
+        codes: List<DiagnosticTroubleCode>
+    ): List<DiagnosticTroubleCode> {
+        return codes.map { code ->
+            val dbCode = dtcDao.getDtcByCode(code.code)
+            if (dbCode != null) {
+                code.copy(description = dbCode.description)
+            } else {
+                code
+            }
+        }
+    }
+}

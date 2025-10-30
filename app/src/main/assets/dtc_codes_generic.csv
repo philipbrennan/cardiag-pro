@@ -1,0 +1,736 @@
+code,description,system,severity
+P0001,Fuel Volume Regulator Control Circuit/Open,ENGINE,MEDIUM
+P0002,Fuel Volume Regulator Control Circuit Range/Performance,ENGINE,MEDIUM
+P0003,Fuel Volume Regulator Control Circuit Low,ENGINE,MEDIUM
+P0004,Fuel Volume Regulator Control Circuit High,ENGINE,MEDIUM
+P0005,Fuel Shutoff Valve A Control Circuit/Open,ENGINE,MEDIUM
+P0006,Fuel Shutoff Valve A Control Circuit Low,ENGINE,MEDIUM
+P0007,Fuel Shutoff Valve A Control Circuit High,ENGINE,MEDIUM
+P0008,Engine Position System Performance Bank 1,ENGINE,HIGH
+P0009,Engine Position System Performance Bank 2,ENGINE,HIGH
+P0010,Intake Camshaft Position Actuator Circuit Bank 1,ENGINE,MEDIUM
+P0011,Intake Camshaft Position Timing Over-Advanced Bank 1,ENGINE,MEDIUM
+P0012,Intake Camshaft Position Timing Over-Retarded Bank 1,ENGINE,MEDIUM
+P0013,Exhaust Camshaft Position Actuator Circuit Bank 1,ENGINE,MEDIUM
+P0014,Exhaust Camshaft Position Timing Over-Advanced Bank 1,ENGINE,MEDIUM
+P0015,Exhaust Camshaft Position Timing Over-Retarded Bank 1,ENGINE,MEDIUM
+P0016,Crankshaft Position Camshaft Position Correlation Bank 1 Sensor A,ENGINE,HIGH
+P0017,Crankshaft Position Camshaft Position Correlation Bank 1 Sensor B,ENGINE,HIGH
+P0018,Crankshaft Position Camshaft Position Correlation Bank 2 Sensor A,ENGINE,HIGH
+P0019,Crankshaft Position Camshaft Position Correlation Bank 2 Sensor B,ENGINE,HIGH
+P0020,Intake Camshaft Position Actuator Circuit Bank 2,ENGINE,MEDIUM
+P0021,Intake Camshaft Position Timing Over-Advanced Bank 2,ENGINE,MEDIUM
+P0022,Intake Camshaft Position Timing Over-Retarded Bank 2,ENGINE,MEDIUM
+P0023,Exhaust Camshaft Position Actuator Circuit Bank 2,ENGINE,MEDIUM
+P0024,Exhaust Camshaft Position Timing Over-Advanced Bank 2,ENGINE,MEDIUM
+P0025,Exhaust Camshaft Position Timing Over-Retarded Bank 2,ENGINE,MEDIUM
+P0030,HO2S Heater Control Circuit Bank 1 Sensor 1,ENGINE,MEDIUM
+P0031,HO2S Heater Control Circuit Low Bank 1 Sensor 1,ENGINE,MEDIUM
+P0032,HO2S Heater Control Circuit High Bank 1 Sensor 1,ENGINE,MEDIUM
+P0033,Turbo Charger Bypass Valve Control Circuit,ENGINE,MEDIUM
+P0034,Turbo Charger Bypass Valve Control Circuit Low,ENGINE,MEDIUM
+P0035,Turbo Charger Bypass Valve Control Circuit High,ENGINE,MEDIUM
+P0036,HO2S Heater Control Circuit Bank 1 Sensor 2,ENGINE,MEDIUM
+P0037,HO2S Heater Control Circuit Low Bank 1 Sensor 2,ENGINE,MEDIUM
+P0038,HO2S Heater Control Circuit High Bank 1 Sensor 2,ENGINE,MEDIUM
+P0040,O2 Sensor Signals Swapped Bank 1 Sensor 1 / Bank 2 Sensor 1,ENGINE,HIGH
+P0041,O2 Sensor Signals Swapped Bank 1 Sensor 2 / Bank 2 Sensor 2,ENGINE,HIGH
+P0042,HO2S Heater Control Circuit Bank 1 Sensor 3,ENGINE,MEDIUM
+P0043,HO2S Heater Control Circuit Low Bank 1 Sensor 3,ENGINE,MEDIUM
+P0044,HO2S Heater Control Circuit High Bank 1 Sensor 3,ENGINE,MEDIUM
+P0045,Turbo/Super Charger Boost Control Solenoid Circuit/Open,ENGINE,HIGH
+P0046,Turbo/Super Charger Boost Control Solenoid Circuit Range/Performance,ENGINE,HIGH
+P0047,Turbo/Super Charger Boost Control Solenoid Circuit Low,ENGINE,HIGH
+P0048,Turbo/Super Charger Boost Control Solenoid Circuit High,ENGINE,HIGH
+P0049,Turbo/Super Charger Turbine Overspeed,ENGINE,CRITICAL
+P0050,HO2S Heater Control Circuit Bank 2 Sensor 1,ENGINE,MEDIUM
+P0051,HO2S Heater Control Circuit Low Bank 2 Sensor 1,ENGINE,MEDIUM
+P0052,HO2S Heater Control Circuit High Bank 2 Sensor 1,ENGINE,MEDIUM
+P0053,HO2S Heater Resistance Bank 1 Sensor 1,ENGINE,LOW
+P0054,HO2S Heater Resistance Bank 1 Sensor 2,ENGINE,LOW
+P0055,HO2S Heater Resistance Bank 1 Sensor 3,ENGINE,LOW
+P0056,HO2S Heater Control Circuit Bank 2 Sensor 2,ENGINE,MEDIUM
+P0057,HO2S Heater Control Circuit Low Bank 2 Sensor 2,ENGINE,MEDIUM
+P0058,HO2S Heater Control Circuit High Bank 2 Sensor 2,ENGINE,MEDIUM
+P0059,HO2S Heater Resistance Bank 2 Sensor 1,ENGINE,LOW
+P0060,HO2S Heater Resistance Bank 2 Sensor 2,ENGINE,LOW
+P0061,HO2S Heater Resistance Bank 2 Sensor 3,ENGINE,LOW
+P0062,HO2S Heater Control Circuit Bank 2 Sensor 3,ENGINE,MEDIUM
+P0063,HO2S Heater Control Circuit Low Bank 2 Sensor 3,ENGINE,MEDIUM
+P0064,HO2S Heater Control Circuit High Bank 2 Sensor 3,ENGINE,MEDIUM
+P0065,Air Assisted Injector Control Range/Performance,ENGINE,MEDIUM
+P0066,Air Assisted Injector Control Circuit or Circuit Low,ENGINE,MEDIUM
+P0067,Air Assisted Injector Control Circuit High,ENGINE,MEDIUM
+P0068,MAP/MAF Throttle Position Correlation,ENGINE,HIGH
+P0069,Manifold Absolute Pressure Barometric Pressure Correlation,ENGINE,MEDIUM
+P0070,Ambient Air Temperature Sensor Circuit,ENGINE,LOW
+P0071,Ambient Air Temperature Sensor Range/Performance,ENGINE,LOW
+P0072,Ambient Air Temperature Sensor Circuit Low,ENGINE,LOW
+P0073,Ambient Air Temperature Sensor Circuit High,ENGINE,LOW
+P0074,Ambient Air Temperature Sensor Circuit Intermittent,ENGINE,LOW
+P0075,Intake Valve Control Solenoid Circuit Bank 1,ENGINE,MEDIUM
+P0076,Intake Valve Control Solenoid Circuit Low Bank 1,ENGINE,MEDIUM
+P0077,Intake Valve Control Solenoid Circuit High Bank 1,ENGINE,MEDIUM
+P0078,Exhaust Valve Control Solenoid Circuit Bank 1,ENGINE,MEDIUM
+P0079,Exhaust Valve Control Solenoid Circuit Low Bank 1,ENGINE,MEDIUM
+P0080,Exhaust Valve Control Solenoid Circuit High Bank 1,ENGINE,MEDIUM
+P0081,Intake Valve Control Solenoid Circuit Bank 2,ENGINE,MEDIUM
+P0082,Intake Valve Control Solenoid Circuit Low Bank 2,ENGINE,MEDIUM
+P0083,Intake Valve Control Solenoid Circuit High Bank 2,ENGINE,MEDIUM
+P0084,Exhaust Valve Control Solenoid Circuit Bank 2,ENGINE,MEDIUM
+P0085,Exhaust Valve Control Solenoid Circuit Low Bank 2,ENGINE,MEDIUM
+P0086,Exhaust Valve Control Solenoid Circuit High Bank 2,ENGINE,MEDIUM
+P0087,Fuel Rail/System Pressure Too Low,ENGINE,HIGH
+P0088,Fuel Rail/System Pressure Too High,ENGINE,HIGH
+P0089,Fuel Pressure Regulator Performance,ENGINE,MEDIUM
+P0090,Fuel Pressure Regulator Control Circuit,ENGINE,MEDIUM
+P0091,Fuel Pressure Regulator Control Circuit Low,ENGINE,MEDIUM
+P0092,Fuel Pressure Regulator Control Circuit High,ENGINE,MEDIUM
+P0093,Fuel System Leak Detected Large Leak,ENGINE,HIGH
+P0094,Fuel System Leak Detected Small Leak,ENGINE,MEDIUM
+P0095,Intake Air Temperature Sensor 2 Circuit,ENGINE,LOW
+P0096,Intake Air Temperature Sensor 2 Circuit Range/Performance,ENGINE,LOW
+P0097,Intake Air Temperature Sensor 2 Circuit Low,ENGINE,LOW
+P0098,Intake Air Temperature Sensor 2 Circuit High,ENGINE,LOW
+P0099,Intake Air Temperature Sensor 2 Circuit Intermittent/Erratic,ENGINE,LOW
+P0100,Mass or Volume Air Flow Circuit Malfunction,ENGINE,HIGH
+P0101,Mass or Volume Air Flow Circuit Range/Performance Problem,ENGINE,HIGH
+P0102,Mass or Volume Air Flow Circuit Low Input,ENGINE,HIGH
+P0103,Mass or Volume Air Flow Circuit High Input,ENGINE,HIGH
+P0104,Mass or Volume Air Flow Circuit Intermittent,ENGINE,MEDIUM
+P0105,Manifold Absolute Pressure/Barometric Pressure Circuit Malfunction,ENGINE,HIGH
+P0106,Manifold Absolute Pressure/Barometric Pressure Circuit Range/Performance Problem,ENGINE,HIGH
+P0107,Manifold Absolute Pressure/Barometric Pressure Circuit Low Input,ENGINE,HIGH
+P0108,Manifold Absolute Pressure/Barometric Pressure Circuit High Input,ENGINE,HIGH
+P0109,Manifold Absolute Pressure/Barometric Pressure Circuit Intermittent,ENGINE,MEDIUM
+P0110,Intake Air Temperature Circuit Malfunction,ENGINE,MEDIUM
+P0111,Intake Air Temperature Circuit Range/Performance Problem,ENGINE,MEDIUM
+P0112,Intake Air Temperature Circuit Low Input,ENGINE,MEDIUM
+P0113,Intake Air Temperature Circuit High Input,ENGINE,MEDIUM
+P0114,Intake Air Temperature Circuit Intermittent,ENGINE,LOW
+P0115,Engine Coolant Temperature Circuit Malfunction,ENGINE,HIGH
+P0116,Engine Coolant Temperature Circuit Range/Performance Problem,ENGINE,HIGH
+P0117,Engine Coolant Temperature Circuit Low Input,ENGINE,HIGH
+P0118,Engine Coolant Temperature Circuit High Input,ENGINE,HIGH
+P0119,Engine Coolant Temperature Circuit Intermittent,ENGINE,MEDIUM
+P0120,Throttle/Pedal Position Sensor/Switch A Circuit Malfunction,ENGINE,HIGH
+P0121,Throttle/Pedal Position Sensor/Switch A Circuit Range/Performance Problem,ENGINE,HIGH
+P0122,Throttle/Pedal Position Sensor/Switch A Circuit Low Input,ENGINE,HIGH
+P0123,Throttle/Pedal Position Sensor/Switch A Circuit High Input,ENGINE,HIGH
+P0124,Throttle/Pedal Position Sensor/Switch A Circuit Intermittent,ENGINE,MEDIUM
+P0125,Insufficient Coolant Temperature for Closed Loop Fuel Control,ENGINE,MEDIUM
+P0126,Insufficient Coolant Temperature for Stable Operation,ENGINE,MEDIUM
+P0127,Intake Air Temperature Too High,ENGINE,MEDIUM
+P0128,Coolant Thermostat (Coolant Temperature Below Thermostat Regulating Temperature),ENGINE,MEDIUM
+P0129,Barometric Pressure Too Low,ENGINE,LOW
+P0130,O2 Sensor Circuit Malfunction Bank 1 Sensor 1,ENGINE,HIGH
+P0131,O2 Sensor Circuit Low Voltage Bank 1 Sensor 1,ENGINE,HIGH
+P0132,O2 Sensor Circuit High Voltage Bank 1 Sensor 1,ENGINE,HIGH
+P0133,O2 Sensor Circuit Slow Response Bank 1 Sensor 1,ENGINE,MEDIUM
+P0134,O2 Sensor Circuit No Activity Detected Bank 1 Sensor 1,ENGINE,HIGH
+P0135,O2 Sensor Heater Circuit Malfunction Bank 1 Sensor 1,ENGINE,MEDIUM
+P0136,O2 Sensor Circuit Malfunction Bank 1 Sensor 2,ENGINE,HIGH
+P0137,O2 Sensor Circuit Low Voltage Bank 1 Sensor 2,ENGINE,HIGH
+P0138,O2 Sensor Circuit High Voltage Bank 1 Sensor 2,ENGINE,HIGH
+P0139,O2 Sensor Circuit Slow Response Bank 1 Sensor 2,ENGINE,MEDIUM
+P0140,O2 Sensor Circuit No Activity Detected Bank 1 Sensor 2,ENGINE,HIGH
+P0141,O2 Sensor Heater Circuit Malfunction Bank 1 Sensor 2,ENGINE,MEDIUM
+P0142,O2 Sensor Circuit Malfunction Bank 1 Sensor 3,ENGINE,HIGH
+P0143,O2 Sensor Circuit Low Voltage Bank 1 Sensor 3,ENGINE,HIGH
+P0144,O2 Sensor Circuit High Voltage Bank 1 Sensor 3,ENGINE,HIGH
+P0145,O2 Sensor Circuit Slow Response Bank 1 Sensor 3,ENGINE,MEDIUM
+P0146,O2 Sensor Circuit No Activity Detected Bank 1 Sensor 3,ENGINE,HIGH
+P0147,O2 Sensor Heater Circuit Malfunction Bank 1 Sensor 3,ENGINE,MEDIUM
+P0148,Fuel Delivery Error,ENGINE,CRITICAL
+P0149,Fuel Timing Error,ENGINE,CRITICAL
+P0150,O2 Sensor Circuit Malfunction Bank 2 Sensor 1,ENGINE,HIGH
+P0151,O2 Sensor Circuit Low Voltage Bank 2 Sensor 1,ENGINE,HIGH
+P0152,O2 Sensor Circuit High Voltage Bank 2 Sensor 1,ENGINE,HIGH
+P0153,O2 Sensor Circuit Slow Response Bank 2 Sensor 1,ENGINE,MEDIUM
+P0154,O2 Sensor Circuit No Activity Detected Bank 2 Sensor 1,ENGINE,HIGH
+P0155,O2 Sensor Heater Circuit Malfunction Bank 2 Sensor 1,ENGINE,MEDIUM
+P0156,O2 Sensor Circuit Malfunction Bank 2 Sensor 2,ENGINE,HIGH
+P0157,O2 Sensor Circuit Low Voltage Bank 2 Sensor 2,ENGINE,HIGH
+P0158,O2 Sensor Circuit High Voltage Bank 2 Sensor 2,ENGINE,HIGH
+P0159,O2 Sensor Circuit Slow Response Bank 2 Sensor 2,ENGINE,MEDIUM
+P0160,O2 Sensor Circuit No Activity Detected Bank 2 Sensor 2,ENGINE,HIGH
+P0161,O2 Sensor Heater Circuit Malfunction Bank 2 Sensor 2,ENGINE,MEDIUM
+P0162,O2 Sensor Circuit Malfunction Bank 2 Sensor 3,ENGINE,HIGH
+P0163,O2 Sensor Circuit Low Voltage Bank 2 Sensor 3,ENGINE,HIGH
+P0164,O2 Sensor Circuit High Voltage Bank 2 Sensor 3,ENGINE,HIGH
+P0165,O2 Sensor Circuit Slow Response Bank 2 Sensor 3,ENGINE,MEDIUM
+P0166,O2 Sensor Circuit No Activity Detected Bank 2 Sensor 3,ENGINE,HIGH
+P0167,O2 Sensor Heater Circuit Malfunction Bank 2 Sensor 3,ENGINE,MEDIUM
+P0168,Engine Fuel Temperature Too High,ENGINE,HIGH
+P0169,Incorrect Fuel Composition,ENGINE,MEDIUM
+P0170,Fuel Trim Malfunction Bank 1,ENGINE,MEDIUM
+P0171,System Too Lean Bank 1,ENGINE,HIGH
+P0172,System Too Rich Bank 1,ENGINE,HIGH
+P0173,Fuel Trim Malfunction Bank 2,ENGINE,MEDIUM
+P0174,System Too Lean Bank 2,ENGINE,HIGH
+P0175,System Too Rich Bank 2,ENGINE,HIGH
+P0176,Fuel Composition Sensor Circuit Malfunction,ENGINE,LOW
+P0177,Fuel Composition Sensor Circuit Range/Performance,ENGINE,LOW
+P0178,Fuel Composition Sensor Circuit Low Input,ENGINE,LOW
+P0179,Fuel Composition Sensor Circuit High Input,ENGINE,LOW
+P0180,Fuel Temperature Sensor A Circuit Malfunction,ENGINE,MEDIUM
+P0181,Fuel Temperature Sensor A Circuit Range/Performance,ENGINE,LOW
+P0182,Fuel Temperature Sensor A Circuit Low Input,ENGINE,LOW
+P0183,Fuel Temperature Sensor A Circuit High Input,ENGINE,LOW
+P0184,Fuel Temperature Sensor A Circuit Intermittent,ENGINE,LOW
+P0185,Fuel Temperature Sensor B Circuit Malfunction,ENGINE,MEDIUM
+P0186,Fuel Temperature Sensor B Circuit Range/Performance,ENGINE,LOW
+P0187,Fuel Temperature Sensor B Circuit Low Input,ENGINE,LOW
+P0188,Fuel Temperature Sensor B Circuit High Input,ENGINE,LOW
+P0189,Fuel Temperature Sensor B Circuit Intermittent,ENGINE,LOW
+P0190,Fuel Rail Pressure Sensor Circuit Malfunction,ENGINE,HIGH
+P0191,Fuel Rail Pressure Sensor Circuit Range/Performance,ENGINE,MEDIUM
+P0192,Fuel Rail Pressure Sensor Circuit Low Input,ENGINE,MEDIUM
+P0193,Fuel Rail Pressure Sensor Circuit High Input,ENGINE,MEDIUM
+P0194,Fuel Rail Pressure Sensor Circuit Intermittent,ENGINE,MEDIUM
+P0195,Engine Oil Temperature Sensor Malfunction,ENGINE,LOW
+P0196,Engine Oil Temperature Sensor Range/Performance,ENGINE,LOW
+P0197,Engine Oil Temperature Sensor Low,ENGINE,LOW
+P0198,Engine Oil Temperature Sensor High,ENGINE,LOW
+P0199,Engine Oil Temperature Sensor Intermittent,ENGINE,LOW
+P0200,Injector Circuit Malfunction,ENGINE,CRITICAL
+P0201,Injector Circuit Malfunction Cylinder 1,ENGINE,CRITICAL
+P0202,Injector Circuit Malfunction Cylinder 2,ENGINE,CRITICAL
+P0203,Injector Circuit Malfunction Cylinder 3,ENGINE,CRITICAL
+P0204,Injector Circuit Malfunction Cylinder 4,ENGINE,CRITICAL
+P0205,Injector Circuit Malfunction Cylinder 5,ENGINE,CRITICAL
+P0206,Injector Circuit Malfunction Cylinder 6,ENGINE,CRITICAL
+P0207,Injector Circuit Malfunction Cylinder 7,ENGINE,CRITICAL
+P0208,Injector Circuit Malfunction Cylinder 8,ENGINE,CRITICAL
+P0209,Injector Circuit Malfunction Cylinder 9,ENGINE,CRITICAL
+P0210,Injector Circuit Malfunction Cylinder 10,ENGINE,CRITICAL
+P0211,Injector Circuit Malfunction Cylinder 11,ENGINE,CRITICAL
+P0212,Injector Circuit Malfunction Cylinder 12,ENGINE,CRITICAL
+P0213,Cold Start Injector 1 Malfunction,ENGINE,MEDIUM
+P0214,Cold Start Injector 2 Malfunction,ENGINE,MEDIUM
+P0215,Engine Shutoff Solenoid Malfunction,ENGINE,CRITICAL
+P0216,Injection Timing Control Circuit Malfunction,ENGINE,HIGH
+P0217,Engine Overtemp Condition,ENGINE,CRITICAL
+P0218,Transmission Fluid Over Temperature,TRANSMISSION,HIGH
+P0219,Engine Overspeed Condition,ENGINE,CRITICAL
+P0220,Throttle/Pedal Position Sensor/Switch B Circuit Malfunction,ENGINE,HIGH
+P0221,Throttle/Pedal Position Sensor/Switch B Circuit Range/Performance Problem,ENGINE,HIGH
+P0222,Throttle/Pedal Position Sensor/Switch B Circuit Low Input,ENGINE,HIGH
+P0223,Throttle/Pedal Position Sensor/Switch B Circuit High Input,ENGINE,HIGH
+P0224,Throttle/Pedal Position Sensor/Switch B Circuit Intermittent,ENGINE,MEDIUM
+P0225,Throttle/Pedal Position Sensor/Switch C Circuit Malfunction,ENGINE,HIGH
+P0226,Throttle/Pedal Position Sensor/Switch C Circuit Range/Performance Problem,ENGINE,HIGH
+P0227,Throttle/Pedal Position Sensor/Switch C Circuit Low Input,ENGINE,HIGH
+P0228,Throttle/Pedal Position Sensor/Switch C Circuit High Input,ENGINE,HIGH
+P0229,Throttle/Pedal Position Sensor/Switch C Circuit Intermittent,ENGINE,MEDIUM
+P0230,Fuel Pump Primary Circuit Malfunction,ENGINE,CRITICAL
+P0231,Fuel Pump Secondary Circuit Low,ENGINE,HIGH
+P0232,Fuel Pump Secondary Circuit High,ENGINE,HIGH
+P0233,Fuel Pump Secondary Circuit Intermittent,ENGINE,MEDIUM
+P0234,Engine Overboost Condition,ENGINE,HIGH
+P0235,Turbocharger Boost Sensor A Circuit Malfunction,ENGINE,MEDIUM
+P0236,Turbocharger Boost Sensor A Circuit Range/Performance,ENGINE,MEDIUM
+P0237,Turbocharger Boost Sensor A Circuit Low,ENGINE,MEDIUM
+P0238,Turbocharger Boost Sensor A Circuit High,ENGINE,MEDIUM
+P0239,Turbocharger Boost Sensor B Circuit Malfunction,ENGINE,MEDIUM
+P0240,Turbocharger Boost Sensor B Circuit Range/Performance,ENGINE,MEDIUM
+P0241,Turbocharger Boost Sensor B Circuit Low,ENGINE,MEDIUM
+P0242,Turbocharger Boost Sensor B Circuit High,ENGINE,MEDIUM
+P0243,Turbocharger Wastegate Solenoid A Malfunction,ENGINE,MEDIUM
+P0244,Turbocharger Wastegate Solenoid A Range/Performance,ENGINE,MEDIUM
+P0245,Turbocharger Wastegate Solenoid A Low,ENGINE,MEDIUM
+P0246,Turbocharger Wastegate Solenoid A High,ENGINE,MEDIUM
+P0247,Turbocharger Wastegate Solenoid B Malfunction,ENGINE,MEDIUM
+P0248,Turbocharger Wastegate Solenoid B Range/Performance,ENGINE,MEDIUM
+P0249,Turbocharger Wastegate Solenoid B Low,ENGINE,MEDIUM
+P0250,Turbocharger Wastegate Solenoid B High,ENGINE,MEDIUM
+P0251,Injection Pump Fuel Metering Control A Malfunction,ENGINE,HIGH
+P0252,Injection Pump Fuel Metering Control A Range/Performance,ENGINE,MEDIUM
+P0253,Injection Pump Fuel Metering Control A Low,ENGINE,MEDIUM
+P0254,Injection Pump Fuel Metering Control A High,ENGINE,MEDIUM
+P0255,Injection Pump Fuel Metering Control A Intermittent,ENGINE,MEDIUM
+P0256,Injection Pump Fuel Metering Control B Malfunction,ENGINE,HIGH
+P0257,Injection Pump Fuel Metering Control B Range/Performance,ENGINE,MEDIUM
+P0258,Injection Pump Fuel Metering Control B Low,ENGINE,MEDIUM
+P0259,Injection Pump Fuel Metering Control B High,ENGINE,MEDIUM
+P0260,Injection Pump Fuel Metering Control B Intermittent,ENGINE,MEDIUM
+P0261,Cylinder 1 Injector Circuit Low,ENGINE,CRITICAL
+P0262,Cylinder 1 Injector Circuit High,ENGINE,CRITICAL
+P0263,Cylinder 1 Contribution/Balance Fault,ENGINE,HIGH
+P0264,Cylinder 2 Injector Circuit Low,ENGINE,CRITICAL
+P0265,Cylinder 2 Injector Circuit High,ENGINE,CRITICAL
+P0266,Cylinder 2 Contribution/Balance Fault,ENGINE,HIGH
+P0267,Cylinder 3 Injector Circuit Low,ENGINE,CRITICAL
+P0268,Cylinder 3 Injector Circuit High,ENGINE,CRITICAL
+P0269,Cylinder 3 Contribution/Balance Fault,ENGINE,HIGH
+P0270,Cylinder 4 Injector Circuit Low,ENGINE,CRITICAL
+P0271,Cylinder 4 Injector Circuit High,ENGINE,CRITICAL
+P0272,Cylinder 4 Contribution/Balance Fault,ENGINE,HIGH
+P0273,Cylinder 5 Injector Circuit Low,ENGINE,CRITICAL
+P0274,Cylinder 5 Injector Circuit High,ENGINE,CRITICAL
+P0275,Cylinder 5 Contribution/Balance Fault,ENGINE,HIGH
+P0276,Cylinder 6 Injector Circuit Low,ENGINE,CRITICAL
+P0277,Cylinder 6 Injector Circuit High,ENGINE,CRITICAL
+P0278,Cylinder 6 Contribution/Balance Fault,ENGINE,HIGH
+P0279,Cylinder 7 Injector Circuit Low,ENGINE,CRITICAL
+P0280,Cylinder 7 Injector Circuit High,ENGINE,CRITICAL
+P0281,Cylinder 7 Contribution/Balance Fault,ENGINE,HIGH
+P0282,Cylinder 8 Injector Circuit Low,ENGINE,CRITICAL
+P0283,Cylinder 8 Injector Circuit High,ENGINE,CRITICAL
+P0284,Cylinder 8 Contribution/Balance Fault,ENGINE,HIGH
+P0285,Cylinder 9 Injector Circuit Low,ENGINE,CRITICAL
+P0286,Cylinder 9 Injector Circuit High,ENGINE,CRITICAL
+P0287,Cylinder 9 Contribution/Balance Fault,ENGINE,HIGH
+P0288,Cylinder 10 Injector Circuit Low,ENGINE,CRITICAL
+P0289,Cylinder 10 Injector Circuit High,ENGINE,CRITICAL
+P0290,Cylinder 10 Contribution/Balance Fault,ENGINE,HIGH
+P0291,Cylinder 11 Injector Circuit Low,ENGINE,CRITICAL
+P0292,Cylinder 11 Injector Circuit High,ENGINE,CRITICAL
+P0293,Cylinder 11 Contribution/Balance Fault,ENGINE,HIGH
+P0294,Cylinder 12 Injector Circuit Low,ENGINE,CRITICAL
+P0295,Cylinder 12 Injector Circuit High,ENGINE,CRITICAL
+P0296,Cylinder 12 Contribution/Balance Fault,ENGINE,HIGH
+P0297,Vehicle Overspeed Condition,ENGINE,CRITICAL
+P0298,Engine Oil Over Temperature,ENGINE,HIGH
+P0299,Turbo/Supercharger Underboost Condition,ENGINE,MEDIUM
+P0300,Random/Multiple Cylinder Misfire Detected,ENGINE,CRITICAL
+P0301,Cylinder 1 Misfire Detected,ENGINE,CRITICAL
+P0302,Cylinder 2 Misfire Detected,ENGINE,CRITICAL
+P0303,Cylinder 3 Misfire Detected,ENGINE,CRITICAL
+P0304,Cylinder 4 Misfire Detected,ENGINE,CRITICAL
+P0305,Cylinder 5 Misfire Detected,ENGINE,CRITICAL
+P0306,Cylinder 6 Misfire Detected,ENGINE,CRITICAL
+P0307,Cylinder 7 Misfire Detected,ENGINE,CRITICAL
+P0308,Cylinder 8 Misfire Detected,ENGINE,CRITICAL
+P0309,Cylinder 9 Misfire Detected,ENGINE,CRITICAL
+P0310,Cylinder 10 Misfire Detected,ENGINE,CRITICAL
+P0311,Cylinder 11 Misfire Detected,ENGINE,CRITICAL
+P0312,Cylinder 12 Misfire Detected,ENGINE,CRITICAL
+P0313,Misfire Detected with Low Fuel,ENGINE,CRITICAL
+P0314,Single Cylinder Misfire (Cylinder not specified),ENGINE,CRITICAL
+P0315,Crankshaft Position System Variation Not Learned,ENGINE,MEDIUM
+P0316,Misfire Detected On Startup (First 1000 Revolutions),ENGINE,HIGH
+P0317,Rough Road Hardware Not Present,ENGINE,LOW
+P0318,Rough Road Signal Sensor A,ENGINE,LOW
+P0319,Rough Road Signal Sensor B,ENGINE,LOW
+P0320,Ignition/Distributor Engine Speed Input Circuit Malfunction,ENGINE,CRITICAL
+P0321,Ignition/Distributor Engine Speed Input Circuit Range/Performance,ENGINE,HIGH
+P0322,Ignition/Distributor Engine Speed Input Circuit No Signal,ENGINE,CRITICAL
+P0323,Ignition/Distributor Engine Speed Input Circuit Intermittent,ENGINE,HIGH
+P0324,Knock Control System Error,ENGINE,HIGH
+P0325,Knock Sensor 1 Circuit Malfunction Bank 1 or Single Sensor,ENGINE,MEDIUM
+P0326,Knock Sensor 1 Circuit Range/Performance Bank 1 or Single Sensor,ENGINE,MEDIUM
+P0327,Knock Sensor 1 Circuit Low Input Bank 1 or Single Sensor,ENGINE,MEDIUM
+P0328,Knock Sensor 1 Circuit High Input Bank 1 or Single Sensor,ENGINE,MEDIUM
+P0329,Knock Sensor 1 Circuit Intermittent Bank 1 or Single Sensor,ENGINE,LOW
+P0330,Knock Sensor 2 Circuit Malfunction Bank 2,ENGINE,MEDIUM
+P0331,Knock Sensor 2 Circuit Range/Performance Bank 2,ENGINE,MEDIUM
+P0332,Knock Sensor 2 Circuit Low Input Bank 2,ENGINE,MEDIUM
+P0333,Knock Sensor 2 Circuit High Input Bank 2,ENGINE,MEDIUM
+P0334,Knock Sensor 2 Circuit Intermittent Bank 2,ENGINE,LOW
+P0335,Crankshaft Position Sensor A Circuit Malfunction,ENGINE,CRITICAL
+P0336,Crankshaft Position Sensor A Circuit Range/Performance,ENGINE,HIGH
+P0337,Crankshaft Position Sensor A Circuit Low Input,ENGINE,CRITICAL
+P0338,Crankshaft Position Sensor A Circuit High Input,ENGINE,CRITICAL
+P0339,Crankshaft Position Sensor A Circuit Intermittent,ENGINE,HIGH
+P0340,Camshaft Position Sensor Circuit Malfunction,ENGINE,CRITICAL
+P0341,Camshaft Position Sensor Circuit Range/Performance,ENGINE,HIGH
+P0342,Camshaft Position Sensor Circuit Low Input,ENGINE,CRITICAL
+P0343,Camshaft Position Sensor Circuit High Input,ENGINE,CRITICAL
+P0344,Camshaft Position Sensor Circuit Intermittent,ENGINE,HIGH
+P0345,Camshaft Position Sensor A Circuit Malfunction Bank 2,ENGINE,CRITICAL
+P0346,Camshaft Position Sensor A Circuit Range/Performance Bank 2,ENGINE,HIGH
+P0347,Camshaft Position Sensor A Circuit Low Input Bank 2,ENGINE,CRITICAL
+P0348,Camshaft Position Sensor A Circuit High Input Bank 2,ENGINE,CRITICAL
+P0349,Camshaft Position Sensor A Circuit Intermittent Bank 2,ENGINE,HIGH
+P0350,Ignition Coil Primary/Secondary Circuit Malfunction,ENGINE,CRITICAL
+P0351,Ignition Coil A Primary/Secondary Circuit Malfunction,ENGINE,CRITICAL
+P0352,Ignition Coil B Primary/Secondary Circuit Malfunction,ENGINE,CRITICAL
+P0353,Ignition Coil C Primary/Secondary Circuit Malfunction,ENGINE,CRITICAL
+P0354,Ignition Coil D Primary/Secondary Circuit Malfunction,ENGINE,CRITICAL
+P0355,Ignition Coil E Primary/Secondary Circuit Malfunction,ENGINE,CRITICAL
+P0356,Ignition Coil F Primary/Secondary Circuit Malfunction,ENGINE,CRITICAL
+P0357,Ignition Coil G Primary/Secondary Circuit Malfunction,ENGINE,CRITICAL
+P0358,Ignition Coil H Primary/Secondary Circuit Malfunction,ENGINE,CRITICAL
+P0359,Ignition Coil I Primary/Secondary Circuit Malfunction,ENGINE,CRITICAL
+P0360,Ignition Coil J Primary/Secondary Circuit Malfunction,ENGINE,CRITICAL
+P0361,Ignition Coil K Primary/Secondary Circuit Malfunction,ENGINE,CRITICAL
+P0362,Ignition Coil L Primary/Secondary Circuit Malfunction,ENGINE,CRITICAL
+P0370,Timing Reference High Resolution Signal A Malfunction,ENGINE,HIGH
+P0371,Timing Reference High Resolution Signal A Too Many Pulses,ENGINE,HIGH
+P0372,Timing Reference High Resolution Signal A Too Few Pulses,ENGINE,HIGH
+P0373,Timing Reference High Resolution Signal A Intermittent/Erratic Pulses,ENGINE,MEDIUM
+P0374,Timing Reference High Resolution Signal A No Pulses,ENGINE,HIGH
+P0375,Timing Reference High Resolution Signal B Malfunction,ENGINE,HIGH
+P0376,Timing Reference High Resolution Signal B Too Many Pulses,ENGINE,HIGH
+P0377,Timing Reference High Resolution Signal B Too Few Pulses,ENGINE,HIGH
+P0378,Timing Reference High Resolution Signal B Intermittent/Erratic Pulses,ENGINE,MEDIUM
+P0379,Timing Reference High Resolution Signal B No Pulses,ENGINE,HIGH
+P0380,Glow Plug/Heater Circuit A Malfunction,ENGINE,MEDIUM
+P0381,Glow Plug/Heater Indicator Circuit Malfunction,ENGINE,LOW
+P0382,Glow Plug/Heater Circuit B Malfunction,ENGINE,MEDIUM
+P0385,Crankshaft Position Sensor B Circuit Malfunction,ENGINE,CRITICAL
+P0386,Crankshaft Position Sensor B Circuit Range/Performance,ENGINE,HIGH
+P0387,Crankshaft Position Sensor B Circuit Low Input,ENGINE,CRITICAL
+P0388,Crankshaft Position Sensor B Circuit High Input,ENGINE,CRITICAL
+P0389,Crankshaft Position Sensor B Circuit Intermittent,ENGINE,HIGH
+P0400,Exhaust Gas Recirculation Flow Malfunction,ENGINE,HIGH
+P0401,Exhaust Gas Recirculation Flow Insufficient Detected,ENGINE,HIGH
+P0402,Exhaust Gas Recirculation Flow Excessive Detected,ENGINE,HIGH
+P0403,Exhaust Gas Recirculation Circuit Malfunction,ENGINE,HIGH
+P0404,Exhaust Gas Recirculation Circuit Range/Performance,ENGINE,HIGH
+P0405,Exhaust Gas Recirculation Sensor A Circuit Low,ENGINE,MEDIUM
+P0406,Exhaust Gas Recirculation Sensor A Circuit High,ENGINE,MEDIUM
+P0407,Exhaust Gas Recirculation Sensor B Circuit Low,ENGINE,MEDIUM
+P0408,Exhaust Gas Recirculation Sensor B Circuit High,ENGINE,MEDIUM
+P0409,Exhaust Gas Recirculation Sensor A Circuit,ENGINE,MEDIUM
+P0410,Secondary Air Injection System Malfunction,ENGINE,MEDIUM
+P0411,Secondary Air Injection System Incorrect Flow Detected,ENGINE,MEDIUM
+P0412,Secondary Air Injection System Switching Valve A Circuit Malfunction,ENGINE,MEDIUM
+P0413,Secondary Air Injection System Switching Valve A Circuit Open,ENGINE,MEDIUM
+P0414,Secondary Air Injection System Switching Valve A Circuit Shorted,ENGINE,MEDIUM
+P0415,Secondary Air Injection System Switching Valve B Circuit Malfunction,ENGINE,MEDIUM
+P0416,Secondary Air Injection System Switching Valve B Circuit Open,ENGINE,MEDIUM
+P0417,Secondary Air Injection System Switching Valve B Circuit Shorted,ENGINE,MEDIUM
+P0418,Secondary Air Injection System Relay A Circuit Malfunction,ENGINE,MEDIUM
+P0419,Secondary Air Injection System Relay B Circuit Malfunction,ENGINE,MEDIUM
+P0420,Catalyst System Efficiency Below Threshold Bank 1,ENGINE,HIGH
+P0421,Warm Up Catalyst Efficiency Below Threshold Bank 1,ENGINE,HIGH
+P0422,Main Catalyst Efficiency Below Threshold Bank 1,ENGINE,HIGH
+P0423,Heated Catalyst Efficiency Below Threshold Bank 1,ENGINE,HIGH
+P0424,Heated Catalyst Temperature Below Threshold Bank 1,ENGINE,MEDIUM
+P0425,Catalyst Temperature Sensor Bank 1,ENGINE,LOW
+P0426,Catalyst Temperature Sensor Range/Performance Bank 1,ENGINE,LOW
+P0427,Catalyst Temperature Sensor Low Bank 1,ENGINE,LOW
+P0428,Catalyst Temperature Sensor High Bank 1,ENGINE,LOW
+P0429,Catalyst Heater Control Circuit Bank 1,ENGINE,MEDIUM
+P0430,Catalyst System Efficiency Below Threshold Bank 2,ENGINE,HIGH
+P0431,Warm Up Catalyst Efficiency Below Threshold Bank 2,ENGINE,HIGH
+P0432,Main Catalyst Efficiency Below Threshold Bank 2,ENGINE,HIGH
+P0433,Heated Catalyst Efficiency Below Threshold Bank 2,ENGINE,HIGH
+P0434,Heated Catalyst Temperature Below Threshold Bank 2,ENGINE,MEDIUM
+P0435,Catalyst Temperature Sensor Bank 2,ENGINE,LOW
+P0436,Catalyst Temperature Sensor Range/Performance Bank 2,ENGINE,LOW
+P0437,Catalyst Temperature Sensor Low Bank 2,ENGINE,LOW
+P0438,Catalyst Temperature Sensor High Bank 2,ENGINE,LOW
+P0439,Catalyst Heater Control Circuit Bank 2,ENGINE,MEDIUM
+P0440,Evaporative Emission Control System Malfunction,ENGINE,MEDIUM
+P0441,Evaporative Emission Control System Incorrect Purge Flow,ENGINE,MEDIUM
+P0442,Evaporative Emission Control System Leak Detected (small leak),ENGINE,MEDIUM
+P0443,Evaporative Emission Control System Purge Control Valve Circuit Malfunction,ENGINE,MEDIUM
+P0444,Evaporative Emission Control System Purge Control Valve Circuit Open,ENGINE,MEDIUM
+P0445,Evaporative Emission Control System Purge Control Valve Circuit Shorted,ENGINE,MEDIUM
+P0446,Evaporative Emission Control System Vent Control Circuit Malfunction,ENGINE,MEDIUM
+P0447,Evaporative Emission Control System Vent Control Circuit Open,ENGINE,MEDIUM
+P0448,Evaporative Emission Control System Vent Control Circuit Shorted,ENGINE,MEDIUM
+P0449,Evaporative Emission Control System Vent Valve/Solenoid Circuit Malfunction,ENGINE,MEDIUM
+P0450,Evaporative Emission Control System Pressure Sensor Malfunction,ENGINE,MEDIUM
+P0451,Evaporative Emission Control System Pressure Sensor Range/Performance,ENGINE,LOW
+P0452,Evaporative Emission Control System Pressure Sensor Low Input,ENGINE,LOW
+P0453,Evaporative Emission Control System Pressure Sensor High Input,ENGINE,LOW
+P0454,Evaporative Emission Control System Pressure Sensor Intermittent,ENGINE,LOW
+P0455,Evaporative Emission Control System Leak Detected (gross leak),ENGINE,MEDIUM
+P0456,Evaporative Emission Control System Leak Detected (very small leak),ENGINE,LOW
+P0457,Evaporative Emission Control System Leak Detected (fuel cap loose/off),ENGINE,LOW
+P0458,Evaporative Emission Control System Purge Control Valve Circuit Low,ENGINE,MEDIUM
+P0459,Evaporative Emission Control System Purge Control Valve Circuit High,ENGINE,MEDIUM
+P0460,Fuel Level Sensor Circuit Malfunction,ENGINE,LOW
+P0461,Fuel Level Sensor Circuit Range/Performance,ENGINE,LOW
+P0462,Fuel Level Sensor Circuit Low Input,ENGINE,LOW
+P0463,Fuel Level Sensor Circuit High Input,ENGINE,LOW
+P0464,Fuel Level Sensor Circuit Intermittent,ENGINE,LOW
+P0465,Purge Flow Sensor Circuit Malfunction,ENGINE,MEDIUM
+P0466,Purge Flow Sensor Circuit Range/Performance,ENGINE,LOW
+P0467,Purge Flow Sensor Circuit Low Input,ENGINE,LOW
+P0468,Purge Flow Sensor Circuit High Input,ENGINE,LOW
+P0469,Purge Flow Sensor Circuit Intermittent,ENGINE,LOW
+P0470,Exhaust Pressure Sensor Malfunction,ENGINE,MEDIUM
+P0471,Exhaust Pressure Sensor Range/Performance,ENGINE,LOW
+P0472,Exhaust Pressure Sensor Low,ENGINE,LOW
+P0473,Exhaust Pressure Sensor High,ENGINE,LOW
+P0474,Exhaust Pressure Sensor Intermittent,ENGINE,LOW
+P0475,Exhaust Pressure Control Valve Malfunction,ENGINE,MEDIUM
+P0476,Exhaust Pressure Control Valve Range/Performance,ENGINE,MEDIUM
+P0477,Exhaust Pressure Control Valve Low,ENGINE,MEDIUM
+P0478,Exhaust Pressure Control Valve High,ENGINE,MEDIUM
+P0479,Exhaust Pressure Control Valve Intermittent,ENGINE,LOW
+P0480,Cooling Fan 1 Control Circuit Malfunction,ENGINE,MEDIUM
+P0481,Cooling Fan 2 Control Circuit Malfunction,ENGINE,MEDIUM
+P0482,Cooling Fan 3 Control Circuit Malfunction,ENGINE,MEDIUM
+P0483,Cooling Fan Rationality Check Malfunction,ENGINE,MEDIUM
+P0484,Cooling Fan Circuit Over Current,ENGINE,MEDIUM
+P0485,Cooling Fan Power/Ground Circuit Malfunction,ENGINE,MEDIUM
+P0500,Vehicle Speed Sensor Malfunction,ENGINE,HIGH
+P0501,Vehicle Speed Sensor Range/Performance,ENGINE,MEDIUM
+P0502,Vehicle Speed Sensor Circuit Low Input,ENGINE,MEDIUM
+P0503,Vehicle Speed Sensor Intermittent/Erratic/High,ENGINE,MEDIUM
+P0505,Idle Control System Malfunction,ENGINE,MEDIUM
+P0506,Idle Control System RPM Lower Than Expected,ENGINE,MEDIUM
+P0507,Idle Control System RPM Higher Than Expected,ENGINE,MEDIUM
+P0508,Idle Control System Circuit Low,ENGINE,MEDIUM
+P0509,Idle Control System Circuit High,ENGINE,MEDIUM
+P0510,Closed Throttle Position Switch Malfunction,ENGINE,MEDIUM
+P0511,Idle Air Control Circuit Malfunction,ENGINE,MEDIUM
+P0512,Starter Request Circuit Malfunction,ENGINE,MEDIUM
+P0513,Incorrect Immobilizer Key,ENGINE,HIGH
+P0514,Battery Temperature Sensor Circuit Range/Performance,ENGINE,LOW
+P0515,Battery Temperature Sensor Circuit Malfunction,ENGINE,LOW
+P0516,Battery Temperature Sensor Circuit Low,ENGINE,LOW
+P0517,Battery Temperature Sensor Circuit High,ENGINE,LOW
+P0518,Idle Air Control Circuit Intermittent,ENGINE,LOW
+P0519,Idle Air Control System Performance,ENGINE,MEDIUM
+P0520,Engine Oil Pressure Sensor/Switch Circuit Malfunction,ENGINE,MEDIUM
+P0521,Engine Oil Pressure Sensor/Switch Range/Performance,ENGINE,LOW
+P0522,Engine Oil Pressure Sensor/Switch Low Voltage,ENGINE,MEDIUM
+P0523,Engine Oil Pressure Sensor/Switch High Voltage,ENGINE,MEDIUM
+P0524,Engine Oil Pressure Too Low,ENGINE,HIGH
+P0525,Cruise Control Servo Circuit Range/Performance,ENGINE,LOW
+P0526,Fan Speed Sensor Circuit Malfunction,ENGINE,LOW
+P0527,Fan Speed Sensor Circuit Range/Performance,ENGINE,LOW
+P0528,Fan Speed Sensor Circuit No Signal,ENGINE,LOW
+P0529,Fan Speed Sensor Circuit Intermittent,ENGINE,LOW
+P0530,A/C Refrigerant Pressure Sensor Circuit Malfunction,ENGINE,LOW
+P0531,A/C Refrigerant Pressure Sensor Circuit Range/Performance,ENGINE,LOW
+P0532,A/C Refrigerant Pressure Sensor Circuit Low Input,ENGINE,LOW
+P0533,A/C Refrigerant Pressure Sensor Circuit High Input,ENGINE,LOW
+P0534,A/C Refrigerant Charge Loss,ENGINE,MEDIUM
+P0535,A/C Evaporator Temperature Sensor Circuit Malfunction,ENGINE,LOW
+P0536,A/C Evaporator Temperature Sensor Circuit Range/Performance,ENGINE,LOW
+P0537,A/C Evaporator Temperature Sensor Circuit Low Input,ENGINE,LOW
+P0538,A/C Evaporator Temperature Sensor Circuit High Input,ENGINE,LOW
+P0539,A/C Evaporator Temperature Sensor Circuit Intermittent,ENGINE,LOW
+P0540,Intake Air Heater A Circuit Malfunction,ENGINE,LOW
+P0541,Intake Air Heater A Circuit Low,ENGINE,LOW
+P0542,Intake Air Heater A Circuit High,ENGINE,LOW
+P0543,Intake Air Heater A Circuit Open,ENGINE,LOW
+P0544,Exhaust Gas Temperature Sensor Circuit Bank 1 Sensor 1,ENGINE,LOW
+P0545,Exhaust Gas Temperature Sensor Circuit Low Bank 1 Sensor 1,ENGINE,LOW
+P0546,Exhaust Gas Temperature Sensor Circuit High Bank 1 Sensor 1,ENGINE,LOW
+P0547,Exhaust Gas Temperature Sensor Circuit Bank 2 Sensor 1,ENGINE,LOW
+P0548,Exhaust Gas Temperature Sensor Circuit Low Bank 2 Sensor 1,ENGINE,LOW
+P0549,Exhaust Gas Temperature Sensor Circuit High Bank 2 Sensor 1,ENGINE,LOW
+P0550,Power Steering Pressure Sensor Circuit Malfunction,ENGINE,LOW
+P0551,Power Steering Pressure Sensor Circuit Range/Performance,ENGINE,LOW
+P0552,Power Steering Pressure Sensor Circuit Low Input,ENGINE,LOW
+P0553,Power Steering Pressure Sensor Circuit High Input,ENGINE,LOW
+P0554,Power Steering Pressure Sensor Circuit Intermittent,ENGINE,LOW
+P0555,Brake Booster Pressure Sensor Circuit Malfunction,ENGINE,MEDIUM
+P0556,Brake Booster Pressure Sensor Circuit Range/Performance,ENGINE,LOW
+P0557,Brake Booster Pressure Sensor Circuit Low Input,ENGINE,LOW
+P0558,Brake Booster Pressure Sensor Circuit High Input,ENGINE,LOW
+P0559,Brake Booster Pressure Sensor Circuit Intermittent,ENGINE,LOW
+P0560,System Voltage Malfunction,ENGINE,MEDIUM
+P0561,System Voltage Unstable,ENGINE,MEDIUM
+P0562,System Voltage Low,ENGINE,MEDIUM
+P0563,System Voltage High,ENGINE,MEDIUM
+P0564,Cruise Control Multi-Function Input A Circuit Malfunction,ENGINE,LOW
+P0565,Cruise Control On Signal Malfunction,ENGINE,LOW
+P0566,Cruise Control Off Signal Malfunction,ENGINE,LOW
+P0567,Cruise Control Resume Signal Malfunction,ENGINE,LOW
+P0568,Cruise Control Set Signal Malfunction,ENGINE,LOW
+P0569,Cruise Control Coast Signal Malfunction,ENGINE,LOW
+P0570,Cruise Control Accel Signal Malfunction,ENGINE,LOW
+P0571,Cruise Control/Brake Switch A Circuit Malfunction,ENGINE,LOW
+P0572,Cruise Control/Brake Switch A Circuit Low,ENGINE,LOW
+P0573,Cruise Control/Brake Switch A Circuit High,ENGINE,LOW
+P0574,Through P0580 Reserved for Cruise Codes,ENGINE,LOW
+P0600,Serial Communication Link Malfunction,ENGINE,HIGH
+P0601,Internal Control Module Memory Check Sum Error,ENGINE,HIGH
+P0602,Control Module Programming Error,ENGINE,HIGH
+P0603,Internal Control Module Keep Alive Memory (KAM) Error,ENGINE,HIGH
+P0604,Internal Control Module Random Access Memory (RAM) Error,ENGINE,HIGH
+P0605,Internal Control Module Read Only Memory (ROM) Error,ENGINE,HIGH
+P0606,PCM Processor Fault,ENGINE,CRITICAL
+P0607,Control Module Performance,ENGINE,HIGH
+P0608,Control Module VSS Output A Malfunction,ENGINE,MEDIUM
+P0609,Control Module VSS Output B Malfunction,ENGINE,MEDIUM
+P0610,Control Module Vehicle Options Error,ENGINE,MEDIUM
+P0611,Fuel Injector Control Module Performance,ENGINE,HIGH
+P0612,Fuel Injector Control Module Relay Control,ENGINE,MEDIUM
+P0613,TCM Processor,TRANSMISSION,HIGH
+P0614,ECM/TCM Incompatible,ENGINE,HIGH
+P0615,Starter Relay Circuit,ENGINE,MEDIUM
+P0616,Starter Relay Circuit Low,ENGINE,MEDIUM
+P0617,Starter Relay Circuit High,ENGINE,MEDIUM
+P0618,Alternative Fuel Control Module KAM Error,ENGINE,HIGH
+P0619,Alternative Fuel Control Module RAM/ROM Error,ENGINE,HIGH
+P0620,Generator Control Circuit Malfunction,ENGINE,MEDIUM
+P0621,Generator Lamp L Control Circuit Malfunction,ENGINE,LOW
+P0622,Generator Field F Control Circuit Malfunction,ENGINE,MEDIUM
+P0623,Generator Lamp Control Circuit Malfunction,ENGINE,LOW
+P0624,Fuel Cap Lamp Control Circuit Malfunction,ENGINE,LOW
+P0625,Generator Field Terminal Circuit Low,ENGINE,MEDIUM
+P0626,Generator Field Terminal Circuit High,ENGINE,MEDIUM
+P0627,Fuel Pump A Control Circuit Open,ENGINE,HIGH
+P0628,Fuel Pump A Control Circuit Low,ENGINE,HIGH
+P0629,Fuel Pump A Control Circuit High,ENGINE,HIGH
+P0630,VIN Not Programmed or Mismatch ECM/PCM,ENGINE,MEDIUM
+P0631,VIN Not Programmed or Mismatch TCM,TRANSMISSION,MEDIUM
+P0632,Odometer Not Programmed ECM/PCM,ENGINE,LOW
+P0633,Immobilizer Key Not Programmed ECM/PCM,ENGINE,MEDIUM
+P0634,PCM/ECM/TCM Internal Temperature Too High,ENGINE,HIGH
+P0635,Power Steering Control Circuit,ENGINE,MEDIUM
+P0636,Power Steering Control Circuit Low,ENGINE,MEDIUM
+P0637,Power Steering Control Circuit High,ENGINE,MEDIUM
+P0638,Throttle Actuator Control Range/Performance Bank 1,ENGINE,HIGH
+P0639,Throttle Actuator Control Range/Performance Bank 2,ENGINE,HIGH
+P0640,Intake Air Heater Control Circuit,ENGINE,LOW
+P0641,Sensor Reference Voltage A Circuit Open,ENGINE,HIGH
+P0642,Sensor Reference Voltage A Circuit Low,ENGINE,HIGH
+P0643,Sensor Reference Voltage A Circuit High,ENGINE,HIGH
+P0644,Driver Display Serial Communication Circuit,ENGINE,LOW
+P0645,A/C Clutch Relay Control Circuit,ENGINE,LOW
+P0646,A/C Clutch Relay Control Circuit Low,ENGINE,LOW
+P0647,A/C Clutch Relay Control Circuit High,ENGINE,LOW
+P0648,Immobilizer Lamp Control Circuit,ENGINE,LOW
+P0649,Speed Control Lamp Control Circuit,ENGINE,LOW
+P0650,Malfunction Indicator Lamp (MIL) Control Circuit Malfunction,ENGINE,MEDIUM
+P0651,Sensor Reference Voltage B Circuit Open,ENGINE,HIGH
+P0652,Sensor Reference Voltage B Circuit Low,ENGINE,HIGH
+P0653,Sensor Reference Voltage B Circuit High,ENGINE,HIGH
+P0654,Engine RPM Output Circuit Malfunction,ENGINE,MEDIUM
+P0655,Engine Hot Lamp Output Control Circuit Malfunction,ENGINE,LOW
+P0656,Fuel Level Output Circuit Malfunction,ENGINE,LOW
+P0657,Actuator Supply Voltage A Circuit Open,ENGINE,MEDIUM
+P0658,Actuator Supply Voltage A Circuit Low,ENGINE,MEDIUM
+P0659,Actuator Supply Voltage A Circuit High,ENGINE,MEDIUM
+P0660,Intake Manifold Tuning Valve Control Circuit/Open Bank 1,ENGINE,MEDIUM
+P0661,Intake Manifold Tuning Valve Control Circuit Low Bank 1,ENGINE,MEDIUM
+P0662,Intake Manifold Tuning Valve Control Circuit High Bank 1,ENGINE,MEDIUM
+P0663,Intake Manifold Tuning Valve Control Circuit/Open Bank 2,ENGINE,MEDIUM
+P0664,Intake Manifold Tuning Valve Control Circuit Low Bank 2,ENGINE,MEDIUM
+P0665,Intake Manifold Tuning Valve Control Circuit High Bank 2,ENGINE,MEDIUM
+P0666,PCM/ECM/TCM Internal Temperature Sensor Circuit,ENGINE,MEDIUM
+P0667,PCM/ECM/TCM Internal Temperature Sensor Range/Performance,ENGINE,LOW
+P0668,PCM/ECM/TCM Internal Temperature Sensor Circuit Low,ENGINE,LOW
+P0669,PCM/ECM/TCM Internal Temperature Sensor Circuit High,ENGINE,LOW
+P0670,Glow Plug Module Control Circuit,ENGINE,MEDIUM
+P0671,Cylinder 1 Glow Plug Circuit,ENGINE,LOW
+P0672,Cylinder 2 Glow Plug Circuit,ENGINE,LOW
+P0673,Cylinder 3 Glow Plug Circuit,ENGINE,LOW
+P0674,Cylinder 4 Glow Plug Circuit,ENGINE,LOW
+P0675,Cylinder 5 Glow Plug Circuit,ENGINE,LOW
+P0676,Cylinder 6 Glow Plug Circuit,ENGINE,LOW
+P0677,Cylinder 7 Glow Plug Circuit,ENGINE,LOW
+P0678,Cylinder 8 Glow Plug Circuit,ENGINE,LOW
+P0679,Cylinder 9 Glow Plug Circuit,ENGINE,LOW
+P0680,Cylinder 10 Glow Plug Circuit,ENGINE,LOW
+P0681,Cylinder 11 Glow Plug Circuit,ENGINE,LOW
+P0682,Cylinder 12 Glow Plug Circuit,ENGINE,LOW
+P0683,Glow Plug Control Module to PCM Communication Circuit,ENGINE,MEDIUM
+P0684,Glow Plug Control Module to PCM Communication Circuit Range/Performance,ENGINE,LOW
+P0685,ECM/PCM Power Relay Control Circuit Open,ENGINE,HIGH
+P0686,ECM/PCM Power Relay Control Circuit Low,ENGINE,HIGH
+P0687,ECM/PCM Power Relay Control Circuit High,ENGINE,HIGH
+P0688,ECM/PCM Power Relay Sense Circuit Open,ENGINE,MEDIUM
+P0689,ECM/PCM Power Relay Sense Circuit Low,ENGINE,MEDIUM
+P0690,ECM/PCM Power Relay Sense Circuit High,ENGINE,MEDIUM
+P0691,Fan 1 Control Circuit Low,ENGINE,MEDIUM
+P0692,Fan 1 Control Circuit High,ENGINE,MEDIUM
+P0693,Fan 2 Control Circuit Low,ENGINE,MEDIUM
+P0694,Fan 2 Control Circuit High,ENGINE,MEDIUM
+P0695,Fan 3 Control Circuit Low,ENGINE,MEDIUM
+P0696,Fan 3 Control Circuit High,ENGINE,MEDIUM
+P0697,Sensor Reference Voltage C Circuit Open,ENGINE,HIGH
+P0698,Sensor Reference Voltage C Circuit Low,ENGINE,HIGH
+P0699,Sensor Reference Voltage C Circuit High,ENGINE,HIGH
+P0700,Transmission Control System Malfunction,TRANSMISSION,HIGH
+P0701,Transmission Control System Range/Performance,TRANSMISSION,MEDIUM
+P0702,Transmission Control System Electrical,TRANSMISSION,HIGH
+P0703,Torque Converter/Brake Switch B Circuit Malfunction,TRANSMISSION,MEDIUM
+P0704,Clutch Switch Input Circuit Malfunction,TRANSMISSION,MEDIUM
+P0705,Transmission Range Sensor Circuit Malfunction (PRNDL Input),TRANSMISSION,HIGH
+P0706,Transmission Range Sensor Circuit Range/Performance,TRANSMISSION,MEDIUM
+P0707,Transmission Range Sensor Circuit Low Input,TRANSMISSION,MEDIUM
+P0708,Transmission Range Sensor Circuit High Input,TRANSMISSION,MEDIUM
+P0709,Transmission Range Sensor Circuit Intermittent,TRANSMISSION,MEDIUM
+P0710,Transmission Fluid Temperature Sensor Circuit Malfunction,TRANSMISSION,MEDIUM
+P0711,Transmission Fluid Temperature Sensor Circuit Range/Performance,TRANSMISSION,LOW
+P0712,Transmission Fluid Temperature Sensor Circuit Low Input,TRANSMISSION,LOW
+P0713,Transmission Fluid Temperature Sensor Circuit High Input,TRANSMISSION,LOW
+P0714,Transmission Fluid Temperature Sensor Circuit Intermittent,TRANSMISSION,LOW
+P0715,Input/Turbine Speed Sensor Circuit Malfunction,TRANSMISSION,HIGH
+P0716,Input/Turbine Speed Sensor Circuit Range/Performance,TRANSMISSION,MEDIUM
+P0717,Input/Turbine Speed Sensor Circuit No Signal,TRANSMISSION,HIGH
+P0718,Input/Turbine Speed Sensor Circuit Intermittent,TRANSMISSION,MEDIUM
+P0719,Torque Converter/Brake Switch B Circuit Low,TRANSMISSION,MEDIUM
+P0720,Output Speed Sensor Circuit Malfunction,TRANSMISSION,HIGH
+P0721,Output Speed Sensor Circuit Range/Performance,TRANSMISSION,MEDIUM
+P0722,Output Speed Sensor Circuit No Signal,TRANSMISSION,HIGH
+P0723,Output Speed Sensor Circuit Intermittent,TRANSMISSION,MEDIUM
+P0724,Torque Converter/Brake Switch B Circuit High,TRANSMISSION,MEDIUM
+P0725,Engine Speed Input Circuit Malfunction,TRANSMISSION,HIGH
+P0726,Engine Speed Input Circuit Range/Performance,TRANSMISSION,MEDIUM
+P0727,Engine Speed Input Circuit No Signal,TRANSMISSION,HIGH
+P0728,Engine Speed Input Circuit Intermittent,TRANSMISSION,MEDIUM
+P0729,Gear 6 Incorrect Ratio,TRANSMISSION,HIGH
+P0730,Incorrect Gear Ratio,TRANSMISSION,HIGH
+P0731,Gear 1 Incorrect Ratio,TRANSMISSION,HIGH
+P0732,Gear 2 Incorrect Ratio,TRANSMISSION,HIGH
+P0733,Gear 3 Incorrect Ratio,TRANSMISSION,HIGH
+P0734,Gear 4 Incorrect Ratio,TRANSMISSION,HIGH
+P0735,Gear 5 Incorrect Ratio,TRANSMISSION,HIGH
+P0736,Reverse Incorrect Ratio,TRANSMISSION,HIGH
+P0737,TCM Engine Speed Output Circuit,TRANSMISSION,MEDIUM
+P0738,TCM Engine Speed Output Circuit Low,TRANSMISSION,MEDIUM
+P0739,TCM Engine Speed Output Circuit High,TRANSMISSION,MEDIUM
+P0740,Torque Converter Clutch Circuit Malfunction,TRANSMISSION,MEDIUM
+P0741,Torque Converter Clutch Circuit Performance or Stuck Off,TRANSMISSION,MEDIUM
+P0742,Torque Converter Clutch Circuit Stuck On,TRANSMISSION,HIGH
+P0743,Torque Converter Clutch Circuit Electrical,TRANSMISSION,MEDIUM
+P0744,Torque Converter Clutch Circuit Intermittent,TRANSMISSION,MEDIUM
+P0745,Pressure Control Solenoid Malfunction,TRANSMISSION,MEDIUM
+P0746,Pressure Control Solenoid Performance or Stuck Off,TRANSMISSION,MEDIUM
+P0747,Pressure Control Solenoid Stuck On,TRANSMISSION,HIGH
+P0748,Pressure Control Solenoid Electrical,TRANSMISSION,MEDIUM
+P0749,Pressure Control Solenoid Intermittent,TRANSMISSION,LOW
+P0750,Shift Solenoid A Malfunction,TRANSMISSION,HIGH
+P0751,Shift Solenoid A Performance or Stuck Off,TRANSMISSION,HIGH
+P0752,Shift Solenoid A Stuck On,TRANSMISSION,HIGH
+P0753,Shift Solenoid A Electrical,TRANSMISSION,MEDIUM
+P0754,Shift Solenoid A Intermittent,TRANSMISSION,MEDIUM
+P0755,Shift Solenoid B Malfunction,TRANSMISSION,HIGH
+P0756,Shift Solenoid B Performance or Stuck Off,TRANSMISSION,HIGH
+P0757,Shift Solenoid B Stuck On,TRANSMISSION,HIGH
+P0758,Shift Solenoid B Electrical,TRANSMISSION,MEDIUM
+P0759,Shift Solenoid B Intermittent,TRANSMISSION,MEDIUM
+P0760,Shift Solenoid C Malfunction,TRANSMISSION,HIGH
+P0761,Shift Solenoid C Performance Or Stuck Off,TRANSMISSION,HIGH
+P0762,Shift Solenoid C Stuck On,TRANSMISSION,HIGH
+P0763,Shift Solenoid C Electrical,TRANSMISSION,MEDIUM
+P0764,Shift Solenoid C Intermittent,TRANSMISSION,MEDIUM
+P0765,Shift Solenoid D Malfunction,TRANSMISSION,HIGH
+P0766,Shift Solenoid D Performance Or Stuck Off,TRANSMISSION,HIGH
+P0767,Shift Solenoid D Stuck On,TRANSMISSION,HIGH
+P0768,Shift Solenoid D Electrical,TRANSMISSION,MEDIUM
+P0769,Shift Solenoid D Intermittent,TRANSMISSION,MEDIUM
+P0770,Shift Solenoid E Malfunction,TRANSMISSION,HIGH
+P0771,Shift Solenoid E Performance Or Stuck Off,TRANSMISSION,HIGH
+P0772,Shift Solenoid E Stuck On,TRANSMISSION,HIGH
+P0773,Shift Solenoid E Electrical,TRANSMISSION,MEDIUM
+P0774,Shift Solenoid E Intermittent,TRANSMISSION,MEDIUM
+P0775,Pressure Control Solenoid B,TRANSMISSION,MEDIUM
+P0776,Pressure Control Solenoid B Performance or Stuck Off,TRANSMISSION,MEDIUM
+P0777,Pressure Control Solenoid B Stuck On,TRANSMISSION,HIGH
+P0778,Pressure Control Solenoid B Electrical,TRANSMISSION,MEDIUM
+P0779,Pressure Control Solenoid B Intermittent,TRANSMISSION,LOW
+P0780,Shift Malfunction,TRANSMISSION,HIGH
+P0781,1-2 Shift Malfunction,TRANSMISSION,HIGH
+P0782,2-3 Shift Malfunction,TRANSMISSION,HIGH
+P0783,3-4 Shift Malfunction,TRANSMISSION,HIGH
+P0784,4-5 Shift Malfunction,TRANSMISSION,HIGH
+P0785,Shift/Timing Solenoid Malfunction,TRANSMISSION,HIGH
+P0786,Shift/Timing Solenoid Range/Performance,TRANSMISSION,MEDIUM
+P0787,Shift/Timing Solenoid Low,TRANSMISSION,MEDIUM
+P0788,Shift/Timing Solenoid High,TRANSMISSION,MEDIUM
+P0789,Shift/Timing Solenoid Intermittent,TRANSMISSION,MEDIUM
+P0790,Normal/Performance Switch Circuit Malfunction,TRANSMISSION,LOW
+P0791,Intermediate Shaft Speed Sensor Circuit,TRANSMISSION,MEDIUM
+P0792,Intermediate Shaft Speed Sensor Circuit Range/Performance,TRANSMISSION,LOW
+P0793,Intermediate Shaft Speed Sensor Circuit No Signal,TRANSMISSION,MEDIUM
+P0794,Intermediate Shaft Speed Sensor Circuit Intermittent,TRANSMISSION,LOW
+P0795,Pressure Control Solenoid C,TRANSMISSION,MEDIUM
+P0796,Pressure Control Solenoid C Performance Or Stuck Off,TRANSMISSION,MEDIUM
+P0797,Pressure Control Solenoid C Stuck On,TRANSMISSION,HIGH
+P0798,Pressure Control Solenoid C Electrical,TRANSMISSION,MEDIUM
+P0799,Pressure Control Solenoid C Intermittent,TRANSMISSION,LOW

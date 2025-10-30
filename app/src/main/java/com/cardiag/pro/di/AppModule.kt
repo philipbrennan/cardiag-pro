@@ -6,6 +6,9 @@ import com.cardiag.pro.data.connection.ConnectionAdapter
 import com.cardiag.pro.data.connection.ConnectionManager
 import com.cardiag.pro.data.connection.ELM327Protocol
 import com.cardiag.pro.data.connection.UsbSerialConnectionAdapter
+import com.cardiag.pro.data.local.AppDatabase
+import com.cardiag.pro.data.local.dao.DiagnosticSessionDao
+import com.cardiag.pro.data.local.dao.DtcDao
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -51,5 +54,25 @@ object AppModule {
         connectionManager: ConnectionManager
     ): ELM327Protocol {
         return ELM327Protocol(connectionManager)
+    }
+
+    @Provides
+    @Singleton
+    fun provideAppDatabase(
+        @ApplicationContext context: Context
+    ): AppDatabase {
+        return AppDatabase.getInstance(context)
+    }
+
+    @Provides
+    @Singleton
+    fun provideDtcDao(database: AppDatabase): DtcDao {
+        return database.dtcDao()
+    }
+
+    @Provides
+    @Singleton
+    fun provideDiagnosticSessionDao(database: AppDatabase): DiagnosticSessionDao {
+        return database.diagnosticSessionDao()
     }
 }
