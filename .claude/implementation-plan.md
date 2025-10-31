@@ -809,3 +809,264 @@ dependencies {
 - Advanced coding and programming
 - Live parameter adjustments
 - Custom PID definitions
+
+---
+
+## Iteration 3.5: Debug Logging & Communication Analysis 🚧 *NEW*
+
+### Goals
+- Add comprehensive in-app logging UI for debugging OBD2 communication
+- Implement file-based logging for offline analysis
+- Debug FT232RL USB adapter connection issues with Nissan Leaf
+- Improve user feedback during connection and diagnostic operations
+- Create log export functionality for remote debugging
+
+### Problem Statement
+During initial hardware testing with FT232RL USB adapter on Nissan Leaf ZE0:
+- Adapter detected successfully (USB enumeration working)
+- Activity light flashes but connection fails
+- No VIN or diagnostic codes retrieved
+- Insufficient visibility into ELM327 command/response flow
+- No persistent logs for post-mortem analysis
+
+### Tasks
+- [ ] Create LogEntry data model with timestamp, level, tag, message
+- [ ] Implement FileLogger using coroutines for async file I/O
+- [ ] Create LogRepository to manage log entries (in-memory + file)
+- [ ] Build LogFragment with RecyclerView for real-time log viewing
+- [ ] Add log filtering by level (DEBUG, INFO, WARN, ERROR)
+- [ ] Implement log export to file (share via Android ShareSheet)
+- [ ] Enhance ELM327Protocol with detailed command/response logging
+- [ ] Add connection state change logging
+- [ ] Log USB device details (vendor ID, product ID, device class)
+- [ ] Add timing information for each command (execution duration)
+- [ ] Create custom Timber Tree for file logging
+- [ ] Implement log rotation (max file size 10MB, keep last 5 files)
+- [ ] Add "Copy Logs" button to share via email/Drive
+- [ ] Enhance UI with progress messages during operations
+- [ ] Add troubleshooting hints based on error patterns
+- [ ] Write unit tests for logging infrastructure
+- [ ] Test on physical device with real adapter
+
+### Deliverables
+- In-app log viewer accessible via bottom navigation tab
+- Detailed logging of all ELM327 commands and responses
+- File-based logs stored in app-specific storage
+- Log export functionality (ZIP file with all logs)
+- Enhanced error messages with actionable suggestions
+- Debug mode toggle in settings
+
+### Files Created/Modified
+```
+app/src/main/java/com/cardiag/pro/
+├── data/
+│   ├── model/
+│   │   ├── LogEntry.kt (new)
+│   │   └── LogLevel.kt (new)
+│   ├── logging/
+│   │   ├── FileLogger.kt (new)
+│   │   ├── LogRepository.kt (new)
+│   │   └── FileLoggingTree.kt (new)
+│   └── connection/
+│       ├── ELM327Protocol.kt (modify - add detailed logging)
+│       ├── UsbSerialConnectionAdapter.kt (modify - log USB details)
+│       └── BluetoothConnectionAdapter.kt (modify - log BT details)
+├── ui/
+│   ├── logs/
+│   │   ├── LogsFragment.kt (new)
+│   │   ├── LogsViewModel.kt (new)
+│   │   └── LogEntryAdapter.kt (new)
+│   └── MainActivity.kt (modify - add logs tab)
+└── util/
+    └── LogUtils.kt (new - helper functions)
+
+app/src/main/res/
+├── layout/
+│   ├── fragment_logs.xml (new)
+│   └── item_log_entry.xml (new)
+└── menu/
+    └── bottom_navigation_menu.xml (modify - add logs tab)
+```
+
+### Log Entry Model
+```kotlin
+data class LogEntry(
+    val timestamp: Long,
+    val level: LogLevel,
+    val tag: String,
+    val message: String,
+    val throwable: Throwable? = null,
+    val metadata: Map<String, String> = emptyMap()
+)
+
+enum class LogLevel(val priority: Int, val displayName: String) {
+    DEBUG(2, "DEBUG"),
+    INFO(3, "INFO"),
+    WARN(4, "WARN"),
+    ERROR(5, "ERROR")
+}
+```
+
+### Enhanced ELM327 Logging Example
+```kotlin
+class ELM327Protocol {
+    suspend fun sendCommand(command: String): Result<String> {
+        val startTime = System.currentTimeMillis()
+        
+        // Log outgoing command
+        LogRepository.log(
+            level = LogLevel.DEBUG,
+            tag = "ELM327",
+            message = "→ Sending: $command",
+            metadata = mapOf("command" to command)
+        )
+        
+        val result = connectionManager.sendCommand(command)
+        val duration = System.currentTimeMillis() - startTime
+        
+        when (result) {
+            is Result.Success -> {
+                LogRepository.log(
+                    level = LogLevel.DEBUG,
+                    tag = "ELM327",
+                    message = "← Received: ${result.data} (${duration}ms)",
+                    metadata = mapOf(
+                        "command" to command,
+                        "response" to result.data,
+                        "duration_ms" to duration.toString()
+                    )
+                )
+            }
+            is Result.Error -> {
+                LogRepository.log(
+                    level = LogLevel.ERROR,
+                    tag = "ELM327",
+                    message = "✗ Command failed: ${result.exception.message} (${duration}ms)",
+                    throwable = result.exception,
+                    metadata = mapOf(
+                        "command" to command,
+                        "duration_ms" to duration.toString()
+                    )
+                )
+            }
+        }
+        
+        return result
+    }
+}
+```
+
+### Log Viewer UI Features
+- Real-time log streaming (auto-scroll to bottom)
+- Filter by log level (chips: ALL, DEBUG, INFO, WARN, ERROR)
+- Search/filter by tag or message content
+- Color-coded log levels (DEBUG=gray, INFO=blue, WARN=orange, ERROR=red)
+- Expandable entries to show metadata and stack traces
+- Clear logs button
+- Export logs button (creates ZIP with all log files)
+
+### File Logging Implementation
+```kotlin
+@Singleton
+class FileLogger @Inject constructor(
+    @ApplicationContext private val context: Context
+) {
+    private val logDir = File(context.getExternalFilesDir(null), "logs")
+    private val currentLogFile: File
+        get() = File(logDir, "cardiag_${SimpleDateFormat("yyyyMMdd").format(Date())}.log")
+    
+    private val scope = CoroutineScope(Dispatchers.IO + SupervisorJob())
+    
+    init {
+        logDir.mkdirs()
+        rotateLogsIfNeeded()
+    }
+    
+    fun log(entry: LogEntry) {
+        scope.launch {
+            val logLine = formatLogEntry(entry)
+            currentLogFile.appendText(logLine + "\n")
+            
+            if (currentLogFile.length() > MAX_FILE_SIZE) {
+                rotateLogsIfNeeded()
+            }
+        }
+    }
+    
+    private fun formatLogEntry(entry: LogEntry): String {
+        val timestamp = SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSS").format(Date(entry.timestamp))
+        return "[$timestamp] ${entry.level.displayName}/${entry.tag}: ${entry.message}"
+    }
+    
+    private fun rotateLogsIfNeeded() {
+        val logFiles = logDir.listFiles()?.sortedByDescending { it.lastModified() } ?: return
+        
+        // Keep only last 5 log files
+        logFiles.drop(5).forEach { it.delete() }
+    }
+    
+    companion object {
+        private const val MAX_FILE_SIZE = 10 * 1024 * 1024L // 10MB
+    }
+}
+```
+
+### Nissan Leaf Specific Debugging
+Research and implement:
+- Nissan-specific CAN protocol quirks
+- ELM327 initialization sequence for Nissan vehicles
+- Proper baud rate and protocol settings for Leaf ZE0 (2011-2017)
+- Common issues with Nissan ISO 15765-4 (CAN) protocol
+- Adapter compatibility matrix (some ELM327 clones don't work with Nissan)
+
+### Expected Log Output Example
+```
+[2025-10-30 20:50:15.123] INFO/USB: Device connected: VID=0x0403 PID=0x6001 (FTDI FT232R)
+[2025-10-30 20:50:15.456] DEBUG/USB: Setting baud rate: 38400
+[2025-10-30 20:50:15.789] DEBUG/USB: Serial port opened successfully
+[2025-10-30 20:50:16.012] DEBUG/ELM327: → Sending: ATZ
+[2025-10-30 20:50:17.234] DEBUG/ELM327: ← Received: ELM327 v1.5 (987ms)
+[2025-10-30 20:50:17.345] DEBUG/ELM327: → Sending: ATE0
+[2025-10-30 20:50:17.456] DEBUG/ELM327: ← Received: OK (111ms)
+[2025-10-30 20:50:17.567] DEBUG/ELM327: → Sending: ATL0
+[2025-10-30 20:50:17.678] DEBUG/ELM327: ← Received: OK (111ms)
+[2025-10-30 20:50:17.789] DEBUG/ELM327: → Sending: ATSP6
+[2025-10-30 20:50:17.900] DEBUG/ELM327: ← Received: OK (111ms)
+[2025-10-30 20:50:18.012] DEBUG/ELM327: → Sending: 0100
+[2025-10-30 20:50:18.543] ERROR/ELM327: ✗ Command failed: Timeout waiting for response (531ms)
+[2025-10-30 20:50:18.544] WARN/Diagnostics: Failed to initialize: No response from vehicle
+```
+
+### Technical Considerations
+- Log rotation to prevent storage exhaustion
+- Async logging to avoid UI blocking
+- Structured logging with metadata for analysis
+- USB-specific logging: device enumeration, permissions, serial settings
+- ELM327-specific logging: command echoing, protocol detection, error codes
+- Performance impact: minimize overhead in production builds
+- Privacy: ensure no VIN or personal data in exported logs (or warn user)
+
+### Testing Strategy
+1. Unit tests for FileLogger (log rotation, formatting)
+2. Integration tests for ELM327 logging with mock adapter
+3. Real hardware testing with FT232RL adapter
+4. Test log export and share functionality
+5. Verify log file size limits and rotation
+6. Test on multiple Android versions (API 24-34)
+
+### Success Criteria
+- ✅ All ELM327 commands visible in log viewer
+- ✅ Can export logs and email/share for analysis
+- ✅ Identify root cause of Nissan Leaf connection failure
+- ✅ Logs help diagnose adapter compatibility issues
+- ✅ User can understand what's happening during connection
+- ✅ No performance impact on normal operation
+
+### Timeline
+- Development: 1-2 days
+- Testing with real hardware: 1 day
+- Bug fixes and refinement: 1 day
+- **Total: 3-4 days**
+
+---
+
