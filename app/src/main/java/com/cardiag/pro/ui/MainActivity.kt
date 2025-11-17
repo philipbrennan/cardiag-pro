@@ -7,6 +7,7 @@ import com.cardiag.pro.R
 import com.cardiag.pro.databinding.ActivityMainBinding
 import com.cardiag.pro.ui.connection.ConnectionFragment
 import com.cardiag.pro.ui.diagnostic.DiagnosticFragment
+import com.cardiag.pro.ui.logs.LogsFragment
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -30,6 +31,10 @@ class MainActivity : AppCompatActivity() {
                 }
                 R.id.navigation_diagnostic -> {
                     loadFragment(DiagnosticFragment())
+                    true
+                }
+                R.id.navigation_logs -> {
+                    loadFragment(LogsFragment())
                     true
                 }
                 else -> false

@@ -60,6 +60,7 @@ class UsbSerialConnectionAdapter @Inject constructor(
 
     override suspend fun scanForAdapters(): Result<List<AdapterInfo>> = withContext(Dispatchers.IO) {
         try {
+            Timber.d("=== USB Adapter Scan Started ===")
             val manager = usbManager
                 ?: return@withContext Result.Error(IllegalStateException("USB not available"))
 
@@ -67,9 +68,25 @@ class UsbSerialConnectionAdapter @Inject constructor(
 
             // Find all available USB serial devices
             val availableDrivers = UsbSerialProber.getDefaultProber().findAllDrivers(manager)
+            Timber.d("Found ${availableDrivers.size} USB serial devices")
 
-            val adapters = availableDrivers.map { driver ->
+            val adapters = availableDrivers.mapIndexed { index, driver ->
                 val device = driver.device
+
+                // Log detailed device information
+                Timber.i("USB Device #$index:")
+                Timber.i("  Device Name: ${device.deviceName}")
+                Timber.i("  Vendor ID: 0x${device.vendorId.toString(16).uppercase()}")
+                Timber.i("  Product ID: 0x${device.productId.toString(16).uppercase()}")
+                Timber.i("  Device Class: ${device.deviceClass}")
+                Timber.i("  Device Subclass: ${device.deviceSubclass}")
+                Timber.i("  Device Protocol: ${device.deviceProtocol}")
+                Timber.i("  Manufacturer: ${device.manufacturerName ?: "Unknown"}")
+                Timber.i("  Product: ${device.productName ?: "Unknown"}")
+                Timber.i("  Serial: ${device.serialNumber ?: "Unknown"}")
+                Timber.i("  Interface Count: ${device.interfaceCount}")
+                Timber.i("  Driver Type: ${driver.javaClass.simpleName}")
+
                 AdapterInfo(
                     id = "${device.vendorId}:${device.productId}",
                     name = device.deviceName ?: "USB Serial Device",
@@ -79,7 +96,7 @@ class UsbSerialConnectionAdapter @Inject constructor(
             }
 
             _connectionState.value = ConnectionState.Disconnected
-            Timber.d("Found ${adapters.size} USB serial adapters")
+            Timber.d("=== USB Scan Complete: Found ${adapters.size} adapters ===")
             Result.Success(adapters)
         } catch (e: Exception) {
             Timber.e(e, "Failed to scan for USB adapters")
@@ -90,6 +107,8 @@ class UsbSerialConnectionAdapter @Inject constructor(
 
     override suspend fun connect(adapterInfo: AdapterInfo): Result<Unit> = withContext(Dispatchers.IO) {
         try {
+            Timber.d("=== USB Connection Started ===")
+            Timber.d("Attempting to connect to: ${adapterInfo.name} (${adapterInfo.id})")
             _connectionState.value = ConnectionState.Connecting(adapterInfo)
 
             // Disconnect existing connection if any
@@ -100,16 +119,21 @@ class UsbSerialConnectionAdapter @Inject constructor(
 
             // Find the USB device
             val availableDrivers = UsbSerialProber.getDefaultProber().findAllDrivers(manager)
+            Timber.d("Searching for device in ${availableDrivers.size} available drivers")
+
             val driver = availableDrivers.firstOrNull { driver ->
                 val device = driver.device
                 "${device.vendorId}:${device.productId}" == adapterInfo.id
             } ?: return@withContext Result.Error(IllegalArgumentException("USB device not found"))
 
             val device = driver.device
+            Timber.i("Found target device: ${device.deviceName}")
+            Timber.i("  Vendor ID: 0x${device.vendorId.toString(16).uppercase()}")
+            Timber.i("  Product ID: 0x${device.productId.toString(16).uppercase()}")
 
             // Request permission if needed
             if (!manager.hasPermission(device)) {
-                Timber.d("Requesting USB permission for ${device.deviceName}")
+                Timber.w("USB permission not granted, requesting permission")
                 val flags = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
                     PendingIntent.FLAG_IMMUTABLE or PendingIntent.FLAG_UPDATE_CURRENT
                 } else {
@@ -125,32 +149,37 @@ class UsbSerialConnectionAdapter @Inject constructor(
                 return@withContext Result.Error(SecurityException("USB permission required"))
             }
 
+            Timber.d("USB permission granted")
+
             // Open connection
             val connection = manager.openDevice(device)
                 ?: return@withContext Result.Error(IOException("Failed to open USB device"))
 
-            Timber.d("Opening USB serial port for ${device.deviceName}")
+            Timber.d("USB device opened, configuring serial port")
 
             // Get first port (most devices have only one)
             val port = driver.ports.firstOrNull()
                 ?: return@withContext Result.Error(IllegalStateException("No USB serial ports available"))
 
+            Timber.d("Opening serial port #0 (${driver.ports.size} ports available)")
             port.open(connection)
+
+            Timber.d("Setting serial parameters: $BAUD_RATE baud, $DATA_BITS data bits, $STOP_BITS stop bits, parity=$PARITY")
             port.setParameters(BAUD_RATE, DATA_BITS, STOP_BITS, PARITY)
 
             serialPort = port
             currentDriver = driver
 
             _connectionState.value = ConnectionState.Connected(adapterInfo)
-            Timber.i("Connected to USB adapter: ${adapterInfo.name}")
+            Timber.i("=== USB Connection Successful ===")
             Result.Success(Unit)
         } catch (e: IOException) {
-            Timber.e(e, "Failed to connect to USB adapter")
+            Timber.e(e, "USB connection failed: ${e.message}")
             disconnect()
             _connectionState.value = ConnectionState.Error("Connection failed: ${e.message}", e)
             Result.Error(e)
         } catch (e: Exception) {
-            Timber.e(e, "Unexpected error during USB connection")
+            Timber.e(e, "Unexpected error during USB connection: ${e.message}")
             disconnect()
             _connectionState.value = ConnectionState.Error("Unexpected error: ${e.message}", e)
             Result.Error(e as? Exception ?: Exception(e))
