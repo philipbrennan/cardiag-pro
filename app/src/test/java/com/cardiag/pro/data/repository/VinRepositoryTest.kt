@@ -47,11 +47,11 @@ class VinRepositoryTest {
 
     @Test
     fun `readVin should parse valid multi-line response successfully`() = runTest {
-        // Given - Multi-line VIN response
+        // Given - Multi-line VIN response (corrected to 17 chars)
         val vinResponse = """
             49 02 01 57 42 41 44
             49 02 02 54 34 33 34
-            49 02 03 35 32 47 31
+            49 02 03 35 47 32 31
             49 02 04 32 33 34 35
             49 02 05 36
         """.trimIndent()
@@ -64,15 +64,15 @@ class VinRepositoryTest {
         // Then
         assertTrue(result is Result.Success)
         val vehicleInfo = (result as Result.Success).data
-        assertEquals("WBADT43452G123456", vehicleInfo.vin)
+        assertEquals("WBADT4345G2123456", vehicleInfo.vin)
         assertEquals(Manufacturer.BMW, vehicleInfo.manufacturer)
         assertFalse(vehicleInfo.isManuallyEntered)
     }
 
     @Test
     fun `readVin should parse valid single-line response successfully`() = runTest {
-        // Given - Single line VIN response
-        val vinResponse = "49 02 01 57 42 41 44 54 34 33 34 35 32 47 31 32 33 34 35 36"
+        // Given - Single line VIN response (corrected to 17 chars)
+        val vinResponse = "49 02 01 57 42 41 44 54 34 33 34 35 47 32 31 32 33 34 35 36"
         
         coEvery { elm327Protocol.sendCommand("0902") } returns vinResponse
 
@@ -82,15 +82,15 @@ class VinRepositoryTest {
         // Then
         assertTrue(result is Result.Success)
         val vehicleInfo = (result as Result.Success).data
-        assertEquals("WBADT43452G123456", vehicleInfo.vin)
+        assertEquals("WBADT4345G2123456", vehicleInfo.vin)
     }
 
     @Test
     fun `readVin should parse CAN frame format response successfully`() = runTest {
-        // Given - CAN frame format
+        // Given - CAN frame format (corrected to 17 chars)
         val vinResponse = """
             0: 49 02 01 57 42 41 44
-            1: 54 34 33 34 35 32 47
+            1: 54 34 33 34 35 47 32
             2: 31 32 33 34 35 36
         """.trimIndent()
         
@@ -102,13 +102,13 @@ class VinRepositoryTest {
         // Then
         assertTrue(result is Result.Success)
         val vehicleInfo = (result as Result.Success).data
-        assertEquals("WBADT43452G123456", vehicleInfo.vin)
+        assertEquals("WBADT4345G2123456", vehicleInfo.vin)
     }
 
     @ParameterizedTest
     @CsvSource(
-        "WBADT43452G123456, BMW",
-        "WVW1234567890123, VOLKSWAGEN",
+        "WBADT4345G2123456, BMW",
+        "WVW12345678901234, VOLKSWAGEN",
         "JN1AB1234CD567890, NISSAN",
         "1HGBH41JXMN109186, UNKNOWN"
     )
@@ -287,7 +287,7 @@ class VinRepositoryTest {
     @Test
     fun `readVin should extract year from VIN correctly`() = runTest {
         // Given - 10th character 'G' = 2016
-        val vin = "WBADT43452G123456"
+        val vin = "WBADT4345G2123456"  // Changed: G at position 10 (index 9)
         val hexVin = vin.map { it.code.toString(16).padStart(2, '0') }.joinToString(" ")
         val vinResponse = "49 02 01 $hexVin"
         

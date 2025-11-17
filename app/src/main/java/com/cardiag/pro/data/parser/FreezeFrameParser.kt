@@ -19,9 +19,16 @@ object FreezeFrameParser {
             Timber.d("Parsing freeze frame for $dtcCode: $response")
             
             // Remove spaces and convert to bytes
-            val bytes = response.replace(Regex("\\s+"), "")
-                .chunked(2)
-                .mapNotNull { it.toIntOrNull(16) }
+            val hexString = response.replace(Regex("\\s+"), "")
+            val hexPairs = hexString.chunked(2)
+            
+            // Check for invalid hex before parsing
+            if (hexPairs.any { it.length == 2 && it.toIntOrNull(16) == null }) {
+                Timber.e("Invalid hex characters in response")
+                return null
+            }
+            
+            val bytes = hexPairs.mapNotNull { it.toIntOrNull(16) }
             
             if (bytes.isEmpty()) {
                 Timber.e("Empty byte array from response")
@@ -132,6 +139,13 @@ object FreezeFrameParser {
                         i++
                     }
                 }
+            }
+            
+            // Return null only if we couldn't even read the frame number properly
+            // or if there were no PIDs in the response at all
+            if (bytes.size <= 2) {
+                Timber.w("No PID data in freeze frame response")
+                return null
             }
             
             return FreezeFrameData(

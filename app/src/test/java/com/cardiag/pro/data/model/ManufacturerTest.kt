@@ -154,8 +154,8 @@ class ManufacturerTest {
     fun `fromVin should work with standard 17-character VINs`() {
         // Given - exactly 17 characters
         val validVins = listOf(
-            "WBADT43452G123456",
-            "WVW1234567890123",
+            "WBADT4345G2123456",
+            "WVW12345678901234",
             "JN1AB1234CD567890"
         )
 

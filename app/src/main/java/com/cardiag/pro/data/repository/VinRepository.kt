@@ -33,58 +33,58 @@ class VinRepository @Inject constructor(
                 Timber.d("Sending VIN request command: 0902")
                 val response = elm327Protocol.sendCommand("0902")
 
-            Timber.d("Raw VIN response received: '$response'")
-            Timber.d("Response length: ${response?.length ?: 0} characters")
+                Timber.d("Raw VIN response received: '$response'")
+                Timber.d("Response length: ${response?.length ?: 0} characters")
 
-            if (response == null) {
-                Timber.e("VIN response is null")
-                return Result.Error(Exception("Failed to read VIN from vehicle - no response"))
-            }
+                if (response == null) {
+                    Timber.w("VIN response is null, attempt ${attempt + 1}/$maxAttempts")
+                    throw Exception("Failed to read VIN from vehicle - no response")
+                }
 
-            if (response.contains("NO DATA", ignoreCase = true)) {
-                Timber.e("Vehicle does not support VIN reading (Mode 09 PID 02)")
-                return Result.Error(Exception("VIN not supported by vehicle"))
-            }
+                if (response.contains("NO DATA", ignoreCase = true)) {
+                    Timber.e("Vehicle does not support VIN reading (Mode 09 PID 02)")
+                    return Result.Error(Exception("VIN not supported by vehicle"))
+                }
 
-            if (response.contains("ERROR", ignoreCase = true)) {
-                Timber.e("ELM327 returned error: $response")
-                return Result.Error(Exception("ELM327 error reading VIN: $response"))
-            }
+                if (response.contains("ERROR", ignoreCase = true)) {
+                    Timber.e("ELM327 returned error: $response")
+                    return Result.Error(Exception("ELM327 error reading VIN: $response"))
+                }
 
-            // Parse VIN from response
-            // Response format: 49 02 01 XX XX XX XX ... (multi-line response)
-            Timber.d("Parsing VIN from response...")
-            val vin = parseVin(response)
+                // Parse VIN from response
+                // Response format: 49 02 01 XX XX XX XX ... (multi-line response)
+                Timber.d("Parsing VIN from response...")
+                val vin = parseVin(response)
 
-            if (vin == null) {
-                Timber.e("Failed to parse VIN from response: $response")
-                return Result.Error(Exception("Could not parse VIN from response"))
-            }
+                if (vin == null) {
+                    Timber.w("Failed to parse VIN from response, attempt ${attempt + 1}/$maxAttempts")
+                    throw Exception("Could not parse VIN from response")
+                }
 
-            Timber.d("Parsed VIN: '$vin' (${vin.length} characters)")
+                Timber.d("Parsed VIN: '$vin' (${vin.length} characters)")
 
-            if (!isValidVin(vin)) {
-                Timber.e("VIN validation failed: '$vin' - invalid format")
-                return Result.Error(Exception("Invalid VIN format: $vin"))
-            }
+                if (!isValidVin(vin)) {
+                    Timber.w("VIN validation failed: '$vin' - attempt ${attempt + 1}/$maxAttempts")
+                    throw Exception("Invalid VIN format: $vin")
+                }
 
-            val manufacturer = Manufacturer.fromVin(vin)
-            val year = extractYearFromVin(vin)
-            
-            Timber.i("=== VIN decoded successfully ===")
-            Timber.i("VIN: $vin")
-            Timber.i("Manufacturer: ${manufacturer.displayName}")
-            Timber.i("Year: ${year ?: "Unknown"}")
+                val manufacturer = Manufacturer.fromVin(vin)
+                val year = extractYearFromVin(vin)
+                
+                Timber.i("=== VIN decoded successfully ===")
+                Timber.i("VIN: $vin")
+                Timber.i("Manufacturer: ${manufacturer.displayName}")
+                Timber.i("Year: ${year ?: "Unknown"}")
 
-            return Result.Success(
-                VehicleInfo(
-                    vin = vin,
-                    manufacturer = manufacturer,
-                    year = year,
-                    model = null, // We don't decode model from VIN yet
-                    isManuallyEntered = false
+                return Result.Success(
+                    VehicleInfo(
+                        vin = vin,
+                        manufacturer = manufacturer,
+                        year = year,
+                        model = null, // We don't decode model from VIN yet
+                        isManuallyEntered = false
+                    )
                 )
-            )
             } catch (e: Exception) {
                 Timber.w(e, "VIN read attempt ${attempt + 1} failed")
                 lastError = e
@@ -187,18 +187,20 @@ class VinRepository @Inject constructor(
                     // Skip header (49 02) and frame number
                     i += 3
                     
-                    // Collect ASCII characters
+                    // Collect ASCII characters until next frame or end
                     while (i < bytes.size && vinBytes.size < 17) {
                         val byte = bytes[i]
+                        
+                        // Check if this is the start of next frame (49 02)
+                        if (i < bytes.size - 1 && byte == 0x49 && bytes[i + 1] == 0x02) {
+                            // Next frame starts here
+                            break
+                        }
+                        
                         if (byte in 32..126) { // Printable ASCII
                             vinBytes.add(byte)
-                            i++
-                        } else if (byte == 0x49) {
-                            // Start of next frame
-                            break
-                        } else {
-                            i++
                         }
+                        i++
                     }
                 } else {
                     i++
