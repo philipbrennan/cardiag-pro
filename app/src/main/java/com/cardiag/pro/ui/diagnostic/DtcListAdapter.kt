@@ -49,6 +49,14 @@ class DtcListAdapter : ListAdapter<DiagnosticTroubleCode, DtcListAdapter.DtcView
             }
 
             binding.chipSeverity.setChipBackgroundColorResource(chipColor)
+
+            // Display possible causes if available
+            if (!dtc.possibleCauses.isNullOrBlank()) {
+                binding.tvPossibleCauses.text = "Possible Causes: ${dtc.possibleCauses}"
+                binding.tvPossibleCauses.visibility = android.view.View.VISIBLE
+            } else {
+                binding.tvPossibleCauses.visibility = android.view.View.GONE
+            }
         }
     }
 

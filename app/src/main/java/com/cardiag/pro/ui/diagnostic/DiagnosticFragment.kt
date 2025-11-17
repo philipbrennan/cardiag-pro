@@ -91,9 +91,23 @@ class DiagnosticFragment : Fragment() {
                         if (vehicleInfo != null) {
                             binding.tvVin.text = "VIN: ${vehicleInfo.vin}"
                             binding.tvManufacturer.text = "Manufacturer: ${vehicleInfo.manufacturer.displayName}"
+                            
+                            // Show manufacturer chip
+                            binding.chipManufacturer.text = vehicleInfo.manufacturer.displayName
+                            binding.chipManufacturer.visibility = android.view.View.VISIBLE
+                            
+                            // Set chip color based on manufacturer
+                            val chipBackgroundColor = when (vehicleInfo.manufacturer) {
+                                com.cardiag.pro.data.model.Manufacturer.BMW -> R.color.manufacturer_bmw
+                                com.cardiag.pro.data.model.Manufacturer.VOLKSWAGEN -> R.color.manufacturer_vw
+                                com.cardiag.pro.data.model.Manufacturer.NISSAN -> R.color.manufacturer_nissan
+                                else -> R.color.manufacturer_generic
+                            }
+                            binding.chipManufacturer.setChipBackgroundColorResource(chipBackgroundColor)
                         } else {
                             binding.tvVin.text = "VIN: Not detected"
                             binding.tvManufacturer.text = "Manufacturer: Unknown"
+                            binding.chipManufacturer.visibility = android.view.View.GONE
                         }
                     }
                 }

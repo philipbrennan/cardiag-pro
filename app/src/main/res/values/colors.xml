@@ -61,6 +61,12 @@
     <color name="system_abs">#FF9800</color>
     <color name="system_srs">#F44336</color>
 
+    <!-- Manufacturer Colors -->
+    <color name="manufacturer_bmw">#0066B1</color>
+    <color name="manufacturer_vw">#001E50</color>
+    <color name="manufacturer_nissan">#C3002F</color>
+    <color name="manufacturer_generic">#607D8B</color>
+
     <!-- Launcher Icon -->
     <color name="ic_launcher_background">#006C4C</color>
     <color name="primary">#6CDBAC</color>
