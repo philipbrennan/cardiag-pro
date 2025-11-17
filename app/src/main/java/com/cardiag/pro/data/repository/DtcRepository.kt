@@ -7,11 +7,14 @@ import com.cardiag.pro.data.local.entity.DiagnosticSessionEntity
 import com.cardiag.pro.data.local.entity.DtcEntity
 import com.cardiag.pro.data.model.DiagnosticTroubleCode
 import com.cardiag.pro.data.model.ECUSystem
+import com.cardiag.pro.data.model.FreezeFrameData
 import com.cardiag.pro.data.model.Manufacturer
 import com.cardiag.pro.data.model.Result
 import com.cardiag.pro.data.model.Severity
+import com.cardiag.pro.data.parser.FreezeFrameParser
 import kotlinx.coroutines.flow.Flow
 import org.json.JSONArray
+import org.json.JSONObject
 import timber.log.Timber
 import javax.inject.Inject
 import javax.inject.Singleton
@@ -88,27 +91,40 @@ class DtcRepository @Inject constructor(
     }
 
     /**
-     * Save diagnostic session to database.
+     * Save diagnostic session to database with freeze frame data.
      */
     suspend fun saveDiagnosticSession(
         vin: String?,
         manufacturer: Manufacturer?,
         codes: List<DiagnosticTroubleCode>,
-        notes: String? = null
+        freezeFrames: Map<String, FreezeFrameData>? = null,
+        notes: String? = null,
+        systemScanned: String? = null
     ): Result<Long> {
         try {
             val codesJson = JSONArray(codes.map { it.code }).toString()
+            
+            // Convert freeze frames to JSON
+            val freezeFramesJson = freezeFrames?.let { frames ->
+                val json = JSONObject()
+                frames.forEach { (code, data) ->
+                    json.put(code, data.toJson())
+                }
+                json.toString()
+            }
 
             val session = DiagnosticSessionEntity(
                 timestamp = System.currentTimeMillis(),
                 vin = vin,
                 manufacturer = manufacturer?.name,
                 codes = codesJson,
-                notes = notes
+                freezeFrames = freezeFramesJson,
+                notes = notes,
+                systemScanned = systemScanned
             )
 
             val id = sessionDao.insertSession(session)
-            Timber.i("Saved diagnostic session: $id")
+            Timber.i("Saved diagnostic session: $id (${codes.size} codes, ${freezeFrames?.size ?: 0} freeze frames)")
 
             return Result.Success(id)
 
@@ -252,6 +268,75 @@ class DtcRepository @Inject constructor(
             Timber.e(e, "Failed to discover ECUs")
             Result.Error(e)
         }
+    }
+
+    /**
+     * Read freeze frame data for a specific DTC code.
+     * Mode 02 - Request freeze frame data.
+     */
+    suspend fun readFreezeFrame(dtcCode: String, frameNumber: Int = 0): Result<FreezeFrameData> {
+        try {
+            Timber.d("Reading freeze frame for $dtcCode (frame $frameNumber)")
+            
+            // Build freeze frame request for common PIDs
+            val command = FreezeFrameParser.buildFreezeFrameRequestWithPIDs(
+                frameNumber,
+                0x0C, // RPM
+                0x0D, // Speed
+                0x05, // Coolant temp
+                0x11, // Throttle
+                0x04, // Engine load
+                0x06, // Short term fuel trim
+                0x07, // Long term fuel trim
+                0x0F, // Intake air temp
+                0x10, // MAF
+                0x0A  // Fuel pressure
+            )
+            
+            val response = elm327Protocol.sendCommand(command)
+            
+            if (response == null) {
+                return Result.Error(Exception("No response from freeze frame request"))
+            }
+            
+            if (response.contains("NO DATA", ignoreCase = true)) {
+                Timber.w("No freeze frame data available for $dtcCode")
+                return Result.Error(Exception("Freeze frame not available"))
+            }
+            
+            val freezeFrame = FreezeFrameParser.parseFreezeFrame(dtcCode, response)
+            
+            if (freezeFrame == null) {
+                return Result.Error(Exception("Failed to parse freeze frame data"))
+            }
+            
+            Timber.i("Freeze frame read successfully: ${freezeFrame.getSummary()}")
+            return Result.Success(freezeFrame)
+            
+        } catch (e: Exception) {
+            Timber.e(e, "Failed to read freeze frame")
+            return Result.Error(e)
+        }
+    }
+
+    /**
+     * Read freeze frames for all DTCs.
+     */
+    suspend fun readAllFreezeFrames(codes: List<DiagnosticTroubleCode>): Map<String, FreezeFrameData> {
+        val freezeFrames = mutableMapOf<String, FreezeFrameData>()
+        
+        for (code in codes) {
+            when (val result = readFreezeFrame(code.code)) {
+                is Result.Success -> {
+                    freezeFrames[code.code] = result.data
+                }
+                is Result.Error -> {
+                    Timber.w("Could not read freeze frame for ${code.code}: ${result.exception.message}")
+                }
+            }
+        }
+        
+        return freezeFrames
     }
 
     /**

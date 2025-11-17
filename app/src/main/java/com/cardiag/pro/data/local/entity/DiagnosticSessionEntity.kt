@@ -17,5 +17,7 @@ data class DiagnosticSessionEntity(
     val vin: String?,
     val manufacturer: String?,
     val codes: String, // JSON array of detected codes
-    val notes: String? = null
+    val freezeFrames: String? = null, // JSON object mapping code -> freeze frame data
+    val notes: String? = null,
+    val systemScanned: String? = null // Which ECU system(s) were scanned
 )
