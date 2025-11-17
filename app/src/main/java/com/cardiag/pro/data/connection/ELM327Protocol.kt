@@ -129,4 +129,85 @@ class ELM327Protocol @Inject constructor(
     fun resetInitialization() {
         isInitialized = false
     }
+
+    /**
+     * Discover which ECUs are present and responding.
+     * Scans all ECU headers (7E0-7E7) to check for responses.
+     */
+    suspend fun discoverECUs(): com.cardiag.pro.data.model.ECUDiscoveryResult {
+        val startTime = System.currentTimeMillis()
+        val availableECUs = mutableListOf<com.cardiag.pro.data.model.ECUInfo>()
+        
+        Timber.i("=== Starting ECU Discovery ===")
+        
+        // Scan all ECU headers
+        for (ecu in com.cardiag.pro.data.model.ECU.entries) {
+            try {
+                Timber.d("Scanning ${ecu.displayName} (${ecu.header})...")
+                
+                // Set the CAN header for this ECU
+                sendCommand("ATSH${ecu.header}", timeoutMs = 2000)
+                
+                // Try to read DTCs from this ECU
+                val response = sendCommand("03", timeoutMs = 3000)
+                
+                val isResponding = response != null && 
+                    !response.contains("NO DATA", ignoreCase = true) &&
+                    !response.contains("ERROR", ignoreCase = true) &&
+                    !response.contains("?", ignoreCase = true)
+                
+                if (isResponding) {
+                    Timber.i("✓ ${ecu.displayName} is responding")
+                    availableECUs.add(
+                        com.cardiag.pro.data.model.ECUInfo(
+                            ecu = ecu,
+                            isResponding = true,
+                            protocolSupported = true
+                        )
+                    )
+                } else {
+                    Timber.d("✗ ${ecu.displayName} not responding: $response")
+                }
+            } catch (e: Exception) {
+                Timber.w(e, "Error scanning ${ecu.displayName}")
+            }
+        }
+        
+        // Reset to broadcast mode
+        sendCommand("ATSH7DF", timeoutMs = 2000)
+        
+        val duration = System.currentTimeMillis() - startTime
+        Timber.i("=== ECU Discovery Complete: ${availableECUs.size}/${com.cardiag.pro.data.model.ECU.entries.size} ECUs found in ${duration}ms ===")
+        
+        return com.cardiag.pro.data.model.ECUDiscoveryResult(
+            availableECUs = availableECUs,
+            totalScanned = com.cardiag.pro.data.model.ECU.entries.size,
+            scanDurationMs = duration
+        )
+    }
+
+    /**
+     * Read DTCs from a specific ECU.
+     */
+    suspend fun readDTCsFromECU(ecu: com.cardiag.pro.data.model.ECU): String? {
+        try {
+            Timber.d("Reading DTCs from ${ecu.displayName} (${ecu.header})")
+            
+            // Set the CAN header for this ECU
+            sendCommand("ATSH${ecu.header}", timeoutMs = 2000)
+            
+            // Read DTCs
+            val response = sendCommand("03", timeoutMs = 5000)
+            
+            // Reset to broadcast mode
+            sendCommand("ATSH7DF", timeoutMs = 2000)
+            
+            return response
+        } catch (e: Exception) {
+            Timber.e(e, "Failed to read DTCs from ${ecu.displayName}")
+            // Make sure to reset even on error
+            sendCommand("ATSH7DF", timeoutMs = 2000)
+            return null
+        }
+    }
 }

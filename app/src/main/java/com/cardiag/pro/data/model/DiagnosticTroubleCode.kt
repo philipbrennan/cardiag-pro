@@ -9,7 +9,8 @@ data class DiagnosticTroubleCode(
     val system: ECUSystem,
     val severity: Severity,
     val manufacturer: Manufacturer? = null, // null for generic codes
-    val possibleCauses: String? = null // Comma-separated list of possible causes
+    val possibleCauses: String? = null, // Comma-separated list of possible causes
+    val sourceECU: ECU? = null // Which ECU reported this code
 )
 
 /**

@@ -242,6 +242,76 @@ class DtcRepository @Inject constructor(
     }
 
     /**
+     * Discover available ECUs in the vehicle.
+     */
+    suspend fun discoverECUs(): Result<com.cardiag.pro.data.model.ECUDiscoveryResult> {
+        return try {
+            val result = elm327Protocol.discoverECUs()
+            Result.Success(result)
+        } catch (e: Exception) {
+            Timber.e(e, "Failed to discover ECUs")
+            Result.Error(e)
+        }
+    }
+
+    /**
+     * Read DTCs from all available ECUs.
+     * Returns a map of ECU to list of DTCs found.
+     */
+    suspend fun readDtcCodesFromAllECUs(
+        manufacturer: Manufacturer? = null
+    ): Result<Map<com.cardiag.pro.data.model.ECU, List<DiagnosticTroubleCode>>> {
+        try {
+            Timber.i("=== Reading DTCs from all ECUs ===")
+            
+            // First discover which ECUs are available
+            val discoveryResult = when (val result = discoverECUs()) {
+                is Result.Success -> result.data
+                is Result.Error -> return Result.Error(result.exception)
+            }
+            
+            val ecuDtcMap = mutableMapOf<com.cardiag.pro.data.model.ECU, List<DiagnosticTroubleCode>>()
+            
+            // Read DTCs from each responding ECU
+            for (ecuInfo in discoveryResult.availableECUs) {
+                if (!ecuInfo.isResponding) continue
+                
+                Timber.d("Reading DTCs from ${ecuInfo.ecu.displayName}...")
+                val response = elm327Protocol.readDTCsFromECU(ecuInfo.ecu)
+                
+                if (response != null && !response.contains("NO DATA", ignoreCase = true)) {
+                    // Map ECU to ECUSystem for compatibility
+                    val system = when (ecuInfo.ecu) {
+                        com.cardiag.pro.data.model.ECU.ENGINE -> ECUSystem.ENGINE
+                        com.cardiag.pro.data.model.ECU.TRANSMISSION -> ECUSystem.TRANSMISSION
+                        com.cardiag.pro.data.model.ECU.ABS -> ECUSystem.ABS
+                        com.cardiag.pro.data.model.ECU.SRS -> ECUSystem.SRS
+                        else -> ECUSystem.ENGINE
+                    }
+                    
+                    val codes = parseDtcCodes(response, system)
+                    val enrichedCodes = enrichCodesWithDescriptions(codes, manufacturer)
+                        .map { it.copy(sourceECU = ecuInfo.ecu) } // Tag with source ECU
+                    
+                    if (enrichedCodes.isNotEmpty()) {
+                        ecuDtcMap[ecuInfo.ecu] = enrichedCodes
+                        Timber.i("${ecuInfo.ecu.displayName}: ${enrichedCodes.size} code(s)")
+                    }
+                }
+            }
+            
+            val totalCodes = ecuDtcMap.values.sumOf { it.size }
+            Timber.i("=== Total: $totalCodes codes from ${ecuDtcMap.size} ECUs ===")
+            
+            return Result.Success(ecuDtcMap)
+            
+        } catch (e: Exception) {
+            Timber.e(e, "Failed to read DTCs from all ECUs")
+            return Result.Error(e)
+        }
+    }
+
+    /**
      * Get statistics about loaded DTC codes.
      */
     suspend fun getDtcStatistics(): DtcStatistics {

@@ -57,6 +57,14 @@ class DtcListAdapter : ListAdapter<DiagnosticTroubleCode, DtcListAdapter.DtcView
             } else {
                 binding.tvPossibleCauses.visibility = android.view.View.GONE
             }
+
+            // Display source ECU if available
+            if (dtc.sourceECU != null) {
+                binding.chipEcu.text = dtc.sourceECU.displayName
+                binding.chipEcu.visibility = android.view.View.VISIBLE
+            } else {
+                binding.chipEcu.visibility = android.view.View.GONE
+            }
         }
     }
 
