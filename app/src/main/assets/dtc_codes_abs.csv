@@ -1,0 +1,84 @@
+code,description,system,severity
+C0035,Left Front Wheel Speed Circuit Malfunction,ABS,HIGH
+C0040,Right Front Wheel Speed Circuit Malfunction,ABS,HIGH
+C0045,Left Rear Wheel Speed Circuit Malfunction,ABS,HIGH
+C0050,Right Rear Wheel Speed Circuit Malfunction,ABS,HIGH
+C0060,ABS Valve Circuit Malfunction,ABS,HIGH
+C0065,ABS Pump Motor Circuit Malfunction,ABS,CRITICAL
+C0070,ABS Hydraulic Pump Malfunction,ABS,CRITICAL
+C0110,Pump Motor Circuit Failure,ABS,CRITICAL
+C0121,ABS Inlet Valve Coil Circuit Failure,ABS,HIGH
+C0131,ABS Outlet Valve Coil Circuit Failure,ABS,HIGH
+C0141,ABS System Pressure Malfunction,ABS,CRITICAL
+C0161,ABS Control Module Malfunction,ABS,CRITICAL
+C0200,ABS Warning Lamp Circuit Malfunction,ABS,MEDIUM
+C0221,Right Front Wheel Speed Sensor Erratic,ABS,HIGH
+C0222,Right Front Wheel Speed Signal Missing,ABS,HIGH
+C0223,Right Front Wheel Speed Sensor Input Circuit Malfunction,ABS,HIGH
+C0225,Left Front Wheel Speed Sensor Erratic,ABS,HIGH
+C0226,Left Front Wheel Speed Signal Missing,ABS,HIGH
+C0227,Left Front Wheel Speed Sensor Input Circuit Malfunction,ABS,HIGH
+C0235,Rear Wheel Speed Sensor Erratic,ABS,HIGH
+C0236,Rear Wheel Speed Signal Missing,ABS,HIGH
+C0237,Rear Wheel Speed Sensor Input Circuit Malfunction,ABS,HIGH
+C0245,Wheel Speed Sensor Frequency Error,ABS,HIGH
+C0265,ABS Hydraulic Circuit Leak,ABS,CRITICAL
+C0266,ABS Valve Relay Circuit Malfunction,ABS,HIGH
+C0267,Pump Motor Relay Circuit Malfunction,ABS,CRITICAL
+C0268,Brake Fluid Level Low,ABS,CRITICAL
+C0269,Excessive Dump Time,ABS,HIGH
+C0271,ABS System Configuration Malfunction,ABS,HIGH
+C0272,ABS Checksum Error,ABS,CRITICAL
+C0273,ABS Solenoid Circuit Failure,ABS,HIGH
+C0274,Excessive Brake Fluid Temperature,ABS,HIGH
+C0281,Brake Lamp Switch Circuit Malfunction,ABS,MEDIUM
+C0283,Stop Lamp Switch Performance,ABS,MEDIUM
+C0286,ABS Indicator Circuit Malfunction,ABS,MEDIUM
+C0287,Booster Solenoid Circuit Open,ABS,HIGH
+C0288,Booster Pressure Sensor Circuit Malfunction,ABS,HIGH
+C0291,ABS System Disabled,ABS,CRITICAL
+C0292,ABS System Initialization Failure,ABS,CRITICAL
+C0293,Excessive Time to Build Pressure,ABS,HIGH
+C0460,Steering Wheel Angle Sensor Malfunction,ABS,HIGH
+C0461,Steering Wheel Angle Sensor Circuit Malfunction,ABS,HIGH
+C0550,ECU Performance Problem,ABS,HIGH
+C0551,Option Configuration Error,ABS,MEDIUM
+C0555,EEPROM Checksum Error,ABS,CRITICAL
+C0556,Serial Data Link Malfunction,ABS,HIGH
+C0660,Stability Control Valve Circuit Malfunction,ABS,HIGH
+C0665,Electronic Stability Control Pump Motor Circuit Failure,ABS,CRITICAL
+C0710,Traction Control System (TCS) Disabled,ABS,MEDIUM
+C0711,Traction Control System Malfunction,ABS,HIGH
+C0715,Lateral Accelerometer Circuit Malfunction,ABS,HIGH
+C0720,Yaw Rate Sensor Circuit Malfunction,ABS,HIGH
+C0750,Electronic Brake Distribution System Fault,ABS,HIGH
+C0760,Electronic Brakeforce Distribution Malfunction,ABS,HIGH
+C1000,Generic ABS System Fault,ABS,HIGH
+C1095,ABS Pump Motor Circuit Short to Ground,ABS,CRITICAL
+C1096,ABS Pump Motor Circuit Short to Battery,ABS,CRITICAL
+C1097,ABS Pump Motor Circuit Open,ABS,CRITICAL
+C1098,ABS Pump Motor Performance,ABS,HIGH
+C1145,Right Front ABS Valve Malfunction,ABS,HIGH
+C1155,Left Front ABS Valve Malfunction,ABS,HIGH
+C1165,Right Rear ABS Valve Malfunction,ABS,HIGH
+C1175,Left Rear ABS Valve Malfunction,ABS,HIGH
+C1200,ABS Control Module Internal Fault,ABS,CRITICAL
+C1223,Left Front Brake Circuit Open,ABS,HIGH
+C1224,Right Front Brake Circuit Open,ABS,HIGH
+C1225,Left Rear Brake Circuit Open,ABS,HIGH
+C1226,Right Rear Brake Circuit Open,ABS,HIGH
+C1233,Left Front Wheel Speed Sensor Circuit Open,ABS,HIGH
+C1234,Right Front Wheel Speed Sensor Circuit Open,ABS,HIGH
+C1235,Left Rear Wheel Speed Sensor Circuit Open,ABS,HIGH
+C1236,Right Rear Wheel Speed Sensor Circuit Open,ABS,HIGH
+C1242,Pump Motor Feedback Error,ABS,HIGH
+C1243,ABS System Valve Circuit Fault,ABS,HIGH
+C1277,Steering Wheel Position Sensor Circuit Fault,ABS,HIGH
+C1278,Yaw Rate Sensor Fault,ABS,HIGH
+C1279,Lateral Acceleration Sensor Fault,ABS,HIGH
+C1280,Brake Pedal Position Sensor Fault,ABS,MEDIUM
+C1288,Temporary Inhibit of ABS,ABS,MEDIUM
+C1440,ABS Front Speed Sensor Out of Range,ABS,HIGH
+C1441,ABS Rear Speed Sensor Out of Range,ABS,HIGH
+C1442,Brake Pressure Sensor Circuit Failure,ABS,HIGH
+C1443,Brake Pressure Control Solenoid Circuit Failure,ABS,HIGH

@@ -33,6 +33,10 @@ class MainActivity : AppCompatActivity() {
                     loadFragment(DiagnosticFragment())
                     true
                 }
+                R.id.navigation_monitoring -> {
+                    loadFragment(com.cardiag.pro.ui.monitoring.MonitoringFragment())
+                    true
+                }
                 R.id.navigation_history -> {
                     loadFragment(com.cardiag.pro.ui.history.HistoryFragment())
                     true

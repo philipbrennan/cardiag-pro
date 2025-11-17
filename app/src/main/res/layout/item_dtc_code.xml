@@ -82,5 +82,17 @@
             android:textStyle="italic"
             tools:text="Possible Causes: Faulty spark plugs, ignition coils, or fuel injectors"
             tools:visibility="visible" />
+
+        <TextView
+            android:id="@+id/tvFreezeFrame"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:visibility="gone"
+            android:textAppearance="?attr/textAppearanceBodySmall"
+            android:textColor="?attr/colorPrimary"
+            android:textStyle="bold"
+            tools:text="📊 RPM: 2500, Speed: 65 km/h, Coolant: 85°C, Throttle: 30%, Load: 45%"
+            tools:visibility="visible" />
     </LinearLayout>
 </com.google.android.material.card.MaterialCardView>

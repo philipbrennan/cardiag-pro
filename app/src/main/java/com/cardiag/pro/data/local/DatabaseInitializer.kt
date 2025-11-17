@@ -66,6 +66,16 @@ class DatabaseInitializer @Inject constructor(
             totalLoaded += nissanCount
             Timber.i("Loaded $nissanCount Nissan-specific DTC codes")
 
+            // Load ABS codes (generic)
+            val absCount = loadCodesFromCsv(context, "dtc_codes_abs.csv", null, codes)
+            totalLoaded += absCount
+            Timber.i("Loaded $absCount ABS DTC codes")
+
+            // Load SRS/Airbag codes (generic)
+            val srsCount = loadCodesFromCsv(context, "dtc_codes_srs.csv", null, codes)
+            totalLoaded += srsCount
+            Timber.i("Loaded $srsCount SRS/Airbag DTC codes")
+
             // Insert all codes in batch
             dtcDao.insertAll(codes)
             Timber.i("Successfully loaded $totalLoaded total DTC codes into database")

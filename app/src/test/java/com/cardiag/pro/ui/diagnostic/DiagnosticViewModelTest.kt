@@ -418,7 +418,7 @@ class DiagnosticViewModelTest {
                 vin = testVehicleInfo.vin,
                 manufacturer = testVehicleInfo.manufacturer,
                 codes = testDtcCodes,
-                freezeFrames = null,
+                freezeFrames = any(), // Now accepts freeze frames (may be empty map)
                 notes = "Test notes",
                 systemScanned = any()
             )

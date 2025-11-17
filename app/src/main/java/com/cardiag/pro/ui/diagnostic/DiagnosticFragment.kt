@@ -29,7 +29,10 @@ class DiagnosticFragment : Fragment() {
     private val binding get() = _binding!!
 
     private val viewModel: DiagnosticViewModel by viewModels()
-    private val dtcAdapter = DtcListAdapter()
+    private val dtcAdapter = DtcListAdapter { dtc ->
+        // TODO: Show freeze frame detail dialog
+        showFreezeFrameDetail(dtc)
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -65,7 +68,7 @@ class DiagnosticFragment : Fragment() {
         }
 
         binding.btnReadCodes.setOnClickListener {
-            viewModel.readDtcCodes()
+            viewModel.readDtcCodesFromAllECUs()
         }
 
         binding.btnClearCodes.setOnClickListener {
@@ -123,6 +126,12 @@ class DiagnosticFragment : Fragment() {
                             binding.tvCodeCount.text = "${codes.size} code(s) detected"
                             binding.rvDtcCodes.isVisible = true
                         }
+                    }
+                }
+
+                launch {
+                    viewModel.freezeFrames.collect { freezeFrames ->
+                        dtcAdapter.setFreezeFrames(freezeFrames)
                     }
                 }
             }
@@ -214,6 +223,36 @@ class DiagnosticFragment : Fragment() {
                 viewModel.clearDtcCodes()
             }
             .setNegativeButton("Cancel", null)
+            .show()
+    }
+
+    private fun showFreezeFrameDetail(dtc: com.cardiag.pro.data.model.DiagnosticTroubleCode) {
+        val freezeFrame = viewModel.freezeFrames.value[dtc.code]
+        
+        if (freezeFrame == null) {
+            showSnackbar("No freeze frame data available for ${dtc.code}")
+            return
+        }
+
+        val details = buildString {
+            appendLine("Freeze Frame Data for ${dtc.code}")
+            appendLine()
+            freezeFrame.rpm?.let { appendLine("🔧 RPM: $it") }
+            freezeFrame.speed?.let { appendLine("🚗 Speed: $it km/h") }
+            freezeFrame.coolantTemp?.let { appendLine("🌡️ Coolant Temp: $it°C") }
+            freezeFrame.throttlePosition?.let { appendLine("🎚️ Throttle: $it%") }
+            freezeFrame.engineLoad?.let { appendLine("⚙️ Engine Load: $it%") }
+            freezeFrame.shortTermFuelTrim?.let { appendLine("⛽ Short Term Fuel Trim: ${"%.1f".format(it)}%") }
+            freezeFrame.longTermFuelTrim?.let { appendLine("⛽ Long Term Fuel Trim: ${"%.1f".format(it)}%") }
+            freezeFrame.intakeAirTemp?.let { appendLine("🌬️ Intake Air Temp: $it°C") }
+            freezeFrame.mafAirFlow?.let { appendLine("💨 MAF: ${"%.2f".format(it)} g/s") }
+            freezeFrame.fuelPressure?.let { appendLine("⛽ Fuel Pressure: $it kPa") }
+        }
+
+        MaterialAlertDialogBuilder(requireContext())
+            .setTitle("${dtc.code} - Freeze Frame")
+            .setMessage(details)
+            .setPositiveButton("OK", null)
             .show()
     }
 

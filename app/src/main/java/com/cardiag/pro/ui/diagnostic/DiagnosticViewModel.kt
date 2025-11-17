@@ -35,6 +35,9 @@ class DiagnosticViewModel @Inject constructor(
     private val _dtcCodes = MutableStateFlow<List<DiagnosticTroubleCode>>(emptyList())
     val dtcCodes: StateFlow<List<DiagnosticTroubleCode>> = _dtcCodes.asStateFlow()
 
+    private val _freezeFrames = MutableStateFlow<Map<String, com.cardiag.pro.data.model.FreezeFrameData>>(emptyMap())
+    val freezeFrames: StateFlow<Map<String, com.cardiag.pro.data.model.FreezeFrameData>> = _freezeFrames.asStateFlow()
+
     /**
      * Read VIN from vehicle.
      */
@@ -101,6 +104,46 @@ class DiagnosticViewModel @Inject constructor(
     }
 
     /**
+     * Read DTC codes from all available ECUs.
+     */
+    fun readDtcCodesFromAllECUs() {
+        viewModelScope.launch {
+            _uiState.value = DiagnosticUiState.ReadingCodes
+
+            val manufacturer = _vehicleInfo.value?.manufacturer
+
+            when (val result = dtcRepository.readDtcCodesFromAllECUs(manufacturer)) {
+                is Result.Success -> {
+                    // Flatten all codes from all ECUs into a single list
+                    val allCodes = result.data.values.flatten()
+                    _dtcCodes.value = allCodes
+
+                    if (allCodes.isEmpty()) {
+                        _uiState.value = DiagnosticUiState.NoCodesFound
+                        _freezeFrames.value = emptyMap()
+                    } else {
+                        _uiState.value = DiagnosticUiState.CodesReadSuccess(allCodes.size)
+                        
+                        // Automatically read freeze frames for all codes
+                        Timber.i("Reading freeze frames for ${allCodes.size} codes...")
+                        val freezeFrameData = dtcRepository.readAllFreezeFrames(allCodes)
+                        _freezeFrames.value = freezeFrameData
+                        Timber.i("Retrieved ${freezeFrameData.size} freeze frames")
+                    }
+
+                    Timber.i("Read ${allCodes.size} DTC codes from ${result.data.size} ECUs")
+                }
+                is Result.Error -> {
+                    _uiState.value = DiagnosticUiState.Error(
+                        result.exception.message ?: "Failed to read codes from ECUs"
+                    )
+                    Timber.e(result.exception, "Failed to read DTC codes from all ECUs")
+                }
+            }
+        }
+    }
+
+    /**
      * Clear DTC codes from vehicle.
      */
     fun clearDtcCodes() {
@@ -130,21 +173,27 @@ class DiagnosticViewModel @Inject constructor(
         viewModelScope.launch {
             val vehicle = _vehicleInfo.value
             val codes = _dtcCodes.value
+            val freezeFrameData = _freezeFrames.value
 
             if (codes.isEmpty()) {
                 _uiState.value = DiagnosticUiState.Error("No codes to save")
                 return@launch
             }
 
+            // Determine which systems were scanned
+            val systemsScanned = codes.map { it.system.displayName }.distinct().joinToString(", ")
+
             when (val result = dtcRepository.saveDiagnosticSession(
                 vin = vehicle?.vin,
                 manufacturer = vehicle?.manufacturer,
                 codes = codes,
-                notes = notes
+                freezeFrames = freezeFrameData,
+                notes = notes,
+                systemScanned = systemsScanned
             )) {
                 is Result.Success -> {
                     _uiState.value = DiagnosticUiState.SessionSaved
-                    Timber.i("Diagnostic session saved: ${result.data}")
+                    Timber.i("Diagnostic session saved: ${result.data} (${freezeFrameData.size} freeze frames)")
                 }
                 is Result.Error -> {
                     _uiState.value = DiagnosticUiState.Error(

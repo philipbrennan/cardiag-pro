@@ -11,6 +11,11 @@
         android:title="Diagnostic" />
 
     <item
+        android:id="@+id/navigation_monitoring"
+        android:icon="@android:drawable/ic_menu_view"
+        android:title="Monitor" />
+
+    <item
         android:id="@+id/navigation_history"
         android:icon="@android:drawable/ic_menu_recent_history"
         android:title="History" />

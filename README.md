@@ -4,8 +4,9 @@ Professional OBD2 diagnostic Android app with manufacturer-specific code databas
 
 ## Project Status
 
-**Current Phase**: Phase 1 - Foundation & Basic Engine Diagnostics
-**Current Iteration**: Iteration 1 - Project Foundation & Architecture (In Progress)
+**Current Phase**: Phase 2 - Multi-ECU Support & Enhanced Features
+**Current Iteration**: Iteration 6 - Real-time Sensor Monitoring (Completed)
+**Last Updated**: November 17, 2025
 
 ## Features
 
@@ -17,22 +18,27 @@ Professional OBD2 diagnostic Android app with manufacturer-specific code databas
 
 ### Planned Features (by Phase)
 
-**Phase 1 (MVP - v1.0)**:
+**Phase 1 (MVP - v1.0)** - ✅ COMPLETED:
 - ✅ Bluetooth adapter connection (ELM327)
 - ✅ USB adapter connection (FT232)
-- Read and clear engine DTCs (P0xxx + P1xxx)
-- Auto-detect manufacturer via VIN
-- Local database with 1000+ DTCs
+- ✅ Read and clear engine DTCs (P0xxx + P1xxx)
+- ✅ Auto-detect manufacturer via VIN
+- ✅ Local database with 1500+ DTCs (generic + BMW/VW/Nissan + ABS + SRS)
+- ✅ Manufacturer-specific code databases (BMW, VW, Nissan)
 
-**Phase 2 (v1.5)**:
-- Multi-ECU support (Engine, Transmission, ABS, SRS)
-- Freeze frame data capture
-- Diagnostic history
-- PDF report export
+**Phase 2 (v1.5)** - 🔄 IN PROGRESS:
+- ✅ Multi-ECU support (Engine, Transmission, ABS, SRS)
+- ✅ ECU discovery and scanning
+- ✅ VIN reading with retry logic and multiple parsing methods
+- ✅ Freeze frame data capture (automatic reading for all DTCs)
+- ✅ Freeze frame detail view (tap code to see sensor values)
+- ✅ Diagnostic history with freeze frame storage
+- ✅ Real-time sensor monitoring (15+ PIDs with configurable refresh rate)
+- ✅ Live data dashboard with engine performance, temperature, pressure, fuel system metrics
+- ⏳ PDF report export
 
 **Phase 3 (v2.0)**:
-- Real-time sensor monitoring
-- Advanced features
+- Advanced features and polish
 
 ## Technology Stack
 

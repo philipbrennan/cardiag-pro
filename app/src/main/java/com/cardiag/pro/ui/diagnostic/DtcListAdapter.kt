@@ -14,7 +14,16 @@ import com.cardiag.pro.databinding.ItemDtcCodeBinding
 /**
  * Adapter for displaying DTC codes in a RecyclerView.
  */
-class DtcListAdapter : ListAdapter<DiagnosticTroubleCode, DtcListAdapter.DtcViewHolder>(DtcDiffCallback()) {
+class DtcListAdapter(
+    private val onItemClick: ((DiagnosticTroubleCode) -> Unit)? = null
+) : ListAdapter<DiagnosticTroubleCode, DtcListAdapter.DtcViewHolder>(DtcDiffCallback()) {
+
+    private var freezeFrames: Map<String, com.cardiag.pro.data.model.FreezeFrameData> = emptyMap()
+
+    fun setFreezeFrames(frames: Map<String, com.cardiag.pro.data.model.FreezeFrameData>) {
+        freezeFrames = frames
+        notifyDataSetChanged()
+    }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): DtcViewHolder {
         val binding = ItemDtcCodeBinding.inflate(
@@ -22,18 +31,21 @@ class DtcListAdapter : ListAdapter<DiagnosticTroubleCode, DtcListAdapter.DtcView
             parent,
             false
         )
-        return DtcViewHolder(binding)
+        return DtcViewHolder(binding, onItemClick)
     }
 
     override fun onBindViewHolder(holder: DtcViewHolder, position: Int) {
-        holder.bind(getItem(position))
+        val dtc = getItem(position)
+        val freezeFrame = freezeFrames[dtc.code]
+        holder.bind(dtc, freezeFrame)
     }
 
     class DtcViewHolder(
-        private val binding: ItemDtcCodeBinding
+        private val binding: ItemDtcCodeBinding,
+        private val onItemClick: ((DiagnosticTroubleCode) -> Unit)?
     ) : RecyclerView.ViewHolder(binding.root) {
 
-        fun bind(dtc: DiagnosticTroubleCode) {
+        fun bind(dtc: DiagnosticTroubleCode, freezeFrame: com.cardiag.pro.data.model.FreezeFrameData?) {
             binding.tvDtcCode.text = dtc.code
             binding.tvDtcDescription.text = dtc.description
             binding.tvDtcSystem.text = "System: ${dtc.system.displayName}"
@@ -64,6 +76,21 @@ class DtcListAdapter : ListAdapter<DiagnosticTroubleCode, DtcListAdapter.DtcView
                 binding.chipEcu.visibility = android.view.View.VISIBLE
             } else {
                 binding.chipEcu.visibility = android.view.View.GONE
+            }
+
+            // Display freeze frame summary if available
+            if (freezeFrame != null) {
+                binding.tvFreezeFrame.text = "📊 ${freezeFrame.getSummary()}"
+                binding.tvFreezeFrame.visibility = android.view.View.VISIBLE
+            } else {
+                binding.tvFreezeFrame.visibility = android.view.View.GONE
+            }
+
+            // Set click listener
+            onItemClick?.let { clickHandler ->
+                binding.root.setOnClickListener {
+                    clickHandler(dtc)
+                }
             }
         }
     }

@@ -1,0 +1,122 @@
+code,description,system,severity
+B0001,Driver Airbag Circuit Open,SRS,CRITICAL
+B0002,Driver Airbag Circuit Short to Ground,SRS,CRITICAL
+B0003,Driver Airbag Circuit Short to Battery,SRS,CRITICAL
+B0004,Driver Airbag Circuit Resistance Out of Range,SRS,CRITICAL
+B0005,Passenger Airbag Circuit Open,SRS,CRITICAL
+B0006,Passenger Airbag Circuit Short to Ground,SRS,CRITICAL
+B0007,Passenger Airbag Circuit Short to Battery,SRS,CRITICAL
+B0008,Passenger Airbag Circuit Resistance Out of Range,SRS,CRITICAL
+B0010,Driver Side Airbag Circuit Malfunction,SRS,CRITICAL
+B0011,Driver Side Airbag Squib Circuit Low Resistance,SRS,CRITICAL
+B0012,Driver Side Airbag Squib Circuit High Resistance,SRS,CRITICAL
+B0013,Driver Side Airbag Squib Circuit Short to Ground,SRS,CRITICAL
+B0014,Driver Side Airbag Squib Circuit Short to Battery,SRS,CRITICAL
+B0015,Passenger Side Airbag Circuit Malfunction,SRS,CRITICAL
+B0016,Passenger Side Airbag Squib Circuit Low Resistance,SRS,CRITICAL
+B0017,Passenger Side Airbag Squib Circuit High Resistance,SRS,CRITICAL
+B0018,Passenger Side Airbag Squib Circuit Short to Ground,SRS,CRITICAL
+B0019,Passenger Side Airbag Squib Circuit Short to Battery,SRS,CRITICAL
+B0020,Left Front Side Airbag Circuit Malfunction,SRS,CRITICAL
+B0021,Right Front Side Airbag Circuit Malfunction,SRS,CRITICAL
+B0022,Left Rear Side Airbag Circuit Malfunction,SRS,CRITICAL
+B0023,Right Rear Side Airbag Circuit Malfunction,SRS,CRITICAL
+B0024,Curtain Airbag Circuit Malfunction,SRS,CRITICAL
+B0025,Knee Airbag Circuit Malfunction,SRS,CRITICAL
+B0030,Driver Seat Belt Pretensioner Circuit Malfunction,SRS,HIGH
+B0031,Driver Seat Belt Pretensioner Circuit Open,SRS,HIGH
+B0032,Driver Seat Belt Pretensioner Circuit Short to Ground,SRS,HIGH
+B0033,Driver Seat Belt Pretensioner Circuit Short to Battery,SRS,HIGH
+B0034,Driver Seat Belt Pretensioner Resistance Out of Range,SRS,HIGH
+B0035,Passenger Seat Belt Pretensioner Circuit Malfunction,SRS,HIGH
+B0036,Passenger Seat Belt Pretensioner Circuit Open,SRS,HIGH
+B0037,Passenger Seat Belt Pretensioner Circuit Short to Ground,SRS,HIGH
+B0038,Passenger Seat Belt Pretensioner Circuit Short to Battery,SRS,HIGH
+B0039,Passenger Seat Belt Pretensioner Resistance Out of Range,SRS,HIGH
+B0040,Left Rear Seat Belt Pretensioner Circuit Malfunction,SRS,HIGH
+B0041,Right Rear Seat Belt Pretensioner Circuit Malfunction,SRS,HIGH
+B0050,Crash Sensor Front Impact Sensor Malfunction,SRS,CRITICAL
+B0051,Front Impact Sensor Circuit Open,SRS,CRITICAL
+B0052,Front Impact Sensor Circuit Short,SRS,CRITICAL
+B0053,Front Impact Sensor Signal Out of Range,SRS,CRITICAL
+B0054,Left Front Impact Sensor Malfunction,SRS,CRITICAL
+B0055,Right Front Impact Sensor Malfunction,SRS,CRITICAL
+B0056,Side Impact Sensor Left Malfunction,SRS,CRITICAL
+B0057,Side Impact Sensor Right Malfunction,SRS,CRITICAL
+B0058,Rear Impact Sensor Malfunction,SRS,HIGH
+B0059,Impact Sensor Communication Error,SRS,CRITICAL
+B0060,SRS Warning Lamp Circuit Malfunction,SRS,HIGH
+B0061,SRS Warning Lamp Circuit Open,SRS,HIGH
+B0062,SRS Warning Lamp Circuit Short to Ground,SRS,HIGH
+B0063,SRS Warning Lamp Circuit Short to Battery,SRS,HIGH
+B0070,Passenger Airbag Disable Indicator Circuit Malfunction,SRS,MEDIUM
+B0071,Passenger Airbag Disable Switch Malfunction,SRS,MEDIUM
+B0072,Occupant Classification System Malfunction,SRS,HIGH
+B0073,Seat Occupancy Sensor Circuit Malfunction,SRS,HIGH
+B0074,Seat Occupancy Sensor Out of Range,SRS,HIGH
+B0075,Seat Occupancy Sensor Circuit Short,SRS,HIGH
+B0080,SRS Control Module Internal Fault,SRS,CRITICAL
+B0081,SRS Control Module Memory Error,SRS,CRITICAL
+B0082,SRS Control Module Watchdog Error,SRS,CRITICAL
+B0083,SRS Control Module EEPROM Error,SRS,CRITICAL
+B0084,SRS Control Module Reset Error,SRS,CRITICAL
+B0085,SRS Control Module Supply Voltage Too Low,SRS,CRITICAL
+B0086,SRS Control Module Supply Voltage Too High,SRS,CRITICAL
+B0087,SRS System Configuration Error,SRS,HIGH
+B0088,SRS Clockspring Circuit Malfunction,SRS,HIGH
+B0089,Clockspring Circuit Open,SRS,HIGH
+B0090,Clockspring Circuit Short to Ground,SRS,HIGH
+B0091,Clockspring Circuit Short to Battery,SRS,HIGH
+B0092,Steering Wheel Module Communication Error,SRS,HIGH
+B0100,Driver Buckle Switch Circuit Malfunction,SRS,MEDIUM
+B0101,Driver Seat Belt Buckle Not Latched,SRS,MEDIUM
+B0102,Passenger Buckle Switch Circuit Malfunction,SRS,MEDIUM
+B0103,Passenger Seat Belt Buckle Not Latched,SRS,MEDIUM
+B0104,Left Rear Buckle Switch Malfunction,SRS,LOW
+B0105,Right Rear Buckle Switch Malfunction,SRS,LOW
+B0110,Crash Data Stored,SRS,HIGH
+B0111,Multiple Crash Data Events Stored,SRS,HIGH
+B0112,Airbag Deployment Loop Open,SRS,CRITICAL
+B0113,Airbag Deployment Loop Short,SRS,CRITICAL
+B0114,Airbag Deployment Loop Resistance Out of Range,SRS,CRITICAL
+B0115,Driver Airbag Deployment Commanded,SRS,CRITICAL
+B0116,Passenger Airbag Deployment Commanded,SRS,CRITICAL
+B0117,Side Airbag Deployment Commanded,SRS,CRITICAL
+B0118,Curtain Airbag Deployment Commanded,SRS,CRITICAL
+B0119,Seat Belt Pretensioner Deployment Commanded,SRS,HIGH
+B0120,Rollover Sensor Malfunction,SRS,HIGH
+B0121,Rollover Sensor Circuit Open,SRS,HIGH
+B0122,Rollover Sensor Circuit Short,SRS,HIGH
+B0123,Rollover Sensor Signal Out of Range,SRS,HIGH
+B1000,SRS System Fault - Internal Diagnostic Failure,SRS,CRITICAL
+B1001,ECU Defective,SRS,CRITICAL
+B1002,Processor Performance Problem,SRS,CRITICAL
+B1003,Memory Checksum Error,SRS,CRITICAL
+B1004,RAM Test Failure,SRS,CRITICAL
+B1005,EEPROM Failure,SRS,CRITICAL
+B1010,Safing Sensor Failure,SRS,CRITICAL
+B1011,Discriminating Sensor Failure,SRS,CRITICAL
+B1012,Central Air Bag Sensor Failure,SRS,CRITICAL
+B1013,Satellite Sensor Communication Failure,SRS,CRITICAL
+B1050,Battery Voltage High,SRS,HIGH
+B1051,Battery Voltage Low,SRS,HIGH
+B1052,Ignition Voltage High,SRS,HIGH
+B1053,Ignition Voltage Low,SRS,HIGH
+B1060,Restraint System Sensor Cluster Malfunction,SRS,CRITICAL
+B1070,Air Bag Simulator in Use,SRS,HIGH
+B1071,Driver Air Bag Resistance Low,SRS,CRITICAL
+B1072,Passenger Air Bag Resistance Low,SRS,CRITICAL
+B1073,Side Air Bag Resistance Low,SRS,CRITICAL
+B1081,Driver Air Bag Resistance High,SRS,CRITICAL
+B1082,Passenger Air Bag Resistance High,SRS,CRITICAL
+B1083,Side Air Bag Resistance High,SRS,CRITICAL
+B1090,Air Bag Igniter Circuit Short to Ground,SRS,CRITICAL
+B1091,Air Bag Igniter Circuit Short to Battery,SRS,CRITICAL
+B1092,Air Bag Igniter Circuit Open,SRS,CRITICAL
+B1100,Seat Belt Switch Circuit Failure,SRS,MEDIUM
+B1200,Pedestrian Protection System Malfunction,SRS,HIGH
+B1201,Pedestrian Protection Sensor Malfunction,SRS,HIGH
+B1202,Hood Actuator Circuit Malfunction,SRS,HIGH
+B1300,Active Head Restraint System Malfunction,SRS,MEDIUM
+B1301,Active Head Restraint Circuit Open,SRS,MEDIUM
+B1302,Active Head Restraint Circuit Short,SRS,MEDIUM
