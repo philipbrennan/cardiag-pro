@@ -30,9 +30,12 @@ class DtcRepository @Inject constructor(
      * Read DTCs from a specific ECU system.
      * Mode 03 - Request emission-related DTCs
      */
-    suspend fun readDtcCodes(system: ECUSystem = ECUSystem.ENGINE): Result<List<DiagnosticTroubleCode>> {
+    suspend fun readDtcCodes(
+        system: ECUSystem = ECUSystem.ENGINE,
+        manufacturer: Manufacturer? = null
+    ): Result<List<DiagnosticTroubleCode>> {
         try {
-            Timber.d("Reading DTCs from ${system.displayName}")
+            Timber.d("Reading DTCs from ${system.displayName} (Manufacturer: ${manufacturer?.displayName ?: "Unknown"})")
 
             // Send DTC request: Mode 03 for engine codes
             val response = elm327Protocol.sendCommand("03")
@@ -49,8 +52,8 @@ class DtcRepository @Inject constructor(
                 return Result.Success(emptyList())
             }
 
-            // Enrich codes with descriptions from database
-            val enrichedCodes = enrichCodesWithDescriptions(codes)
+            // Enrich codes with descriptions from database (with manufacturer awareness)
+            val enrichedCodes = enrichCodesWithDescriptions(codes, manufacturer)
 
             Timber.i("Read ${enrichedCodes.size} DTCs from ${system.displayName}")
             return Result.Success(enrichedCodes)
@@ -212,17 +215,53 @@ class DtcRepository @Inject constructor(
 
     /**
      * Enrich DTC codes with descriptions from database.
+     * Looks up manufacturer-specific codes first, then falls back to generic.
      */
     private suspend fun enrichCodesWithDescriptions(
-        codes: List<DiagnosticTroubleCode>
+        codes: List<DiagnosticTroubleCode>,
+        manufacturer: Manufacturer? = null
     ): List<DiagnosticTroubleCode> {
         return codes.map { code ->
-            val dbCode = dtcDao.getDtcByCode(code.code)
+            // Try manufacturer-specific lookup first
+            val dbCode = if (manufacturer != null) {
+                dtcDao.getDtcByCodeWithManufacturer(code.code, manufacturer.name)
+            } else {
+                dtcDao.getDtcByCode(code.code)
+            }
+
             if (dbCode != null) {
-                code.copy(description = dbCode.description)
+                code.copy(
+                    description = dbCode.description,
+                    possibleCauses = dbCode.possibleCauses,
+                    manufacturer = dbCode.manufacturer?.let { Manufacturer.fromString(it) }
+                )
             } else {
                 code
             }
         }
     }
+
+    /**
+     * Get statistics about loaded DTC codes.
+     */
+    suspend fun getDtcStatistics(): DtcStatistics {
+        return DtcStatistics(
+            total = dtcDao.getCodeCount(),
+            generic = dtcDao.getGenericCodeCount(),
+            bmw = dtcDao.getManufacturerCodeCount("BMW"),
+            vw = dtcDao.getManufacturerCodeCount("VW"),
+            nissan = dtcDao.getManufacturerCodeCount("NISSAN")
+        )
+    }
 }
+
+/**
+ * Statistics about DTC codes in database.
+ */
+data class DtcStatistics(
+    val total: Int,
+    val generic: Int,
+    val bmw: Int,
+    val vw: Int,
+    val nissan: Int
+)

@@ -1,0 +1,120 @@
+code,system,manufacturer,description,possible_causes,severity
+P1000,P,NISSAN,System Readiness Test Not Complete,Drive cycle not completed; Battery disconnected recently; ECU reset,LOW
+P1100,P,NISSAN,Mass Air Flow Sensor Circuit Intermittent,MAF sensor; Wiring; Connector; Air filter dirty; ECU,MEDIUM
+P1105,P,NISSAN,MAP/BARO Sensor Circuit,MAP sensor; Wiring; Vacuum leak; ECU,MEDIUM
+P1110,P,NISSAN,Intake Valve Timing Control Position Sensor (Bank 1),Cam position sensor; Wiring; VTC system; ECU,HIGH
+P1111,P,NISSAN,Intake Valve Timing Control Range/Performance (Bank 1),VTC solenoid; Oil pressure; Timing chain; Sensor,HIGH
+P1120,P,NISSAN,Throttle Position Sensor Circuit Low Input,TPS sensor; Wiring; Throttle body; ECU,MEDIUM
+P1121,P,NISSAN,Throttle Position Sensor Range/Performance,TPS sensor reading incorrect; Throttle body; Wiring,MEDIUM
+P1122,P,NISSAN,Throttle Position Sensor Circuit High Input,TPS sensor; Wiring short to power; Sensor fault; ECU,MEDIUM
+P1125,P,NISSAN,Throttle Control Motor Circuit,Electronic throttle motor; Wiring; Throttle body; ECU,HIGH
+P1126,P,NISSAN,Thermostat Function,Thermostat stuck open or closed; ECT sensor; Coolant flow,MEDIUM
+P1130,P,NISSAN,Swirl Control Valve Control Solenoid Circuit,SCV solenoid; Wiring; Connector; ECU driver,MEDIUM
+P1131,P,NISSAN,Swirl Control Valve Control Position Sensor Circuit,SCV position sensor; Wiring; Potentiometer; Valve,MEDIUM
+P1135,P,NISSAN,Intake Valve Timing Control Position Sensor (Bank 2),Cam position sensor; Wiring; VTC system; ECU,HIGH
+P1136,P,NISSAN,Intake Valve Timing Control Range/Performance (Bank 2),VTC solenoid; Oil pressure; Timing chain; Sensor,HIGH
+P1140,P,NISSAN,Intake Valve Timing Control Solenoid (Bank 1),VTC solenoid; Wiring; Oil pressure; ECU driver,HIGH
+P1145,P,NISSAN,Intake Valve Timing Control Solenoid (Bank 2),VTC solenoid; Wiring; Oil pressure; ECU driver,HIGH
+P1148,P,NISSAN,Closed Loop Control Function (Bank 1),O2 sensor; Fuel system; ECU software; Sensors,MEDIUM
+P1168,P,NISSAN,Closed Loop Control Function (Bank 2),O2 sensor; Fuel system; ECU software; Sensors,MEDIUM
+P1200,P,NISSAN,Fuel Pump Relay Control Circuit,Fuel pump relay; Wiring; Fuse; ECU control,HIGH
+P1210,P,NISSAN,Traction Control System Signal,TCS communication; ABS module; ECU; CAN bus,MEDIUM
+P1220,P,NISSAN,Fuel Pump Control Module,Fuel pump control module; Wiring; Ground; Relay,HIGH
+P1225,P,NISSAN,Closed Throttle Position Learning Performance,Throttle body not learned; Perform relearn; Carbon buildup,MEDIUM
+P1226,P,NISSAN,Closed Throttle Position Learning Not Performed,Throttle adaptation required; Perform relearn procedure,MEDIUM
+P1230,P,NISSAN,Fuel Pump Speed Control Circuit,Fuel pump; Control module; Wiring; ECU,HIGH
+P1231,P,NISSAN,Fuel Pump Secondary Circuit Low,Fuel pump circuit; Wiring; Ground; Module,HIGH
+P1232,P,NISSAN,Fuel Pump Secondary Circuit High,Fuel pump circuit; Wiring short to power; Module,HIGH
+P1233,P,NISSAN,Fuel Pump Control Circuit Open,Fuel pump relay; Wiring break; Connector; Fuse,CRITICAL
+P1234,P,NISSAN,Fuel Pump Control Circuit Low,Fuel pump circuit; Wiring; Ground; ECU,HIGH
+P1235,P,NISSAN,Fuel Pump Control Circuit High,Fuel pump circuit; Wiring short to power; ECU,HIGH
+P1236,P,NISSAN,Throttle Control Motor Circuit (Bank 2),Electronic throttle motor 2; Wiring; ECU,HIGH
+P1238,P,NISSAN,Closed Throttle Position Learning Performance (Bank 2),Throttle body 2 not learned; Perform relearn; Carbon,MEDIUM
+P1239,P,NISSAN,Closed Throttle Position Learning Not Performed (Bank 2),Throttle 2 adaptation required; Perform relearn,MEDIUM
+P1240,P,NISSAN,Intake Valve Timing Control Solenoid Circuit (Bank 1),VTC solenoid; Wiring; Connector; ECU driver,HIGH
+P1241,P,NISSAN,Intake Valve Timing Control Solenoid Performance (Bank 1),VTC solenoid; Oil pressure; Response time; Filter,HIGH
+P1243,P,NISSAN,Intake Valve Timing Control Solenoid Circuit (Bank 2),VTC solenoid; Wiring; Connector; ECU driver,HIGH
+P1244,P,NISSAN,Intake Valve Timing Control Solenoid Performance (Bank 2),VTC solenoid; Oil pressure; Response time; Filter,HIGH
+P1274,P,NISSAN,Air Fuel Ratio Sensor 1 (Bank 1) Circuit Range,AFR sensor; Wiring; Sensor contaminated; Exhaust leak,MEDIUM
+P1275,P,NISSAN,Air Fuel Ratio Sensor 1 (Bank 2) Circuit Range,AFR sensor; Wiring; Sensor contaminated; Exhaust leak,MEDIUM
+P1276,P,NISSAN,Air Fuel Ratio Sensor 1 (Bank 1) Heater Circuit Low,AFR heater; Wiring; Relay; Fuse; ECU,MEDIUM
+P1277,P,NISSAN,Air Fuel Ratio Sensor 1 (Bank 2) Heater Circuit Low,AFR heater; Wiring; Relay; Fuse; ECU,MEDIUM
+P1278,P,NISSAN,Air Fuel Ratio Sensor 1 (Bank 1) Heater Circuit High,AFR heater wiring short to power; Relay; Harness,MEDIUM
+P1279,P,NISSAN,Air Fuel Ratio Sensor 1 (Bank 2) Heater Circuit High,AFR heater wiring short to power; Relay; Harness,MEDIUM
+P1280,P,NISSAN,Air Fuel Ratio Sensor 1 (Bank 1) Heater Control Circuit,AFR heater control; ECU driver; Wiring; Relay,MEDIUM
+P1281,P,NISSAN,Air Fuel Ratio Sensor 1 (Bank 2) Heater Control Circuit,AFR heater control; ECU driver; Wiring; Relay,MEDIUM
+P1282,P,NISSAN,Air Fuel Ratio Sensor 1 (Bank 1) Heater Relay Circuit,AFR heater relay; Wiring; Fuse; ECU control,MEDIUM
+P1283,P,NISSAN,Air Fuel Ratio Sensor 1 (Bank 2) Heater Relay Circuit,AFR heater relay; Wiring; Fuse; ECU control,MEDIUM
+P1284,P,NISSAN,Air Fuel Ratio Sensor 1 (Bank 1) Signal Slow Response,AFR sensor aging; Contamination; Exhaust leak; Sensor,MEDIUM
+P1285,P,NISSAN,Air Fuel Ratio Sensor 1 (Bank 2) Signal Slow Response,AFR sensor aging; Contamination; Exhaust leak; Sensor,MEDIUM
+P1286,P,NISSAN,Air Fuel Ratio Sensor 1 (Bank 1) Signal Improper,AFR sensor; Wiring; Exhaust leak; Fuel system; ECU,MEDIUM
+P1287,P,NISSAN,Air Fuel Ratio Sensor 1 (Bank 2) Signal Improper,AFR sensor; Wiring; Exhaust leak; Fuel system; ECU,MEDIUM
+P1290,P,NISSAN,Air Fuel Ratio Sensor 1 (Bank 1) Circuit Range/Performance,AFR sensor reading incorrect; Wiring; Sensor fault,MEDIUM
+P1291,P,NISSAN,Air Fuel Ratio Sensor 1 (Bank 2) Circuit Range/Performance,AFR sensor reading incorrect; Wiring; Sensor fault,MEDIUM
+P1292,P,NISSAN,Cooling Fan System,Cooling fan; Relay; Wiring; Thermoswitch; ECU,MEDIUM
+P1293,P,NISSAN,Cooling Fan Relay 1 Circuit,Fan relay 1; Wiring; Fuse; ECU driver,MEDIUM
+P1294,P,NISSAN,Cooling Fan Relay 2 Circuit,Fan relay 2; Wiring; Fuse; ECU driver,MEDIUM
+P1295,P,NISSAN,Cooling Fan Relay 3 Circuit,Fan relay 3; Wiring; Fuse; ECU driver,MEDIUM
+P1300,P,NISSAN,Ignition Signal Primary Circuit,Ignition control; Wiring; Power transistor; ECU,HIGH
+P1305,P,NISSAN,Ignition Signal Primary Circuit (Bank 2),Ignition control bank 2; Wiring; Power transistor; ECU,HIGH
+P1310,P,NISSAN,Ignition Signal Primary Circuit Bank 1,Ignition coil control; Wiring; ECU driver circuit,HIGH
+P1320,P,NISSAN,Ignition Signal Primary Circuit Bank 2,Ignition coil control; Wiring; ECU driver circuit,HIGH
+P1335,P,NISSAN,Crankshaft Position Sensor Circuit,CKP sensor; Wiring; Reluctor wheel; Shielding; ECU,CRITICAL
+P1336,P,NISSAN,Crankshaft Position Sensor Range/Performance,CKP sensor signal erratic; Reluctor damaged; Air gap; Wiring,CRITICAL
+P1340,P,NISSAN,Camshaft Position Sensor Circuit,CMP sensor; Wiring; Timing chain; Reluctor; ECU,HIGH
+P1345,P,NISSAN,Crankshaft Position to Camshaft Position Correlation,Timing chain stretched; Sensors; Jumped tooth; VTC fault,CRITICAL
+P1400,P,NISSAN,EGR/EVAP Control Solenoid Valve Circuit,EGR solenoid; Wiring; Connector; ECU driver,MEDIUM
+P1401,P,NISSAN,EGR Temperature Sensor Circuit,EGR temp sensor; Wiring; Connector; ECU,MEDIUM
+P1402,P,NISSAN,EGR System Performance,EGR valve; Passages blocked; Flow insufficient; Carbon,MEDIUM
+P1403,P,NISSAN,EGR Temperature Sensor Circuit Range/Performance,EGR temp sensor reading incorrect; Sensor fault; Wiring,MEDIUM
+P1420,P,NISSAN,EVAP Small Leak Detected,Fuel cap; Small hose crack; Purge valve; Leak,MEDIUM
+P1440,P,NISSAN,EVAP Small Leak Detected (Negative Pressure),Fuel cap seal; Small leak; Purge valve; Hoses,MEDIUM
+P1441,P,NISSAN,Vacuum Cut Bypass Valve Circuit,Bypass valve; Wiring; Connector; ECU driver,MEDIUM
+P1443,P,NISSAN,EVAP Canister Control Vacuum Switch Circuit,EVAP switch; Wiring; Connector; Vacuum; ECU,MEDIUM
+P1444,P,NISSAN,EVAP Canister Purge Volume Control Valve Circuit,Purge valve; Wiring; Connector; ECU driver,MEDIUM
+P1445,P,NISSAN,EVAP Canister Purge Volume Control Valve Circuit Range/Performance,Purge valve stuck; Wiring; Vacuum; Diaphragm,MEDIUM
+P1446,P,NISSAN,EVAP Canister Vent Control Valve Circuit,Vent valve; Wiring; Connector; ECU driver,MEDIUM
+P1447,P,NISSAN,EVAP Canister Vent Control Valve Circuit Open,Vent valve disconnected; Wiring break; Connector,MEDIUM
+P1448,P,NISSAN,EVAP Canister Vent Control Valve Circuit Shorted,Vent valve wiring short; Harness; Connector; ECU,MEDIUM
+P1490,P,NISSAN,Vacuum Cut Bypass Valve Circuit Low,Bypass valve circuit; Wiring short to ground; ECU,MEDIUM
+P1491,P,NISSAN,Vacuum Cut Bypass Valve Circuit High,Bypass valve circuit; Wiring short to power; ECU,MEDIUM
+P1492,P,NISSAN,EVAP Canister Purge Control Valve Circuit High,Purge valve wiring short to power; Harness; ECU,MEDIUM
+P1493,P,NISSAN,EVAP Canister Purge Control Valve Circuit Low,Purge valve wiring short to ground; Harness; ECU,MEDIUM
+P1500,P,NISSAN,Starter Signal Circuit,Starter circuit; Ignition switch; Wiring; ECU input,MEDIUM
+P1550,P,NISSAN,Battery Current Sensor Circuit Range/Performance,Battery current sensor; Alternator; Wiring; ECU,MEDIUM
+P1551,P,NISSAN,Battery Current Sensor Circuit Low Input,Battery sensor; Wiring; Ground connection; ECU,MEDIUM
+P1552,P,NISSAN,Battery Current Sensor Circuit High Input,Battery sensor; Wiring short to power; Sensor; ECU,MEDIUM
+P1553,P,NISSAN,Battery Voltage High,Alternator overcharging; Voltage regulator; Battery; ECU,HIGH
+P1554,P,NISSAN,Battery Voltage Low,Battery weak; Alternator; Wiring; Charging system,HIGH
+P1560,P,NISSAN,Asynchronous Motor Position Sensor Circuit,Motor position sensor; Wiring; Connector; ECU,MEDIUM
+P1564,P,NISSAN,Asynchronous Motor Position Sensor Circuit Range/Performance,Position sensor reading incorrect; Sensor; Motor; Wiring,MEDIUM
+P1565,P,NISSAN,Asynchronous Motor Position Sensor Circuit Intermittent,Position sensor; Connector; Wiring; Sensor fault,MEDIUM
+P1570,P,NISSAN,Slip Indicator Light Circuit,Slip light; Wiring; Instrument cluster; ECU; Bulb,LOW
+P1571,P,NISSAN,Brake Switch Signal Malfunction,Brake switch; Wiring; Adjustment; ECU input,MEDIUM
+P1572,P,NISSAN,Brake Switch Stuck On,Brake switch stuck closed; Adjustment; Switch fault,MEDIUM
+P1574,P,NISSAN,ASCD Vehicle Speed Sensor,Speed sensor; Wiring; ABS module; Cluster; ECU,MEDIUM
+P1600,P,NISSAN,ECM/PCM Serial Communication Link,ECU communication; Wiring; Ground; Module fault,HIGH
+P1601,P,NISSAN,TCM to ECM Communication Error,TCM to ECM communication; CAN bus; Wiring; Modules,HIGH
+P1602,P,NISSAN,ECM/PCM Not Programmed,ECU not programmed; Software missing; Flash ECU,CRITICAL
+P1603,P,NISSAN,ECM/PCM Keep Alive Memory Incorrect Checksum,ECU memory fault; Battery disconnect; Reprogram ECU,HIGH
+P1604,P,NISSAN,TCM to ECM Torque Request Signal,TCM communication; Torque reduction; CAN bus; Modules,HIGH
+P1605,P,NISSAN,TCM to ECM A/T Diagnosis Communication Line,TCM communication; Diagnostic line; Wiring; Modules,MEDIUM
+P1610,P,NISSAN,Immobilizer Lock Mode,Immobilizer active; Key not recognized; BCM; ECU,CRITICAL
+P1611,P,NISSAN,Immobilizer ID Does Not Match,Key not recognized; Transponder; BCM; ECU; Key registration,CRITICAL
+P1612,P,NISSAN,Immobilizer Chain of Custody Match Failed,Immobilizer authentication; BCM; ECU; Key coding,CRITICAL
+P1614,P,NISSAN,Immobilizer System Malfunction,Immobilizer; Key; Transponder; BCM; ECU communication,CRITICAL
+P1615,P,NISSAN,Immobilizer Self-Diagnostic Terminal Circuit,Immobilizer diagnostic circuit; Wiring; BCM; ECU,MEDIUM
+P1705,P,NISSAN,Throttle Position Sensor (Switch) Circuit Range/Performance,TPS switch; Wiring; Throttle body; ECU,MEDIUM
+P1706,P,NISSAN,Park/Neutral Position Switch Circuit,PNP switch; Wiring; Transmission; ECU; Adjustment,MEDIUM
+P1710,P,NISSAN,TCM to ECM Communication Line,TCM communication; Wiring; Modules; Ground,HIGH
+P1715,P,NISSAN,Park/Neutral Position Switch Circuit Malfunction,PNP switch; Wiring; Connector; Transmission; ECU,MEDIUM
+P1720,P,NISSAN,Vehicle Speed Sensor Circuit Intermittent,VSS; Wiring; Connector; ABS module; ECU,MEDIUM
+P1723,P,NISSAN,A/T Park/Neutral Position Switch,PNP switch; Wiring; Transmission; Adjustment; ECU,MEDIUM
+P1760,P,NISSAN,Overrun Clutch Solenoid Valve Circuit,Overrun clutch solenoid; Wiring; TCM driver; Transmission,MEDIUM
+P1762,P,NISSAN,Pressure Control Solenoid Valve A Circuit,PC solenoid A; Wiring; Connector; TCM driver,MEDIUM
+P1763,P,NISSAN,Pressure Control Solenoid Valve A Performance,PC solenoid A; Transmission fluid; Pressure; Solenoid,MEDIUM
+P1765,P,NISSAN,Pressure Control Solenoid Valve B Circuit,PC solenoid B; Wiring; Connector; TCM driver,MEDIUM
+P1766,P,NISSAN,Pressure Control Solenoid Valve B Performance,PC solenoid B; Transmission fluid; Pressure; Solenoid,MEDIUM
+P1800,P,NISSAN,VIAS Control Solenoid Valve Circuit,VIAS valve; Wiring; Connector; ECU driver,MEDIUM
+P1805,P,NISSAN,Brake Switch Signal Circuit,Brake switch; Wiring; ECU input; Switch adjustment,MEDIUM
+P1810,P,NISSAN,TCS Communication Line,TCS module; ABS; ECU; CAN bus; Wiring,MEDIUM

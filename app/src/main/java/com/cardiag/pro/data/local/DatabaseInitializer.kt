@@ -44,37 +44,116 @@ class DatabaseInitializer @Inject constructor(
     private suspend fun loadDtcCodes(context: Context) {
         try {
             val codes = mutableListOf<DtcEntity>()
+            var totalLoaded = 0
 
             // Load generic codes
-            context.assets.open("dtc_codes_generic.csv").use { inputStream ->
+            val genericCount = loadCodesFromCsv(context, "dtc_codes_generic.csv", null, codes)
+            totalLoaded += genericCount
+            Timber.i("Loaded $genericCount generic DTC codes")
+
+            // Load BMW codes
+            val bmwCount = loadCodesFromCsv(context, "dtc_codes_bmw.csv", "BMW", codes)
+            totalLoaded += bmwCount
+            Timber.i("Loaded $bmwCount BMW-specific DTC codes")
+
+            // Load VW/Audi codes
+            val vwCount = loadCodesFromCsv(context, "dtc_codes_vw.csv", "VW", codes)
+            totalLoaded += vwCount
+            Timber.i("Loaded $vwCount VW/Audi-specific DTC codes")
+
+            // Load Nissan codes
+            val nissanCount = loadCodesFromCsv(context, "dtc_codes_nissan.csv", "NISSAN", codes)
+            totalLoaded += nissanCount
+            Timber.i("Loaded $nissanCount Nissan-specific DTC codes")
+
+            // Insert all codes in batch
+            dtcDao.insertAll(codes)
+            Timber.i("Successfully loaded $totalLoaded total DTC codes into database")
+
+        } catch (e: Exception) {
+            Timber.e(e, "Failed to load DTC codes from assets")
+        }
+    }
+
+    /**
+     * Load codes from a specific CSV file.
+     * CSV format: code,system,manufacturer,description,possible_causes,severity
+     */
+    private fun loadCodesFromCsv(
+        context: Context,
+        filename: String,
+        manufacturer: String?,
+        codes: MutableList<DtcEntity>
+    ): Int {
+        var count = 0
+        try {
+            context.assets.open(filename).use { inputStream ->
                 val reader = BufferedReader(InputStreamReader(inputStream))
                 // Skip header
                 reader.readLine()
 
                 reader.forEachLine { line ->
                     if (line.isNotBlank()) {
-                        val parts = line.split(",")
-                        if (parts.size >= 4) {
-                            codes.add(
-                                DtcEntity(
-                                    code = parts[0].trim(),
-                                    description = parts[1].trim(),
-                                    system = parts[2].trim(),
-                                    severity = parts[3].trim(),
-                                    manufacturer = null // Generic code
+                        try {
+                            val parts = parseCsvLine(line)
+                            if (parts.size >= 6) {
+                                codes.add(
+                                    DtcEntity(
+                                        code = parts[0].trim(),
+                                        system = parts[1].trim(),
+                                        manufacturer = parts[2].trim().ifBlank { manufacturer },
+                                        description = parts[3].trim(),
+                                        possibleCauses = parts[4].trim(),
+                                        severity = parts[5].trim()
+                                    )
                                 )
-                            )
+                                count++
+                            } else if (parts.size >= 4) {
+                                // Legacy format support
+                                codes.add(
+                                    DtcEntity(
+                                        code = parts[0].trim(),
+                                        description = parts[1].trim(),
+                                        system = parts[2].trim(),
+                                        severity = parts[3].trim(),
+                                        manufacturer = manufacturer,
+                                        possibleCauses = null
+                                    )
+                                )
+                                count++
+                            }
+                        } catch (e: Exception) {
+                            Timber.w(e, "Failed to parse line in $filename: $line")
                         }
                     }
                 }
             }
-
-            dtcDao.insertAll(codes)
-            Timber.i("Loaded ${codes.size} DTC codes into database")
-
         } catch (e: Exception) {
-            Timber.e(e, "Failed to load DTC codes from assets")
+            Timber.w(e, "Failed to load $filename (file may not exist)")
         }
+        return count
+    }
+
+    /**
+     * Parse CSV line handling commas within quoted fields.
+     */
+    private fun parseCsvLine(line: String): List<String> {
+        val result = mutableListOf<String>()
+        var current = StringBuilder()
+        var inQuotes = false
+
+        for (char in line) {
+            when {
+                char == '"' -> inQuotes = !inQuotes
+                char == ',' && !inQuotes -> {
+                    result.add(current.toString())
+                    current = StringBuilder()
+                }
+                else -> current.append(char)
+            }
+        }
+        result.add(current.toString())
+        return result
     }
 
     /**

@@ -1,0 +1,213 @@
+code,system,manufacturer,description,possible_causes,severity
+P1000,P,BMW,System Readiness Test Not Complete,Drive cycle not completed; Battery disconnected recently,LOW
+P1080,P,BMW,Fuel Control Mixture Too Lean (Bank 1),Vacuum leak; MAF sensor; Fuel pressure; O2 sensor,MEDIUM
+P1081,P,BMW,Fuel Control Mixture Too Rich (Bank 1),Fuel pressure regulator; Injector leak; MAF sensor; O2 sensor,MEDIUM
+P1082,P,BMW,Fuel Control Mixture Too Lean (Bank 2),Vacuum leak; MAF sensor; Fuel pressure; O2 sensor,MEDIUM
+P1083,P,BMW,Fuel Control Mixture Too Rich (Bank 2),Fuel pressure regulator; Injector leak; MAF sensor; O2 sensor,MEDIUM
+P1085,P,BMW,Fuel Trim Bank 1 System Too Lean,Vacuum leak; Fuel pump; Fuel filter; O2 sensor,MEDIUM
+P1086,P,BMW,Fuel Trim Bank 1 System Too Rich,Injector leak; Fuel pressure regulator; EVAP purge valve,MEDIUM
+P1087,P,BMW,Fuel Trim Bank 2 System Too Lean,Vacuum leak; Fuel pump; Fuel filter; O2 sensor,MEDIUM
+P1088,P,BMW,Fuel Trim Bank 2 System Too Rich,Injector leak; Fuel pressure regulator; EVAP purge valve,MEDIUM
+P1090,P,BMW,Fuel Trim 2 Bank 1 System Too Lean,Long-term fuel trim issue; MAF sensor; Fuel system,MEDIUM
+P1091,P,BMW,Fuel Trim 2 Bank 1 System Too Rich,Long-term fuel trim issue; Injectors; Fuel pressure,MEDIUM
+P1092,P,BMW,Fuel Trim 2 Bank 2 System Too Lean,Long-term fuel trim issue; MAF sensor; Fuel system,MEDIUM
+P1093,P,BMW,Fuel Trim 2 Bank 2 System Too Rich,Long-term fuel trim issue; Injectors; Fuel pressure,MEDIUM
+P1100,P,BMW,O2 Sensor Heater Circuit (Bank 1 Sensor 1),O2 sensor heater; Wiring; Fuse; ECU,MEDIUM
+P1101,P,BMW,O2 Sensor Heater Circuit (Bank 1 Sensor 2),O2 sensor heater; Wiring; Fuse; ECU,MEDIUM
+P1102,P,BMW,O2 Sensor Heater Circuit (Bank 2 Sensor 1),O2 sensor heater; Wiring; Fuse; ECU,MEDIUM
+P1103,P,BMW,O2 Sensor Heater Circuit (Bank 2 Sensor 2),O2 sensor heater; Wiring; Fuse; ECU,MEDIUM
+P1105,P,BMW,O2 Sensor Heater Circuit Range/Performance (Bank 1 Sensor 1),O2 sensor; Heater resistance; Wiring,MEDIUM
+P1106,P,BMW,O2 Sensor Heater Circuit Range/Performance (Bank 1 Sensor 2),O2 sensor; Heater resistance; Wiring,MEDIUM
+P1107,P,BMW,O2 Sensor Heater Circuit Range/Performance (Bank 2 Sensor 1),O2 sensor; Heater resistance; Wiring,MEDIUM
+P1108,P,BMW,O2 Sensor Heater Circuit Range/Performance (Bank 2 Sensor 2),O2 sensor; Heater resistance; Wiring,MEDIUM
+P1110,P,BMW,O2 Sensor Aging (Bank 1 Sensor 1),O2 sensor worn; Response time slow; Replace sensor,MEDIUM
+P1111,P,BMW,O2 Sensor Aging (Bank 1 Sensor 2),O2 sensor worn; Response time slow; Replace sensor,MEDIUM
+P1112,P,BMW,O2 Sensor Aging (Bank 2 Sensor 1),O2 sensor worn; Response time slow; Replace sensor,MEDIUM
+P1113,P,BMW,O2 Sensor Aging (Bank 2 Sensor 2),O2 sensor worn; Response time slow; Replace sensor,MEDIUM
+P1115,P,BMW,O2 Sensor Heater Current (Bank 1 Sensor 1),Heater circuit current too low; Wiring; Sensor,MEDIUM
+P1116,P,BMW,O2 Sensor Heater Current (Bank 1 Sensor 2),Heater circuit current too low; Wiring; Sensor,MEDIUM
+P1117,P,BMW,O2 Sensor Heater Current (Bank 2 Sensor 1),Heater circuit current too low; Wiring; Sensor,MEDIUM
+P1118,P,BMW,O2 Sensor Heater Current (Bank 2 Sensor 2),Heater circuit current too low; Wiring; Sensor,MEDIUM
+P1120,P,BMW,Throttle Position Sensor A Circuit Range/Performance,TPS sensor; Wiring; ECU; Throttle body,MEDIUM
+P1121,P,BMW,Throttle Position Sensor A Circuit Malfunction,TPS sensor; Wiring; Connector corrosion; ECU,MEDIUM
+P1122,P,BMW,Throttle Actuator Control Motor Circuit,Electronic throttle motor; Wiring; ECU,HIGH
+P1123,P,BMW,Throttle Actuator Control System Malfunction,Throttle body; Motor; Position sensors; ECU,HIGH
+P1125,P,BMW,Accelerator Pedal Position Sensor Circuit,APP sensor; Wiring; Connector; ECU,HIGH
+P1126,P,BMW,Accelerator Pedal Position Sensor Range/Performance,APP sensor calibration; Sensor fault; Wiring,HIGH
+P1127,P,BMW,Long Term Fuel Trim Multiplicative (Bank 1),Fuel system adaptation; MAF; Injectors; O2 sensors,MEDIUM
+P1128,P,BMW,Long Term Fuel Trim Multiplicative (Bank 2),Fuel system adaptation; MAF; Injectors; O2 sensors,MEDIUM
+P1130,P,BMW,Long Term Fuel Trim Additive (Bank 1),Fuel system; MAF sensor; Vacuum leaks; Injectors,MEDIUM
+P1131,P,BMW,Long Term Fuel Trim Additive (Bank 2),Fuel system; MAF sensor; Vacuum leaks; Injectors,MEDIUM
+P1135,P,BMW,Intake Air Temperature Sensor Circuit,IAT sensor; Wiring; Connector; ECU,LOW
+P1136,P,BMW,Intake Air Temperature Sensor Range/Performance,IAT sensor reading incorrect; Sensor contamination,LOW
+P1140,P,BMW,Load Signal Error,MAF sensor; MAP sensor; Throttle position; ECU,MEDIUM
+P1141,P,BMW,Load Calculation Cross Check,MAF vs calculated load mismatch; Sensors; ECU,MEDIUM
+P1150,P,BMW,Fuel Rail Pressure Too Low,Fuel pump; Fuel filter; Pressure regulator; Leak,HIGH
+P1151,P,BMW,Fuel Rail Pressure Too High,Fuel pressure regulator; Fuel pump; Return line blocked,HIGH
+P1152,P,BMW,Fuel Rail Pressure Sensor Circuit,Fuel pressure sensor; Wiring; Connector; ECU,MEDIUM
+P1153,P,BMW,Fuel Rail Pressure Sensor Range/Performance,Sensor reading incorrect; Sensor fault; Wiring,MEDIUM
+P1160,P,BMW,Fuel Pump Relay Circuit Malfunction,Relay; Wiring; Fuse; Fuel pump controller,HIGH
+P1161,P,BMW,Fuel Pump Control Module,Fuel pump module; Wiring; Ground connection,HIGH
+P1162,P,BMW,Fuel Injector 1 Circuit Malfunction,Injector; Wiring; Connector; ECU driver,MEDIUM
+P1163,P,BMW,Fuel Injector 2 Circuit Malfunction,Injector; Wiring; Connector; ECU driver,MEDIUM
+P1164,P,BMW,Fuel Injector 3 Circuit Malfunction,Injector; Wiring; Connector; ECU driver,MEDIUM
+P1165,P,BMW,Fuel Injector 4 Circuit Malfunction,Injector; Wiring; Connector; ECU driver,MEDIUM
+P1166,P,BMW,Fuel Injector 5 Circuit Malfunction,Injector; Wiring; Connector; ECU driver,MEDIUM
+P1167,P,BMW,Fuel Injector 6 Circuit Malfunction,Injector; Wiring; Connector; ECU driver,MEDIUM
+P1170,P,BMW,EVAP System Malfunction,Purge valve; Vent valve; Leak; Wiring; ECU,MEDIUM
+P1171,P,BMW,EVAP Purge Control Valve Circuit,Purge valve; Wiring; Connector; ECU,MEDIUM
+P1172,P,BMW,EVAP Vent Control Valve Circuit,Vent valve; Wiring; Connector; ECU,MEDIUM
+P1173,P,BMW,EVAP System Leak Detection Pump,Leak detection pump; Wiring; Control circuit,MEDIUM
+P1174,P,BMW,EVAP System Leak - Small Leak Detected,Fuel cap; Hoses; Connections; Purge valve; Tank,MEDIUM
+P1175,P,BMW,EVAP System Leak - Large Leak Detected,Fuel cap loose; Major hose crack; Tank leak,HIGH
+P1180,P,BMW,Engine Coolant Temperature Sensor Circuit,ECT sensor; Wiring; Connector; Thermostat,MEDIUM
+P1181,P,BMW,Engine Coolant Temperature Sensor Range/Performance,Sensor reading incorrect; Thermostat stuck; Sensor,MEDIUM
+P1182,P,BMW,Fuel Temperature Sensor Circuit,Fuel temp sensor; Wiring; Connector; ECU,LOW
+P1183,P,BMW,Fuel Temperature Sensor Range/Performance,Sensor reading incorrect; Sensor contamination,LOW
+P1185,P,BMW,Oil Temperature Sensor Circuit,Oil temp sensor; Wiring; Connector; ECU,LOW
+P1186,P,BMW,Oil Temperature Sensor Range/Performance,Sensor reading incorrect; Oil level; Sensor fault,LOW
+P1190,P,BMW,Intake Manifold Pressure Sensor Circuit,MAP sensor; Wiring; Vacuum leak; ECU,MEDIUM
+P1191,P,BMW,Intake Manifold Pressure Sensor Range/Performance,MAP sensor reading incorrect; Vacuum leak; Sensor,MEDIUM
+P1195,P,BMW,EGR Position Sensor Circuit,EGR position sensor; Wiring; Connector; EGR valve,MEDIUM
+P1196,P,BMW,EGR Position Sensor Range/Performance,Sensor reading incorrect; EGR valve stuck; Carbon buildup,MEDIUM
+P1200,P,BMW,Ignition Coil 1 Primary/Secondary Circuit,Coil; Spark plug; Wiring; ECU driver,MEDIUM
+P1201,P,BMW,Ignition Coil 2 Primary/Secondary Circuit,Coil; Spark plug; Wiring; ECU driver,MEDIUM
+P1202,P,BMW,Ignition Coil 3 Primary/Secondary Circuit,Coil; Spark plug; Wiring; ECU driver,MEDIUM
+P1203,P,BMW,Ignition Coil 4 Primary/Secondary Circuit,Coil; Spark plug; Wiring; ECU driver,MEDIUM
+P1204,P,BMW,Ignition Coil 5 Primary/Secondary Circuit,Coil; Spark plug; Wiring; ECU driver,MEDIUM
+P1205,P,BMW,Ignition Coil 6 Primary/Secondary Circuit,Coil; Spark plug; Wiring; ECU driver,MEDIUM
+P1210,P,BMW,Cylinder 1 Misfire Detected,Spark plug; Coil; Injector; Compression; Wiring,HIGH
+P1211,P,BMW,Cylinder 2 Misfire Detected,Spark plug; Coil; Injector; Compression; Wiring,HIGH
+P1212,P,BMW,Cylinder 3 Misfire Detected,Spark plug; Coil; Injector; Compression; Wiring,HIGH
+P1213,P,BMW,Cylinder 4 Misfire Detected,Spark plug; Coil; Injector; Compression; Wiring,HIGH
+P1214,P,BMW,Cylinder 5 Misfire Detected,Spark plug; Coil; Injector; Compression; Wiring,HIGH
+P1215,P,BMW,Cylinder 6 Misfire Detected,Spark plug; Coil; Injector; Compression; Wiring,HIGH
+P1220,P,BMW,Camshaft Position Sensor A Circuit (Bank 1),CMP sensor; Wiring; Timing chain; ECU,HIGH
+P1221,P,BMW,Camshaft Position Sensor A Range/Performance (Bank 1),Sensor; Timing chain stretch; VVT system,HIGH
+P1222,P,BMW,Camshaft Position Sensor B Circuit (Bank 1),Exhaust CMP sensor; Wiring; ECU,HIGH
+P1223,P,BMW,Camshaft Position Sensor B Range/Performance (Bank 1),Sensor; VVT actuator; Oil pressure,HIGH
+P1225,P,BMW,Camshaft Position Sensor A Circuit (Bank 2),CMP sensor; Wiring; Timing chain; ECU,HIGH
+P1226,P,BMW,Camshaft Position Sensor A Range/Performance (Bank 2),Sensor; Timing chain stretch; VVT system,HIGH
+P1227,P,BMW,Camshaft Position Sensor B Circuit (Bank 2),Exhaust CMP sensor; Wiring; ECU,HIGH
+P1228,P,BMW,Camshaft Position Sensor B Range/Performance (Bank 2),Sensor; VVT actuator; Oil pressure,HIGH
+P1230,P,BMW,VANOS System Malfunction (Bank 1),VVT solenoid; Oil pressure; Timing; Wiring,HIGH
+P1231,P,BMW,VANOS System Stuck Open (Bank 1),VVT solenoid stuck; Oil sludge; Mechanical fault,HIGH
+P1232,P,BMW,VANOS System Stuck Closed (Bank 1),VVT solenoid stuck; Wiring; Oil pressure low,HIGH
+P1233,P,BMW,VANOS System Performance (Bank 1),VVT timing incorrect; Solenoid; Sensor; Oil,HIGH
+P1235,P,BMW,VANOS System Malfunction (Bank 2),VVT solenoid; Oil pressure; Timing; Wiring,HIGH
+P1236,P,BMW,VANOS System Stuck Open (Bank 2),VVT solenoid stuck; Oil sludge; Mechanical fault,HIGH
+P1237,P,BMW,VANOS System Stuck Closed (Bank 2),VVT solenoid stuck; Wiring; Oil pressure low,HIGH
+P1238,P,BMW,VANOS System Performance (Bank 2),VVT timing incorrect; Solenoid; Sensor; Oil,HIGH
+P1240,P,BMW,VANOS Solenoid Circuit (Bank 1 Intake),Solenoid; Wiring; Connector; ECU driver,MEDIUM
+P1241,P,BMW,VANOS Solenoid Circuit (Bank 1 Exhaust),Solenoid; Wiring; Connector; ECU driver,MEDIUM
+P1242,P,BMW,VANOS Solenoid Circuit (Bank 2 Intake),Solenoid; Wiring; Connector; ECU driver,MEDIUM
+P1243,P,BMW,VANOS Solenoid Circuit (Bank 2 Exhaust),Solenoid; Wiring; Connector; ECU driver,MEDIUM
+P1250,P,BMW,Fuel Level Sensor Circuit,Fuel level sender; Wiring; Fuel pump module; Gauge,LOW
+P1251,P,BMW,Fuel Level Sensor Range/Performance,Sender reading incorrect; Float stuck; Wiring,LOW
+P1260,P,BMW,Theft Deterrent System Malfunction,Key not recognized; Transponder; EWS module; DME,CRITICAL
+P1261,P,BMW,Theft Deterrent Fuel Enable Signal Not Received,Communication error; EWS to DME; Wiring; Module,CRITICAL
+P1270,P,BMW,Secondary Air Injection System Malfunction,AIR pump; Valve; Hoses; Wiring; ECU,MEDIUM
+P1271,P,BMW,Secondary Air Injection Pump Circuit,AIR pump motor; Relay; Wiring; Fuse,MEDIUM
+P1272,P,BMW,Secondary Air Injection Valve Circuit,AIR valve; Wiring; Vacuum; ECU control,MEDIUM
+P1273,P,BMW,Secondary Air Injection System Incorrect Flow,Pump weak; Hoses blocked; Check valve; Leak,MEDIUM
+P1274,P,BMW,Secondary Air Injection System No Flow,Pump failed; Hoses blocked; Valve stuck; Relay,MEDIUM
+P1280,P,BMW,Mass Air Flow Sensor Circuit,MAF sensor; Wiring; Connector; Air filter dirty,MEDIUM
+P1281,P,BMW,Mass Air Flow Sensor Range/Performance,MAF contaminated; Sensor fault; Air leak; Wiring,MEDIUM
+P1285,P,BMW,Turbocharger Boost Control Circuit,Wastegate solenoid; Wiring; Turbo; ECU,HIGH
+P1286,P,BMW,Turbocharger Boost Pressure Too Low,Boost leak; Wastegate stuck open; Turbo worn; Sensor,HIGH
+P1287,P,BMW,Turbocharger Boost Pressure Too High,Wastegate stuck closed; Solenoid fault; Hose off,HIGH
+P1288,P,BMW,Turbocharger Boost Pressure Sensor Circuit,Boost pressure sensor; Wiring; Connector; ECU,MEDIUM
+P1289,P,BMW,Turbocharger Boost Pressure Sensor Range/Performance,Sensor reading incorrect; Vacuum leak; Sensor fault,MEDIUM
+P1290,P,BMW,Charge Air Cooler Efficiency,Intercooler blocked; Leak; Air flow restricted,MEDIUM
+P1295,P,BMW,Throttle Valve Control Module,Electronic throttle control module; Wiring; Power supply,HIGH
+P1296,P,BMW,Throttle Valve Adaptation Not Started,Throttle not adapted; Perform adaptation; Battery voltage,MEDIUM
+P1297,P,BMW,Throttle Valve Adaptation At Limit,Throttle body dirty; Carbon buildup; Replace throttle body,MEDIUM
+P1300,P,BMW,Crankshaft Position Sensor Circuit,CKP sensor; Wiring; Reluctor wheel; ECU,CRITICAL
+P1301,P,BMW,Crankshaft Position Sensor Range/Performance,Sensor signal erratic; Reluctor damaged; Wiring,CRITICAL
+P1305,P,BMW,Crankshaft Position to Camshaft Position Correlation,Timing chain stretched; Sensors; Jump tooth,CRITICAL
+P1310,P,BMW,Knock Sensor 1 Circuit (Bank 1),Knock sensor; Wiring; Connector; ECU,MEDIUM
+P1311,P,BMW,Knock Sensor 1 Range/Performance (Bank 1),Sensor reading incorrect; Sensor fault; Wiring,MEDIUM
+P1312,P,BMW,Knock Sensor 2 Circuit (Bank 1),Knock sensor; Wiring; Connector; ECU,MEDIUM
+P1313,P,BMW,Knock Sensor 2 Range/Performance (Bank 1),Sensor reading incorrect; Sensor fault; Wiring,MEDIUM
+P1315,P,BMW,Knock Sensor 1 Circuit (Bank 2),Knock sensor; Wiring; Connector; ECU,MEDIUM
+P1316,P,BMW,Knock Sensor 1 Range/Performance (Bank 2),Sensor reading incorrect; Sensor fault; Wiring,MEDIUM
+P1317,P,BMW,Knock Sensor 2 Circuit (Bank 2),Knock sensor; Wiring; Connector; ECU,MEDIUM
+P1318,P,BMW,Knock Sensor 2 Range/Performance (Bank 2),Sensor reading incorrect; Sensor fault; Wiring,MEDIUM
+P1320,P,BMW,Misfire Detection Monitor Disabled,System disabled; Sensor faults; ECU software,MEDIUM
+P1325,P,BMW,Knock Control Cylinder 1,Knock detected; Fuel quality; Carbon buildup; Timing,MEDIUM
+P1326,P,BMW,Knock Control Cylinder 2,Knock detected; Fuel quality; Carbon buildup; Timing,MEDIUM
+P1327,P,BMW,Knock Control Cylinder 3,Knock detected; Fuel quality; Carbon buildup; Timing,MEDIUM
+P1328,P,BMW,Knock Control Cylinder 4,Knock detected; Fuel quality; Carbon buildup; Timing,MEDIUM
+P1329,P,BMW,Knock Control Cylinder 5,Knock detected; Fuel quality; Carbon buildup; Timing,MEDIUM
+P1330,P,BMW,Knock Control Cylinder 6,Knock detected; Fuel quality; Carbon buildup; Timing,MEDIUM
+P1340,P,BMW,Engine Speed Sensor Circuit,Engine speed sensor; Wiring; Flywheel; ECU,CRITICAL
+P1341,P,BMW,Engine Speed Sensor Range/Performance,Sensor signal erratic; Sensor fault; Wiring,HIGH
+P1345,P,BMW,Idle Speed Control System Malfunction,Idle control valve; Air leak; Throttle body; ECU,MEDIUM
+P1346,P,BMW,Idle Speed Control Actuator Circuit,ICV; Wiring; Connector; ECU driver,MEDIUM
+P1350,P,BMW,Starter Motor Circuit Malfunction,Starter motor; Relay; Wiring; Ignition switch,MEDIUM
+P1351,P,BMW,Starter Motor Relay Circuit,Relay; Wiring; Fuse; ECU control,MEDIUM
+P1360,P,BMW,Ignition Timing Adjustment At Lower Limit,Knock sensor; Fuel quality; Timing chain; Sensors,MEDIUM
+P1361,P,BMW,Ignition Timing Adjustment At Upper Limit,Sensors; MAF; O2 sensors; ECU calibration,MEDIUM
+P1370,P,BMW,Misfire Detected - No Communication with Transmission,CAN bus; TCM; ECU; Wiring; No torque reduction possible,HIGH
+P1400,P,BMW,EGR System Malfunction,EGR valve; Vacuum; Wiring; Carbon buildup; ECU,MEDIUM
+P1401,P,BMW,EGR Valve Stuck Open,EGR valve; Vacuum leak; Carbon; Valve diaphragm,MEDIUM
+P1402,P,BMW,EGR Valve Stuck Closed,EGR valve; Carbon buildup; Vacuum; Wiring,MEDIUM
+P1403,P,BMW,EGR Flow Insufficient,EGR valve partially blocked; Vacuum weak; Passages blocked,MEDIUM
+P1404,P,BMW,EGR Flow Excessive,EGR valve stuck open; Vacuum leak; Control solenoid,MEDIUM
+P1405,P,BMW,EGR Control Circuit,EGR solenoid; Wiring; Connector; ECU driver,MEDIUM
+P1410,P,BMW,Fuel Tank Pressure Sensor Circuit,Tank pressure sensor; Wiring; Connector; ECU,MEDIUM
+P1411,P,BMW,Fuel Tank Pressure Sensor Range/Performance,Sensor reading incorrect; EVAP leak; Sensor fault,MEDIUM
+P1415,P,BMW,Catalytic Converter Bank 1 Efficiency Below Threshold,Catalyst worn; O2 sensors; Exhaust leak; Fuel system,HIGH
+P1416,P,BMW,Catalytic Converter Bank 2 Efficiency Below Threshold,Catalyst worn; O2 sensors; Exhaust leak; Fuel system,HIGH
+P1420,P,BMW,Catalyst Monitor Bank 1,O2 sensors; Catalyst; Exhaust leak; ECU,MEDIUM
+P1421,P,BMW,Catalyst Monitor Bank 2,O2 sensors; Catalyst; Exhaust leak; ECU,MEDIUM
+P1425,P,BMW,Fuel Tank Ventilation Valve Circuit,Tank vent valve; Wiring; Connector; ECU,MEDIUM
+P1426,P,BMW,Fuel Tank Ventilation Valve Stuck Open,Vent valve stuck; Charcoal canister saturated; EVAP,MEDIUM
+P1430,P,BMW,Engine Torque Monitoring,Torque calculation error; Sensors; ECU software,MEDIUM
+P1431,P,BMW,Engine Torque Monitoring Plausibility,Sensor data inconsistent; MAF; TPS; Load calculation,MEDIUM
+P1440,P,BMW,DME Control Module Internal Fault,ECU internal error; Software; Hardware; Replace DME,CRITICAL
+P1441,P,BMW,DME Control Module Memory Checksum Error,ECU memory fault; Reprogram or replace DME,CRITICAL
+P1445,P,BMW,DME Control Module EEPROM Error,EEPROM fault; Reprogram or replace DME; VIN coding,CRITICAL
+P1450,P,BMW,Barometric Pressure Sensor Circuit,BARO sensor; Wiring; ECU; Altitude sensor,LOW
+P1451,P,BMW,Barometric Pressure Sensor Range/Performance,Sensor reading incorrect; Sensor fault; ECU,LOW
+P1460,P,BMW,Cooling Fan Control Circuit,Fan; Relay; Wiring; Thermoswitch; ECU,MEDIUM
+P1461,P,BMW,Cooling Fan 1 Circuit,Fan motor; Relay; Wiring; Fuse,MEDIUM
+P1462,P,BMW,Cooling Fan 2 Circuit,Auxiliary fan; Relay; Wiring; Control module,MEDIUM
+P1463,P,BMW,Cooling Fan Relay Control Circuit,Fan relay; Wiring; ECU driver circuit,MEDIUM
+P1470,P,BMW,Electric Coolant Pump Circuit,Electric water pump; Wiring; Fuse; Control module,MEDIUM
+P1471,P,BMW,Electric Coolant Pump Performance,Pump weak; Impeller damaged; Power supply; Ground,MEDIUM
+P1475,P,BMW,Electric Vacuum Pump Circuit,Vacuum pump; Wiring; Relay; Brake booster,MEDIUM
+P1476,P,BMW,Electric Vacuum Pump Performance,Pump weak; Leak; Check valve; Power supply,MEDIUM
+P1480,P,BMW,Cooling System Malfunction,Thermostat; Coolant level; Fan; Temperature sensor,HIGH
+P1481,P,BMW,Engine Overtemperature Condition,Coolant low; Thermostat stuck; Fan failure; Head gasket,CRITICAL
+P1490,P,BMW,Oil Pressure Low,Oil level low; Oil pump; Pressure sensor; Engine wear,CRITICAL
+P1491,P,BMW,Oil Pressure Sensor Circuit,Oil pressure sensor; Wiring; Connector; ECU,HIGH
+P1492,P,BMW,Oil Pressure Sensor Range/Performance,Sensor reading incorrect; Oil pressure low; Sensor fault,HIGH
+P1500,P,BMW,Vehicle Speed Sensor Circuit,VSS; Wiring; ABS module; Speedometer; ECU,MEDIUM
+P1501,P,BMW,Vehicle Speed Sensor Range/Performance,Sensor signal erratic; ABS module; Wiring; Wheel speed sensors,MEDIUM
+P1510,P,BMW,Intake Manifold Changeover Valve Circuit (DISA),DISA valve; Wiring; Vacuum; ECU,MEDIUM
+P1511,P,BMW,Intake Manifold Changeover Valve Stuck,DISA valve stuck; Vacuum leak; Linkage broken,MEDIUM
+P1515,P,BMW,Charge Air Pressure Control,Boost control; Wastegate; Turbo; Bypass valve,MEDIUM
+P1520,P,BMW,Intake Camshaft Control Malfunction (Bank 1),VVT solenoid; Oil pressure; Sensor; Timing,HIGH
+P1521,P,BMW,Intake Camshaft Control Stuck Open (Bank 1),VVT solenoid; Oil sludge; Mechanical fault,HIGH
+P1522,P,BMW,Intake Camshaft Control Stuck Closed (Bank 1),VVT solenoid; Wiring; Oil pressure,HIGH
+P1525,P,BMW,Intake Camshaft Control Malfunction (Bank 2),VVT solenoid; Oil pressure; Sensor; Timing,HIGH
+P1526,P,BMW,Intake Camshaft Control Stuck Open (Bank 2),VVT solenoid; Oil sludge; Mechanical fault,HIGH
+P1527,P,BMW,Intake Camshaft Control Stuck Closed (Bank 2),VVT solenoid; Wiring; Oil pressure,HIGH
+P1530,P,BMW,Exhaust Camshaft Control Malfunction (Bank 1),VVT solenoid; Oil pressure; Sensor; Timing,HIGH
+P1531,P,BMW,Exhaust Camshaft Control Stuck Open (Bank 1),VVT solenoid; Oil sludge; Mechanical fault,HIGH
+P1532,P,BMW,Exhaust Camshaft Control Stuck Closed (Bank 1),VVT solenoid; Wiring; Oil pressure,HIGH
+P1535,P,BMW,Exhaust Camshaft Control Malfunction (Bank 2),VVT solenoid; Oil pressure; Sensor; Timing,HIGH
+P1536,P,BMW,Exhaust Camshaft Control Stuck Open (Bank 2),VVT solenoid; Oil sludge; Mechanical fault,HIGH
+P1537,P,BMW,Exhaust Camshaft Control Stuck Closed (Bank 2),VVT solenoid; Wiring; Oil pressure,HIGH
+P1600,P,BMW,CAN Bus Communication Error,CAN bus wiring; Module fault; Termination resistor,HIGH
+P1601,P,BMW,CAN Bus Communication Error - DME to EWS,DME to EWS communication; Wiring; Modules,HIGH
+P1602,P,BMW,CAN Bus Communication Error - DME to Instrument Cluster,CAN wiring; Cluster; DME; Termination,MEDIUM
+P1603,P,BMW,CAN Bus Communication Error - DME to TCM,DME to transmission; CAN bus; Modules; Wiring,HIGH
+P1610,P,BMW,EWS - DME Control Module Malfunction,Immobilizer fault; DME; EWS module; Key coding,CRITICAL
+P1611,P,BMW,MIL Request Signal Malfunction,Instrument cluster; CAN bus; DME; Wiring,MEDIUM
+P1612,P,BMW,Engine Control Module Incorrect Coding/Programming,DME software; VIN coding; Reprogram ECU,HIGH
+P1613,P,BMW,Crash Shutdown Activated,Crash sensor; Fuel pump shutoff; Reset system,HIGH
+P1614,P,BMW,Immobilizer System Authentication Failed,Key not recognized; EWS; DME; Transponder,CRITICAL
+P1620,P,BMW,Air Conditioning Compressor Clutch Circuit,A/C clutch; Relay; Wiring; Compressor,LOW
+P1621,P,BMW,Air Conditioning System Malfunction,A/C system; Pressure switches; Wiring; ECU,LOW

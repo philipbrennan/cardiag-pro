@@ -1,0 +1,247 @@
+code,system,manufacturer,description,possible_causes,severity
+P1000,P,VW,System Readiness Test Not Complete,Drive cycle incomplete; Battery disconnect; ECU reset,LOW
+P1011,P,VW,Intake Camshaft Position Actuator Circuit (Bank 1),Camshaft adjuster; Oil pressure; Solenoid; Wiring,HIGH
+P1012,P,VW,Intake Camshaft Position Actuator Performance (Bank 1),Oil sludge; Solenoid valve; Chain stretch; Sensor,HIGH
+P1013,P,VW,Exhaust Camshaft Position Actuator Circuit (Bank 1),Camshaft adjuster; Oil pressure; Solenoid; Wiring,HIGH
+P1014,P,VW,Exhaust Camshaft Position Actuator Performance (Bank 1),Oil sludge; Solenoid valve; Chain stretch; Sensor,HIGH
+P1015,P,VW,Intake Camshaft Position Actuator Circuit (Bank 2),Camshaft adjuster; Oil pressure; Solenoid; Wiring,HIGH
+P1016,P,VW,Intake Camshaft Position Actuator Performance (Bank 2),Oil sludge; Solenoid valve; Chain stretch; Sensor,HIGH
+P1017,P,VW,Exhaust Camshaft Position Actuator Circuit (Bank 2),Camshaft adjuster; Oil pressure; Solenoid; Wiring,HIGH
+P1018,P,VW,Exhaust Camshaft Position Actuator Performance (Bank 2),Oil sludge; Solenoid valve; Chain stretch; Sensor,HIGH
+P1020,P,VW,Camshaft Position Sensor A Circuit (Bank 2),CMP sensor; Wiring; Connector; Timing; ECU,HIGH
+P1021,P,VW,Camshaft Position Sensor A Range/Performance (Bank 2),Sensor; Timing chain; Reluctor wheel; Wiring,HIGH
+P1025,P,VW,Camshaft Position Sensor B Circuit (Bank 2),Exhaust CMP sensor; Wiring; Connector; ECU,HIGH
+P1026,P,VW,Camshaft Position Sensor B Range/Performance (Bank 2),Sensor; Timing; Reluctor; Wiring,HIGH
+P1090,P,VW,Long Term Fuel Trim 1 System Too Lean (Bank 1),Vacuum leak; MAF sensor; Fuel pressure; Injector,MEDIUM
+P1091,P,VW,Long Term Fuel Trim 1 System Too Rich (Bank 1),Injector leak; Fuel pressure; MAF; O2 sensor,MEDIUM
+P1092,P,VW,Long Term Fuel Trim 1 System Too Lean (Bank 2),Vacuum leak; MAF sensor; Fuel pressure; Injector,MEDIUM
+P1093,P,VW,Long Term Fuel Trim 1 System Too Rich (Bank 2),Injector leak; Fuel pressure; MAF; O2 sensor,MEDIUM
+P1100,P,VW,O2 Sensor Heating Circuit (Bank 1 Sensor 1),O2 heater; Relay; Fuse; Wiring; ECU,MEDIUM
+P1101,P,VW,O2 Sensor Heating Circuit (Bank 1 Sensor 2),O2 heater; Relay; Fuse; Wiring; ECU,MEDIUM
+P1102,P,VW,O2 Sensor Heating Circuit (Bank 2 Sensor 1),O2 heater; Relay; Fuse; Wiring; ECU,MEDIUM
+P1103,P,VW,O2 Sensor Heating Circuit (Bank 2 Sensor 2),O2 heater; Relay; Fuse; Wiring; ECU,MEDIUM
+P1105,P,VW,Manifold Absolute Pressure Sensor Circuit,MAP sensor; Wiring; Vacuum leak; ECU,MEDIUM
+P1106,P,VW,Manifold Absolute Pressure Sensor Range/Performance,MAP sensor contaminated; Vacuum leak; Sensor fault,MEDIUM
+P1110,P,VW,Intake Air Temperature Sensor Circuit,IAT sensor; Wiring; Connector; MAF sensor,LOW
+P1111,P,VW,Intake Air Temperature Sensor Range/Performance,IAT sensor reading incorrect; Contamination; Sensor,LOW
+P1115,P,VW,Engine Coolant Temperature Circuit,ECT sensor; Wiring; Thermostat; Connector,MEDIUM
+P1116,P,VW,Engine Coolant Temperature Range/Performance,ECT sensor; Thermostat stuck; Coolant level; Wiring,MEDIUM
+P1120,P,VW,Throttle Position Sensor Circuit,TPS sensor; Wiring; Throttle body; ECU,MEDIUM
+P1121,P,VW,Throttle Position Sensor Range/Performance,TPS sensor; Throttle body dirty; Calibration; Wiring,MEDIUM
+P1125,P,VW,Accelerator Pedal Position Sensor A Circuit,APP sensor; Wiring; Connector; ECU,HIGH
+P1126,P,VW,Accelerator Pedal Position Sensor A Range/Performance,APP sensor calibration; Sensor fault; Wiring,HIGH
+P1127,P,VW,Accelerator Pedal Position Sensor B Circuit,APP sensor 2; Wiring; Connector; ECU,HIGH
+P1128,P,VW,Accelerator Pedal Position Sensor B Range/Performance,APP sensor 2 calibration; Sensor fault; Wiring,HIGH
+P1130,P,VW,Throttle Actuator Control Motor Circuit,Electronic throttle motor; Wiring; Throttle body; ECU,HIGH
+P1131,P,VW,Throttle Actuator Position Sensor Circuit,TPS sensor 1; Wiring; Throttle body; Calibration,HIGH
+P1132,P,VW,Throttle Actuator Position Sensor 2 Circuit,TPS sensor 2; Wiring; Throttle body; Calibration,HIGH
+P1133,P,VW,Throttle Actuator Control Range/Performance,Throttle body dirty; Motor fault; Carbon buildup; Adaptation,MEDIUM
+P1135,P,VW,Throttle Position Sensor Correlation,TPS 1 vs TPS 2 mismatch; Sensor fault; Wiring; ECU,HIGH
+P1136,P,VW,Long Term Fuel Trim Additive (Bank 1),Fuel system adaptation; MAF; Injectors; O2 sensors,MEDIUM
+P1137,P,VW,Long Term Fuel Trim Additive (Bank 2),Fuel system adaptation; MAF; Injectors; O2 sensors,MEDIUM
+P1138,P,VW,Long Term Fuel Trim Multiplicative (Bank 1),Fuel system; MAF sensor; Injectors; Fuel pressure,MEDIUM
+P1139,P,VW,Long Term Fuel Trim Multiplicative (Bank 2),Fuel system; MAF sensor; Injectors; Fuel pressure,MEDIUM
+P1140,P,VW,Load Calculation Cross Check,MAF vs calculated load; Throttle position; Sensors,MEDIUM
+P1141,P,VW,Load Calculation Plausibility,MAF contaminated; Vacuum leak; Throttle; Boost leak,MEDIUM
+P1145,P,VW,Charge Pressure Control Range/Performance,Wastegate; N75 valve; Boost leak; Turbo,HIGH
+P1146,P,VW,Charge Pressure Upper Limit Exceeded,Wastegate stuck; N75 valve; Overboost; Hose off,HIGH
+P1147,P,VW,Charge Pressure Not Reached,Boost leak; Wastegate open; Turbo worn; N75 valve,HIGH
+P1148,P,VW,Charge Pressure Control Valve (N75) Circuit,N75 valve; Wiring; Connector; ECU driver,MEDIUM
+P1149,P,VW,Charge Pressure Control Valve (N75) Open Circuit,N75 valve; Wiring break; Connector; ECU,MEDIUM
+P1150,P,VW,Manifold Changeover Valve Circuit,Manifold flap motor; Wiring; Vacuum; Position sensor,MEDIUM
+P1151,P,VW,Manifold Changeover Valve Performance,Flap motor; Linkage broken; Carbon; Position sensor,MEDIUM
+P1152,P,VW,Manifold Changeover Valve Position Sensor,Position sensor; Wiring; Potentiometer; Motor,MEDIUM
+P1155,P,VW,Fuel Rail Pressure Sensor Circuit,Fuel pressure sensor; Wiring; Connector; ECU,MEDIUM
+P1156,P,VW,Fuel Rail Pressure Sensor Range/Performance,Sensor reading incorrect; Fuel pressure; Sensor fault,MEDIUM
+P1157,P,VW,Fuel Rail Pressure Control Range/Performance,Fuel pressure regulator; Pump; Sensor; ECU,HIGH
+P1158,P,VW,Fuel Rail Pressure Too Low,Fuel pump weak; Filter clogged; Regulator; Leak,HIGH
+P1159,P,VW,Fuel Rail Pressure Too High,Fuel pressure regulator; Return line; Pump; ECU,HIGH
+P1160,P,VW,Fuel Temperature Sensor Circuit,Fuel temp sensor; Wiring; Connector; ECU,LOW
+P1161,P,VW,Fuel Temperature Sensor Range/Performance,Sensor reading incorrect; Contamination; Sensor,LOW
+P1165,P,VW,Fuel Injector 1 Circuit Malfunction,Injector 1; Wiring; Connector; ECU driver,MEDIUM
+P1166,P,VW,Fuel Injector 2 Circuit Malfunction,Injector 2; Wiring; Connector; ECU driver,MEDIUM
+P1167,P,VW,Fuel Injector 3 Circuit Malfunction,Injector 3; Wiring; Connector; ECU driver,MEDIUM
+P1168,P,VW,Fuel Injector 4 Circuit Malfunction,Injector 4; Wiring; Connector; ECU driver,MEDIUM
+P1169,P,VW,Fuel Injector 5 Circuit Malfunction,Injector 5; Wiring; Connector; ECU driver,MEDIUM
+P1170,P,VW,Fuel Injector 6 Circuit Malfunction,Injector 6; Wiring; Connector; ECU driver,MEDIUM
+P1171,P,VW,Fuel Injector 1 Short to B+,Injector wiring short to power; Harness; ECU,MEDIUM
+P1172,P,VW,Fuel Injector 2 Short to B+,Injector wiring short to power; Harness; ECU,MEDIUM
+P1173,P,VW,Fuel Injector 3 Short to B+,Injector wiring short to power; Harness; ECU,MEDIUM
+P1174,P,VW,Fuel Injector 4 Short to B+,Injector wiring short to power; Harness; ECU,MEDIUM
+P1175,P,VW,Fuel Injector 5 Short to B+,Injector wiring short to power; Harness; ECU,MEDIUM
+P1176,P,VW,Fuel Injector 6 Short to B+,Injector wiring short to power; Harness; ECU,MEDIUM
+P1177,P,VW,O2 Control (Bank 1) Out of Limit,O2 sensor slow; Fuel trim max; Sensor aging; Exhaust leak,MEDIUM
+P1178,P,VW,O2 Control (Bank 2) Out of Limit,O2 sensor slow; Fuel trim max; Sensor aging; Exhaust leak,MEDIUM
+P1179,P,VW,O2 Heater Circuit (Bank 1 Sensor 1) Short to B+,O2 heater wiring short; Relay; Harness; ECU,MEDIUM
+P1180,P,VW,O2 Heater Circuit (Bank 1 Sensor 2) Short to B+,O2 heater wiring short; Relay; Harness; ECU,MEDIUM
+P1181,P,VW,O2 Heater Circuit (Bank 2 Sensor 1) Short to B+,O2 heater wiring short; Relay; Harness; ECU,MEDIUM
+P1182,P,VW,O2 Heater Circuit (Bank 2 Sensor 2) Short to B+,O2 heater wiring short; Relay; Harness; ECU,MEDIUM
+P1185,P,VW,Fuel System Control Range/Performance,Fuel trim adaptation at limit; Sensors; Vacuum; Injectors,MEDIUM
+P1186,P,VW,Fuel System Too Rich,Injector leak; Fuel pressure high; MAF; O2 sensor,MEDIUM
+P1187,P,VW,Fuel System Too Lean,Vacuum leak; Fuel pump; MAF contaminated; Injectors,MEDIUM
+P1190,P,VW,EVAP Leak Detection Pump Circuit,LDP motor; Wiring; Connector; ECU driver,MEDIUM
+P1191,P,VW,EVAP Leak Detection Pump Performance,LDP motor weak; Vacuum leak; Valve; Lines,MEDIUM
+P1192,P,VW,Intake Manifold Pressure Too Low,Vacuum leak; MAP sensor; Throttle body; Hoses,MEDIUM
+P1193,P,VW,Intake Manifold Pressure Too High,Throttle stuck; MAP sensor; Manifold flap; Boost leak,MEDIUM
+P1195,P,VW,Turbocharger/Supercharger Bypass Valve Circuit,Bypass valve; Wiring; Vacuum; Solenoid; ECU,MEDIUM
+P1196,P,VW,Turbocharger/Supercharger Bypass Valve Performance,Bypass valve stuck; Vacuum leak; Diaphragm; Linkage,MEDIUM
+P1197,P,VW,Turbocharger/Supercharger Recirculation Valve Circuit,DV valve; N249 valve; Wiring; Vacuum; ECU,MEDIUM
+P1198,P,VW,Turbocharger/Supercharger Recirculation Valve Performance,DV valve stuck; Diaphragm torn; Vacuum; Spring,MEDIUM
+P1200,P,VW,Ignition Coil 1 Primary/Secondary Circuit,Coil pack 1; Spark plug; Wiring; ECU driver,MEDIUM
+P1201,P,VW,Ignition Coil 2 Primary/Secondary Circuit,Coil pack 2; Spark plug; Wiring; ECU driver,MEDIUM
+P1202,P,VW,Ignition Coil 3 Primary/Secondary Circuit,Coil pack 3; Spark plug; Wiring; ECU driver,MEDIUM
+P1203,P,VW,Ignition Coil 4 Primary/Secondary Circuit,Coil pack 4; Spark plug; Wiring; ECU driver,MEDIUM
+P1204,P,VW,Ignition Coil 5 Primary/Secondary Circuit,Coil pack 5; Spark plug; Wiring; ECU driver,MEDIUM
+P1205,P,VW,Ignition Coil 6 Primary/Secondary Circuit,Coil pack 6; Spark plug; Wiring; ECU driver,MEDIUM
+P1206,P,VW,Ignition Coil 1 Short to B+,Coil wiring short to power; Harness; ECU driver,MEDIUM
+P1207,P,VW,Ignition Coil 2 Short to B+,Coil wiring short to power; Harness; ECU driver,MEDIUM
+P1208,P,VW,Ignition Coil 3 Short to B+,Coil wiring short to power; Harness; ECU driver,MEDIUM
+P1209,P,VW,Ignition Coil 4 Short to B+,Coil wiring short to power; Harness; ECU driver,MEDIUM
+P1210,P,VW,Ignition Coil 5 Short to B+,Coil wiring short to power; Harness; ECU driver,MEDIUM
+P1211,P,VW,Ignition Coil 6 Short to B+,Coil wiring short to power; Harness; ECU driver,MEDIUM
+P1213,P,VW,Cylinder 1 Injection Timing,Injector timing incorrect; Cam position; Timing; ECU,HIGH
+P1214,P,VW,Cylinder 2 Injection Timing,Injector timing incorrect; Cam position; Timing; ECU,HIGH
+P1215,P,VW,Cylinder 3 Injection Timing,Injector timing incorrect; Cam position; Timing; ECU,HIGH
+P1216,P,VW,Cylinder 4 Injection Timing,Injector timing incorrect; Cam position; Timing; ECU,HIGH
+P1217,P,VW,Cylinder 5 Injection Timing,Injector timing incorrect; Cam position; Timing; ECU,HIGH
+P1218,P,VW,Cylinder 6 Injection Timing,Injector timing incorrect; Cam position; Timing; ECU,HIGH
+P1220,P,VW,Fuel Pump Control Module Power Supply,Fuel pump module; Relay; Fuse; Wiring; Ground,HIGH
+P1221,P,VW,Fuel Pump Control Module Communication,Fuel pump module; CAN bus; Wiring; Module fault,HIGH
+P1225,P,VW,Fuel Pump Flow Too Low,Fuel pump weak; Filter clogged; Regulator; Voltage,HIGH
+P1226,P,VW,Fuel Pump Flow Too High,Fuel pressure regulator; Return line blocked; Pump,MEDIUM
+P1227,P,VW,Fuel Pump Primary Circuit,Fuel pump relay; Wiring; Fuse; ECU control,HIGH
+P1228,P,VW,Fuel Pump Secondary Circuit,Fuel pump module; Wiring; Ground; Relay,HIGH
+P1230,P,VW,Fuel Injector Cylinder 1 Open Circuit,Injector disconnected; Wiring break; Connector,MEDIUM
+P1231,P,VW,Fuel Injector Cylinder 2 Open Circuit,Injector disconnected; Wiring break; Connector,MEDIUM
+P1232,P,VW,Fuel Injector Cylinder 3 Open Circuit,Injector disconnected; Wiring break; Connector,MEDIUM
+P1233,P,VW,Fuel Injector Cylinder 4 Open Circuit,Injector disconnected; Wiring break; Connector,MEDIUM
+P1234,P,VW,Fuel Injector Cylinder 5 Open Circuit,Injector disconnected; Wiring break; Connector,MEDIUM
+P1235,P,VW,Fuel Injector Cylinder 6 Open Circuit,Injector disconnected; Wiring break; Connector,MEDIUM
+P1237,P,VW,Fuel Injector Cylinder 1 Short to Ground,Injector wiring short; Harness; Connector; ECU,MEDIUM
+P1238,P,VW,Fuel Injector Cylinder 2 Short to Ground,Injector wiring short; Harness; Connector; ECU,MEDIUM
+P1239,P,VW,Fuel Injector Cylinder 3 Short to Ground,Injector wiring short; Harness; Connector; ECU,MEDIUM
+P1240,P,VW,Fuel Injector Cylinder 4 Short to Ground,Injector wiring short; Harness; Connector; ECU,MEDIUM
+P1241,P,VW,Fuel Injector Cylinder 5 Short to Ground,Injector wiring short; Harness; Connector; ECU,MEDIUM
+P1242,P,VW,Fuel Injector Cylinder 6 Short to Ground,Injector wiring short; Harness; Connector; ECU,MEDIUM
+P1250,P,VW,Fuel Level Sensor Circuit,Fuel level sender; Wiring; Fuel pump module; Cluster,LOW
+P1251,P,VW,Fuel Level Sensor Range/Performance,Sender reading incorrect; Float stuck; Wiring; Cluster,LOW
+P1255,P,VW,Coolant Thermostat Below Regulating Temperature,Thermostat stuck open; ECT sensor; Coolant flow,MEDIUM
+P1256,P,VW,Coolant Thermostat Above Regulating Temperature,Thermostat stuck closed; Coolant circulation; Sensor,HIGH
+P1260,P,VW,Anti-Theft System Malfunction,Immobilizer; Key; Transponder; ECU communication,CRITICAL
+P1265,P,VW,Secondary Air Injection System Pump Circuit,AIR pump; Relay; Wiring; Fuse; ECU driver,MEDIUM
+P1266,P,VW,Secondary Air Injection System Valve Circuit,AIR valve; Wiring; Vacuum; Relay; ECU,MEDIUM
+P1270,P,VW,Accelerator Pedal Position Sensor Signal Too Low,APP sensor; Wiring short to ground; Connector,HIGH
+P1271,P,VW,Accelerator Pedal Position Sensor Signal Too High,APP sensor; Wiring short to power; Sensor fault,HIGH
+P1280,P,VW,Fuel Injection Air Control Valve Circuit,FIACV; Idle control; Wiring; Vacuum; ECU,MEDIUM
+P1281,P,VW,Fuel Injection Air Control Valve Performance,FIACV stuck; Air leak; Throttle body; Hoses,MEDIUM
+P1285,P,VW,Fuel Injection Air Control Valve Open Circuit,FIACV disconnected; Wiring break; Connector,MEDIUM
+P1286,P,VW,Fuel Injection Air Control Valve Short to Ground,FIACV wiring short; Harness; Connector; ECU,MEDIUM
+P1287,P,VW,Turbocharger Bypass Valve Open,Bypass valve stuck open; Vacuum leak; Diaphragm,MEDIUM
+P1288,P,VW,Turbocharger Bypass Valve Short to Ground,Bypass valve wiring short; Solenoid; Harness,MEDIUM
+P1289,P,VW,Turbocharger Bypass Valve Short to B+,Bypass valve wiring short to power; Harness; Solenoid,MEDIUM
+P1290,P,VW,Charge Air Temperature Sensor Circuit,Charge air temp sensor; Wiring; Intercooler; ECU,LOW
+P1291,P,VW,Charge Air Temperature Sensor Range/Performance,Sensor reading incorrect; Contamination; Sensor,LOW
+P1295,P,VW,Turbocharger Wastegate Bypass Solenoid Valve Open,N75 valve stuck open; Vacuum leak; Wiring,MEDIUM
+P1296,P,VW,Turbocharger Wastegate Bypass Solenoid Valve Short,N75 valve wiring short to ground; Solenoid; Harness,MEDIUM
+P1297,P,VW,Turbocharger Wastegate Bypass Solenoid Valve Short to B+,N75 valve wiring short to power; Harness; Solenoid,MEDIUM
+P1300,P,VW,Misfire Detected with Fuel Cut-off,Ignition system; Fuel system; Engine mechanical,HIGH
+P1305,P,VW,Ignition Coil Power Stage 1,Coil 1 driver; Wiring; ECU output stage,MEDIUM
+P1306,P,VW,Ignition Coil Power Stage 2,Coil 2 driver; Wiring; ECU output stage,MEDIUM
+P1307,P,VW,Ignition Coil Power Stage 3,Coil 3 driver; Wiring; ECU output stage,MEDIUM
+P1308,P,VW,Ignition Coil Power Stage 4,Coil 4 driver; Wiring; ECU output stage,MEDIUM
+P1309,P,VW,Ignition Coil Power Stage 5,Coil 5 driver; Wiring; ECU output stage,MEDIUM
+P1310,P,VW,Ignition Coil Power Stage 6,Coil 6 driver; Wiring; ECU output stage,MEDIUM
+P1315,P,VW,Knock Sensor 1 Circuit (Bank 1),Knock sensor; Wiring; Connector; ECU; Shielding,MEDIUM
+P1316,P,VW,Knock Sensor 1 Range/Performance (Bank 1),Knock sensor reading incorrect; Mounting; Wiring,MEDIUM
+P1317,P,VW,Knock Sensor 2 Circuit (Bank 1),Knock sensor 2; Wiring; Connector; ECU,MEDIUM
+P1318,P,VW,Knock Sensor 2 Range/Performance (Bank 1),Knock sensor 2 reading incorrect; Mounting; Wiring,MEDIUM
+P1320,P,VW,Knock Sensor 1 Circuit (Bank 2),Knock sensor; Wiring; Connector; ECU; Shielding,MEDIUM
+P1321,P,VW,Knock Sensor 1 Range/Performance (Bank 2),Knock sensor reading incorrect; Mounting; Wiring,MEDIUM
+P1322,P,VW,Knock Sensor 2 Circuit (Bank 2),Knock sensor 2; Wiring; Connector; ECU,MEDIUM
+P1323,P,VW,Knock Sensor 2 Range/Performance (Bank 2),Knock sensor 2 reading incorrect; Mounting; Wiring,MEDIUM
+P1325,P,VW,Knock Control Cylinder 1 Control Limit Reached,Knock detected; Fuel quality; Carbon; Timing; Sensor,MEDIUM
+P1326,P,VW,Knock Control Cylinder 2 Control Limit Reached,Knock detected; Fuel quality; Carbon; Timing; Sensor,MEDIUM
+P1327,P,VW,Knock Control Cylinder 3 Control Limit Reached,Knock detected; Fuel quality; Carbon; Timing; Sensor,MEDIUM
+P1328,P,VW,Knock Control Cylinder 4 Control Limit Reached,Knock detected; Fuel quality; Carbon; Timing; Sensor,MEDIUM
+P1329,P,VW,Knock Control Cylinder 5 Control Limit Reached,Knock detected; Fuel quality; Carbon; Timing; Sensor,MEDIUM
+P1330,P,VW,Knock Control Cylinder 6 Control Limit Reached,Knock detected; Fuel quality; Carbon; Timing; Sensor,MEDIUM
+P1335,P,VW,Crankshaft Position Sensor A Circuit Malfunction,CKP sensor; Wiring; Reluctor wheel; Shielding; ECU,CRITICAL
+P1336,P,VW,Crankshaft Position Sensor A Range/Performance,CKP sensor signal erratic; Reluctor damaged; Wiring,CRITICAL
+P1340,P,VW,Crankshaft Position to Camshaft Position Correlation,Timing chain stretched; Sensors; Jumped tooth; VVT,CRITICAL
+P1341,P,VW,Ignition Coil Control Circuit,Ignition control module; Wiring; Power supply; ECU,HIGH
+P1345,P,VW,Camshaft to Crankshaft Position Correlation (Bank 1),Timing chain; CMP sensor; CKP sensor; VVT system,HIGH
+P1346,P,VW,Camshaft to Crankshaft Position Correlation (Bank 2),Timing chain; CMP sensor; CKP sensor; VVT system,HIGH
+P1350,P,VW,Ignition System Control Error,Ignition control module; Coils; Wiring; ECU,HIGH
+P1355,P,VW,Cylinder 1 Ignition Circuit Open,Coil 1 disconnected; Wiring break; Connector; ECU,HIGH
+P1356,P,VW,Cylinder 2 Ignition Circuit Open,Coil 2 disconnected; Wiring break; Connector; ECU,HIGH
+P1357,P,VW,Cylinder 3 Ignition Circuit Open,Coil 3 disconnected; Wiring break; Connector; ECU,HIGH
+P1358,P,VW,Cylinder 4 Ignition Circuit Open,Coil 4 disconnected; Wiring break; Connector; ECU,HIGH
+P1359,P,VW,Cylinder 5 Ignition Circuit Open,Coil 5 disconnected; Wiring break; Connector; ECU,HIGH
+P1360,P,VW,Cylinder 6 Ignition Circuit Open,Coil 6 disconnected; Wiring break; Connector; ECU,HIGH
+P1400,P,VW,Exhaust Gas Recirculation Cooler Regulation Out of Range,EGR cooler; Temperature sensor; Coolant flow,MEDIUM
+P1401,P,VW,Exhaust Gas Recirculation Valve Stuck Open,EGR valve stuck; Vacuum leak; Carbon; Valve diaphragm,MEDIUM
+P1402,P,VW,Exhaust Gas Recirculation Valve Stuck Closed,EGR valve stuck; Carbon buildup; Vacuum; Wiring,MEDIUM
+P1403,P,VW,Exhaust Gas Recirculation Circuit Malfunction,EGR valve; Vacuum solenoid; Wiring; ECU; Hoses,MEDIUM
+P1404,P,VW,Exhaust Gas Recirculation Position Sensor Circuit,EGR position sensor; Wiring; Potentiometer; Valve,MEDIUM
+P1405,P,VW,Exhaust Gas Recirculation Position Sensor Performance,EGR position sensor reading incorrect; Carbon; Sensor,MEDIUM
+P1410,P,VW,Fuel Tank Ventilation Valve Circuit,Tank vent valve; Wiring; Connector; ECU driver,MEDIUM
+P1411,P,VW,Secondary Air Injection System Incorrect Flow Detected,AIR pump weak; Hoses blocked; Check valve; Leak,MEDIUM
+P1412,P,VW,Secondary Air Injection System Control Valve Open,AIR valve stuck open; Vacuum leak; Control solenoid,MEDIUM
+P1415,P,VW,Bank 1 - Camshaft Position Slow Response,VVT solenoid; Oil pressure low; Chain stretch; Sensor,HIGH
+P1416,P,VW,Bank 2 - Camshaft Position Slow Response,VVT solenoid; Oil pressure low; Chain stretch; Sensor,HIGH
+P1420,P,VW,Secondary Air Injection System Control Valve Short to Ground,AIR valve wiring short; Harness; Connector; ECU,MEDIUM
+P1421,P,VW,Secondary Air Injection System Control Valve Short to B+,AIR valve wiring short to power; Harness; Solenoid,MEDIUM
+P1425,P,VW,Tank Ventilation Valve Short to Ground,Tank vent valve wiring short; Harness; Connector; ECU,MEDIUM
+P1426,P,VW,Tank Ventilation Valve Open,Tank vent valve stuck open; Charcoal canister saturated,MEDIUM
+P1432,P,VW,Secondary Air Injection Valve Open,AIR valve stuck open; Vacuum leak; Diaphragm,MEDIUM
+P1433,P,VW,Secondary Air Injection Pump Relay Circuit Open,AIR pump relay; Wiring break; Fuse; Connector,MEDIUM
+P1434,P,VW,Secondary Air Injection Pump Relay Circuit Short to B+,AIR pump relay wiring short to power; Harness,MEDIUM
+P1435,P,VW,Secondary Air Injection Pump Relay Circuit Short to Ground,AIR pump relay wiring short; Harness; ECU,MEDIUM
+P1450,P,VW,Barometric Pressure Sensor Circuit,BARO sensor; Wiring; ECU; MAP sensor,LOW
+P1451,P,VW,Barometric Pressure Sensor Range/Performance,BARO sensor reading incorrect; Sensor fault; ECU,LOW
+P1455,P,VW,EVAP System Leak Detection - Large Leak,Fuel cap loose; Major hose crack; Tank leak; Purge valve,HIGH
+P1456,P,VW,EVAP System Leak Detection - Small Leak,Fuel cap seal; Hoses; Connections; Purge valve; Tank,MEDIUM
+P1460,P,VW,Cooling System Thermostat Temperature Below Regulated Value,Thermostat stuck open; ECT sensor; Coolant circulation,MEDIUM
+P1461,P,VW,Cooling System Thermostat Temperature Above Regulated Value,Thermostat stuck closed; Coolant circulation; Sensor; Fan,HIGH
+P1470,P,VW,EVAP Emission Control LDP Circuit Malfunction,Leak detection pump; Wiring; Connector; ECU,MEDIUM
+P1471,P,VW,EVAP Emission Control LDP Circuit Short to B+,LDP wiring short to power; Harness; Motor,MEDIUM
+P1472,P,VW,EVAP Emission Control LDP Circuit Short to Ground,LDP wiring short; Harness; Connector; ECU,MEDIUM
+P1473,P,VW,EVAP Emission Control LDP Circuit Open,LDP disconnected; Wiring break; Connector; Motor,MEDIUM
+P1475,P,VW,EVAP Emission Control LDP Circuit Malfunction/Signal Circuit Open,LDP control circuit; Wiring; ECU; Sensor,MEDIUM
+P1476,P,VW,EVAP Emission Control LDP Circuit Malfunction/Insufficient Vacuum,LDP pump weak; Leak; Valve stuck; Lines,MEDIUM
+P1477,P,VW,EVAP Emission Control LDP Circuit Malfunction,LDP system fault; Pump; Valves; Lines; ECU,MEDIUM
+P1500,P,VW,Fuel Pump Relay Circuit Electrical Malfunction,Fuel pump relay; Wiring; Fuse; ECU control,HIGH
+P1501,P,VW,Fuel Pump Relay Circuit Short to Ground,Relay wiring short; Harness; Connector; ECU,HIGH
+P1502,P,VW,Fuel Pump Relay Circuit Short to B+,Relay wiring short to power; Harness; Relay,HIGH
+P1503,P,VW,Fuel Pump Relay Circuit Open,Relay disconnected; Wiring break; Fuse; Connector,HIGH
+P1505,P,VW,Fuel Pump Control Module Short to Ground,Fuel pump module; Wiring short; Ground connection,HIGH
+P1510,P,VW,Idle Control System RPM Lower Than Expected,Idle control valve; Air leak; Throttle; Engine load,MEDIUM
+P1511,P,VW,Intake Manifold Changeover Valve Circuit Short to B+,Manifold valve wiring short to power; Harness,MEDIUM
+P1512,P,VW,Intake Manifold Changeover Valve Circuit Short to Ground,Manifold valve wiring short; Harness; ECU,MEDIUM
+P1513,P,VW,Idle Control System RPM Higher Than Expected,Idle control valve stuck; Air leak; Throttle dirty,MEDIUM
+P1514,P,VW,Intake Manifold Changeover Valve Circuit Open,Manifold valve disconnected; Wiring break; Motor,MEDIUM
+P1515,P,VW,Intake Manifold Changeover Valve Circuit Malfunction,Manifold valve motor; Wiring; Position sensor; Vacuum,MEDIUM
+P1519,P,VW,Intake Camshaft Control Valve Circuit (Bank 1),VVT solenoid; Wiring; Connector; ECU driver,HIGH
+P1520,P,VW,Intake Camshaft Control Valve Circuit Short to B+ (Bank 1),VVT solenoid wiring short to power; Harness,HIGH
+P1521,P,VW,Intake Camshaft Control Valve Circuit Short to Ground (Bank 1),VVT solenoid wiring short; Harness; ECU,HIGH
+P1522,P,VW,Intake Camshaft Control Valve Circuit Open (Bank 1),VVT solenoid disconnected; Wiring break; Connector,HIGH
+P1523,P,VW,Exhaust Camshaft Control Valve Circuit (Bank 1),VVT solenoid; Wiring; Connector; ECU driver,HIGH
+P1524,P,VW,Exhaust Camshaft Control Valve Circuit Short to B+ (Bank 1),VVT solenoid wiring short to power; Harness,HIGH
+P1525,P,VW,Exhaust Camshaft Control Valve Circuit Short to Ground (Bank 1),VVT solenoid wiring short; Harness; ECU,HIGH
+P1526,P,VW,Exhaust Camshaft Control Valve Circuit Open (Bank 1),VVT solenoid disconnected; Wiring break; Connector,HIGH
+P1600,P,VW,Power Supply (B+) Terminal 15 Low Voltage,Battery voltage low; Alternator; Wiring; Battery,HIGH
+P1601,P,VW,Power Supply (B+) Terminal 15 High Voltage,Alternator overcharging; Voltage regulator; Battery,HIGH
+P1602,P,VW,Power Supply (B+) Terminal 30 Low Voltage,Battery low; Alternator; Main power supply; Wiring,CRITICAL
+P1603,P,VW,ECU Defective,ECU internal fault; Software; Hardware; Replace ECU,CRITICAL
+P1604,P,VW,Internal Control Module Torque Calculation,ECU calculation error; Sensors; Software; ECU fault,HIGH
+P1605,P,VW,Rough Road Sensor Circuit,Rough road sensor; Wiring; Connector; ECU; ABS,MEDIUM
+P1606,P,VW,Rough Road Sensor Range/Performance,Rough road sensor reading incorrect; Mounting; Sensor,MEDIUM
+P1610,P,VW,ECU Defective - Engine Torque Monitoring,ECU internal fault; Sensors; Software; Replace ECU,CRITICAL
+P1611,P,VW,MIL Call-Up Circuit Short to Ground,MIL circuit wiring short; Cluster; ECU; Harness,MEDIUM
+P1612,P,VW,ECU Incorrect Coding,ECU not coded correctly; Reprogram; VIN coding; Wrong software,HIGH
+P1613,P,VW,MIL Call-Up Circuit Open/Short to B+,MIL circuit wiring; Cluster; Bulb; Wiring; ECU,MEDIUM
+P1624,P,VW,MIL Request Signal Active,Check engine light on; Active fault; Emissions system,MEDIUM
+P1640,P,VW,Internal Control Module EEPROM Error,ECU EEPROM fault; Memory; Reprogram or replace ECU,CRITICAL
+P1690,P,VW,MIL Circuit Malfunction,Check engine light circuit; Bulb; Wiring; Cluster; ECU,LOW
+P1778,P,VW,Solenoid Valve 1 (N88) Electrical Malfunction,Transmission N88 valve; Wiring; TCM; Solenoid,MEDIUM
+P1780,P,VW,Engine Intervention Readable,ECU communication with TCM; Torque reduction; CAN bus,MEDIUM

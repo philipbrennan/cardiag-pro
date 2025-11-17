@@ -223,14 +223,22 @@ DtcCodeEntity(
 
 ## Phase 2: Multi-ECU Support & Enhanced Features
 
-## Iteration 4: Multi-ECU Support (Transmission, ABS, SRS) 🔄
+## Iteration 4: VIN Decoding Fixes & Multi-ECU Support 🔄
 
 ### Goals
+- Fix and enhance VIN reading and decoding functionality
 - Extend diagnostics beyond engine to TCM, ABS, SRS systems
 - Support C-codes (chassis) and B-codes (body)
 - Expand database to 2000-3000 codes
 
 ### Tasks
+- [ ] **Fix VIN Decoding Issues:**
+  - [ ] Debug VIN reading (Mode 09, PID 02) response parsing
+  - [ ] Test VIN reading with real OBD2 adapter
+  - [ ] Improve VIN validation and error handling
+  - [ ] Add VIN display in diagnostics UI
+  - [ ] Ensure manufacturer detection works correctly from VIN
+  - [ ] Add manual VIN entry option as fallback
 - [ ] Research CAN addressing for non-engine ECUs
 - [ ] Implement ATSH command to set CAN header for specific ECUs
 - [ ] Add support for reading Transmission (TCM) codes

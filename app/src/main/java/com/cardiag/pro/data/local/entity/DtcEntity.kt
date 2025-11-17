@@ -16,5 +16,6 @@ data class DtcEntity(
     val description: String,
     val system: String, // Stored as string, converted to ECUSystem enum
     val severity: String, // Stored as string, converted to Severity enum
-    val manufacturer: String? = null // null for generic codes, otherwise manufacturer name
+    val manufacturer: String? = null, // null for generic codes, otherwise manufacturer name
+    val possibleCauses: String? = null // Comma-separated list of possible causes
 )

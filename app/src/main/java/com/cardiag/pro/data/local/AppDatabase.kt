@@ -19,7 +19,7 @@ import com.cardiag.pro.data.local.entity.DtcEntity
         DtcEntity::class,
         DiagnosticSessionEntity::class
     ],
-    version = 1,
+    version = 2, // Bumped for possibleCauses field addition
     exportSchema = true
 )
 @TypeConverters(DateConverter::class)
