@@ -197,35 +197,9 @@ class DtcRepositorySimpleTest {
 
     // ========== Session Persistence Tests ==========
 
-    // TODO: Fix this test - it's failing for unknown reasons
-    // @Test
-    // fun `saveDiagnosticSession should persist session to database`() = runTest {
-    //     // Given
-    //     coEvery { sessionDao.insertSession(any()) } returns 1L
-    //
-    //     // When
-    //     val codes = listOf(
-    //         com.cardiag.pro.data.model.DiagnosticTroubleCode(
-    //             code = "P0300",
-    //             description = "Test",
-    //             system = ECUSystem.ENGINE,
-    //             severity = com.cardiag.pro.data.model.Severity.HIGH
-    //         )
-    //     )
-    //     val result = repository.saveDiagnosticSession(
-    //         vin = "WBADT4345G2123456",
-    //         manufacturer = Manufacturer.BMW,
-    //         codes = codes,
-    //         freezeFrames = null,
-    //         systemScanned = "ENGINE",
-    //         notes = "Test notes"
-    //     )
-    //
-    //     // Then
-    //     assertTrue(result is Result.Success)
-    //     assertEquals(1L, (result as Result.Success).data)
-    //     coVerify { sessionDao.insertSession(any()) }
-    // }
+    // Note: saveDiagnosticSession uses JSONArray which requires Android framework.
+    // This test should be in androidTest (instrumented tests) not unit tests.
+    // See DiagnosticSessionDaoTest in androidTest for proper database integration testing.
 
     @Test
     fun `getAllSessions should return flow from DAO`() {
